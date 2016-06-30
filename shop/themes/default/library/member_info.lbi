@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="member_info">
+	{if $user_info}
+		<a target="_blank" href="flow.php">
+			<div class="icon-cart cart">
+				<div class="num">0</div>
+			</div>
+		</a>
+		<a target="_blank" href="user.php">
+			<div class="login">{$user_info.username}</div>
+		</a>
+		<a target="_blank" href="user.php?act=logout">
+			<div class="login">{$lang.logout}</div>
+		</a>
+	{else}
+		<a target="_blank" href="user.php">
+			<div class="login">{$lang.label_login}</div>
+		</a>
+		<a target="_blank" href="user.php?act=register">
+			<div class="login">{$lang.label_regist}</div>
+		</a>
+	{/if}
+</div>

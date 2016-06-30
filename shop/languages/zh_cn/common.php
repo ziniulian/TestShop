@@ -719,8 +719,8 @@ $_LANG['orgtotal'] = '原始价格';
 $_LANG['heart_buy'] = '心动不如行动';
 
 /* 其他模板涉及常用语言项 */
-$_LANG['label_regist'] = '用户注册';
-$_LANG['label_login'] = '用户登录';
+$_LANG['label_regist'] = '注册';
+$_LANG['label_login'] = '登录';
 $_LANG['label_profile'] = '用户信息';
 $_LANG['label_collection'] = '我的收藏';
 $_LANG['article_list'] = '文章列表';

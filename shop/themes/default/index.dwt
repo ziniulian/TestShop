@@ -3,46 +3,51 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{$page_title}</title>
+		<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+		<link href="{$ecs_template_path}/icon/iconfont.css" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
-		<div>{$page_title}</div>
-		<div>{$shop_notice}</div>
-		<div>
-			{foreach   from=$new_articles item=article}
-			<div><a href={$article.url}>{$article.short_title}</a></div>
-			{/foreach}
-		</div>
-		<div>
-			<table   width="70%" border="1">
-			<tr>
-				{foreach   from=$best_goods item=jingpinshangpin}
-				<td><a href="{$jingpinshangpin.url}"><img   <!-- src="{$jingpinshangpin.thumb}" --> border="0"   /><br>{$jingpinshangpin.short_style_name}</a></td>
+		<div class="boso iconfont">
+			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<div>{$page_title}</div>
+			<div>{$ecs_template_path}</div>
+			<div>{$shop_notice}</div>
+			<div>
+				{foreach   from=$new_articles item=article}
+				<div><a href={$article.url}>{$article.short_title}</a></div>
 				{/foreach}
-			</tr>
-			</table>
+			</div>
+			<div>
+				<table   width="70%" border="1">
+				<tr>
+					{foreach   from=$best_goods item=jingpinshangpin}
+					<td><a href="{$jingpinshangpin.url}"><img   <!-- src="{$jingpinshangpin.thumb}" --> border="0"   /><br>{$jingpinshangpin.short_style_name}</a></td>
+					{/foreach}
+				</tr>
+				</table>
+			</div>
+			<div>
+				<table   width="70%" border="1">
+				<tr>
+				{foreach   from=$hot_goods item=remaishangpin name=kkk}
+					{if $smarty.foreach.kkk.index != 0 and $smarty.foreach.kkk.index mod 3 eq 0}
+						</tr><tr>
+					{/if}
+					<td><a   href="{$remaishangpin.url}"><img   <!-- src="{$remaishangpin.thumb}" --> border="0" /><br>
+					{$remaishangpin.short_style_name}</a></td>
+				{/foreach}
+				</tr>
+				</table>
+			</div>
+			<div>
+				{foreach   from=$categories item=fenlei}
+					<div><a   href="{$fenlei.url}"> {$fenlei.name}</a>
+					{foreach   from=$fenlei.cat_id item=child}
+					<br>-   - <A href="{$child.url}">{$child.name}</A>
+					{/foreach}<div>
+				{/foreach}
+			</div>
 		</div>
-		<div>
-			<table   width="70%" border="1">
-			<tr>
-			{foreach   from=$hot_goods item=remaishangpin name=kkk}
-				{if $smarty.foreach.kkk.index != 0 and $smarty.foreach.kkk.index mod 3 eq 0}
-					</tr><tr>
-				{/if}
-				<td><a   href="{$remaishangpin.url}"><img   <!-- src="{$remaishangpin.thumb}" --> border="0" /><br>
-				{$remaishangpin.short_style_name}</a></td>
-			{/foreach}
-			</tr>
-			</table>
-		</div>
-		<div>
-			{foreach   from=$categories item=fenlei}
-				<div><a   href="{$fenlei.url}"> {$fenlei.name}</a>
-				{foreach   from=$fenlei.cat_id item=child}
-				<br>-   - <A href="{$child.url}">{$child.name}</A>
-				{/foreach}<div>
-			{/foreach}
-		</div>
-
 	</body>
 </html>
