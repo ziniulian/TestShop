@@ -3,13 +3,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{$page_title}</title>
-		<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-		<link href="{$ecs_template_path}/icon/iconfont.css" rel="stylesheet" type="text/css" />
+		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body>
-		<div class="boso iconfont">
+		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- 
 			<div>{$page_title}</div>
 			<div>{$ecs_template_path}</div>
 			<div>{$shop_notice}</div>
@@ -22,7 +23,7 @@
 				<table   width="70%" border="1">
 				<tr>
 					{foreach   from=$best_goods item=jingpinshangpin}
-					<td><a href="{$jingpinshangpin.url}"><img   <!-- src="{$jingpinshangpin.thumb}" --> border="0"   /><br>{$jingpinshangpin.short_style_name}</a></td>
+					<td><a href="{$jingpinshangpin.url}"><img   src="{$jingpinshangpin.thumb}" border="0"   /><br>{$jingpinshangpin.short_style_name}</a></td>
 					{/foreach}
 				</tr>
 				</table>
@@ -34,7 +35,7 @@
 					{if $smarty.foreach.kkk.index != 0 and $smarty.foreach.kkk.index mod 3 eq 0}
 						</tr><tr>
 					{/if}
-					<td><a   href="{$remaishangpin.url}"><img   <!-- src="{$remaishangpin.thumb}" --> border="0" /><br>
+					<td><a   href="{$remaishangpin.url}"><img   src="{$remaishangpin.thumb}" border="0" /><br>
 					{$remaishangpin.short_style_name}</a></td>
 				{/foreach}
 				</tr>
@@ -48,6 +49,7 @@
 					{/foreach}<div>
 				{/foreach}
 			</div>
+-->
 		</div>
 	</body>
 </html>
