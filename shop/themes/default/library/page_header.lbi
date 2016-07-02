@@ -2,11 +2,6 @@
 {insert name='member_info'}
 <div class="base">
 	<div class="page_header">
-		<div class="logo">
-			<a href="../index.php">
-				<img src="../images/logo.gif" />
-			</a>
-		</div>
 		<div class="top">
 			<div class="shopName">{$shop_name}</div>
 			<form target="_blank" class="search" name="searchForm" method="get" action="search.php">

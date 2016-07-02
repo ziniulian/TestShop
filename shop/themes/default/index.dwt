@@ -11,6 +11,7 @@
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+			<iframe class="adfram" src="/shop/themes/default/css/fram/ad/ad.html"></iframe>
 <!-- 
 			<div>{$page_title}</div>
 			<div>{$ecs_template_path}</div>
