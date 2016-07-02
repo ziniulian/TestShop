@@ -7,14 +7,19 @@
 				<img src="../images/logo.gif" />
 			</a>
 		</div>
-		<div class="shopName">{$shop_name}</div>
-		<form class="search" name="searchForm" method="get" action="search.php">
-			<!-- <select name="category" id="category" class="B_input">
-				<option value="0">{$lang.all_category}</option>
-				{$category_list}
-			</select> -->
-			<input name="keywords" type="text" value="{$search_keywords|escape}" class="keywords"/>
-			<input name="imageField" type="submit" value="{$lang.search}" class="go noselect"/>
-		</form>
+		<div class="top">
+			<div class="shopName">{$shop_name}</div>
+			<form target="_blank" class="search" name="searchForm" method="get" action="search.php">
+				<span class="icon-search serchicon"></span><input name="keywords" type="text" placeholder="{$lang.no_keywords}" value="{$search_keywords|escape}" class="keywords"/>
+				<input name="imageField" type="submit" value="{$lang.search}" class="go noselect"/>
+			</form>
+		</div>
+		<div class="mid">
+			<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+				<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>
+					<div class="nav {if $nav.active eq 1}nav_cur{/if}">{$nav.name}</div>
+				</a>
+			<!-- {/foreach} -->
+		</div>
 	</div>
 </div>

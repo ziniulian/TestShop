@@ -10,6 +10,7 @@
 	<body>
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 <!-- 
 			<div>{$page_title}</div>
 			<div>{$ecs_template_path}</div>

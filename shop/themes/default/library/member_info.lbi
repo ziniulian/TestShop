@@ -13,7 +13,7 @@
 			<a target="_blank" href="user.php">
 				<div class="login">{$user_info.username}</div>
 			</a>
-			<a target="_blank" href="user.php?act=logout">
+			<a target="_self" href="user.php?act=logout">
 				<div class="login">{$lang.logout}</div>
 			</a>
 		{else}
