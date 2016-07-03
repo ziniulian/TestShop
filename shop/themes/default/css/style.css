@@ -204,8 +204,72 @@ body {
 	outline: medium;
 }
 
+/*商品列表*/
+.boso .goodslist {
+	width: 100%;
+	text-align: right;
+}
 
+.boso .goodslist .title {
+	width: 100%;
+	margin: 2rem 0 0 0;
+	font-size: 1.2rem;
+	line-height: 1.7;
+	color: #407434;
+	border-bottom: 1px solid #A0BF7C;
+	text-align: left;
+}
 
+.boso .goodslist .block {
+	display: inline-block;
+	vertical-align: top;
+	width: calc(26% - 1rem);
+	margin: 0.5rem;
+	padding: 2%;
+	text-align: left;
+	border-radius: 0.2rem;
+	/*border: 1px solid red;*/	/*测试用细细的红线*/
+}
+.boso .goodslist .block:hover {
+	box-shadow:0 0 1rem 0.5rem #A0BF7C;
+}
+
+.boso .goodslist .block .img {
+	width: 100%;
+	/*height: 15rem;*/	/*当图片高度不一致时，用于统一高度*/
+}
+
+.boso .goodslist .block .img .left {
+	display: inline-block;
+	vertical-align: middle;
+	width: 10%;
+	height: 100%;
+}
+
+.boso .goodslist .block .img .mid {
+	display: inline-block;
+	vertical-align: middle;
+	width: 80%;
+	overflow: hidden;
+}
+
+.boso .goodslist .block .img .mid img {
+	width: 100%;
+	height: auto;
+}
+
+.boso .goodslist .block .name {
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 2;
+	color: #03230E;
+}
+
+.boso .goodslist .block .price {
+	font-size: 1.2rem;
+	line-height: 1.5;
+	color: #03230E;
+}
 
 
 

@@ -12,46 +12,132 @@
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 			<iframe class="adfram" src="/shop/themes/default/css/fram/ad/ad.html"></iframe>
-<!-- 
-			<div>{$page_title}</div>
-			<div>{$ecs_template_path}</div>
-			<div>{$shop_notice}</div>
-			<div>
-				{foreach   from=$new_articles item=article}
-				<div><a href={$article.url}>{$article.short_title}</a></div>
-				{/foreach}
+			<div class="base goodslist">
+
+				<!-- {if $new_goods} -->
+					<div class="title">{$lang.new_goods}</div>
+					<div>
+					<!-- {foreach   from=$new_goods item=g name=n} -->
+						<!-- {if $smarty.foreach.n.index != 0 and $smarty.foreach.n.index mod 3 eq 0} -->
+							</div><div>
+						<!-- {/if} -->
+						<a href="{$g.url}">
+							<div class="block">
+								<div class="img">
+									<div class="left"></div>
+									<div class="mid">
+											<img src="{$g.thumb}"/>
+									</div>
+								</div>
+
+								<div class="name">
+									<!-- {if $g.goods_style_name} -->
+										{$g.goods_style_name}
+									<!-- {else} -->
+										{$g.goods_name}
+									<!-- {/if} -->
+								</div>
+
+								<div class="price">
+									<!--{if $g.promote_price neq "" } -->
+										{$lang.promote_price}{$g.promote_price}
+									<!--{else}-->
+										{$lang.shop_price}{$g.shop_price}
+									<!--{/if}-->
+								</div>
+
+								<div class="price">
+									{$lang.donate_price}<font class="market">{$g.market_price}</font><br />
+								</div>
+							</div>
+						</a>
+					<!-- {/foreach} -->
+					</div>
+				<!-- {/if} -->
+
+				<!-- {if $hot_goods} -->
+					<div class="title">{$lang.hot_goods}</div>
+					<div>
+					<!-- {foreach   from=$hot_goods item=g name=n} -->
+						<!-- {if $smarty.foreach.n.index != 0 and $smarty.foreach.n.index mod 3 eq 0} -->
+							</div><div>
+						<!-- {/if} -->
+						<a href="{$g.url}">
+							<div class="block">
+								<div class="img">
+									<div class="left"></div>
+									<div class="mid">
+											<img src="{$g.thumb}"/>
+									</div>
+								</div>
+
+								<div class="name">
+									<!-- {if $g.goods_style_name} -->
+										{$g.goods_style_name}
+									<!-- {else} -->
+										{$g.goods_name}
+									<!-- {/if} -->
+								</div>
+
+								<div class="price">
+									<!--{if $g.promote_price neq "" } -->
+										{$lang.promote_price}{$g.promote_price}
+									<!--{else}-->
+										{$lang.shop_price}{$g.shop_price}
+									<!--{/if}-->
+								</div>
+
+								<div class="price">
+									{$lang.donate_price}<font class="market">{$g.market_price}</font><br />
+								</div>
+							</div>
+						</a>
+					<!-- {/foreach} -->
+					</div>
+				<!-- {/if} -->
+
+				<!-- {if $best_goods} -->
+					<div class="title">{$lang.best_goods}</div>
+					<div>
+					<!-- {foreach   from=$best_goods item=g name=n} -->
+						<!-- {if $smarty.foreach.n.index != 0 and $smarty.foreach.n.index mod 3 eq 0} -->
+							</div><div>
+						<!-- {/if} -->
+						<a href="{$g.url}">
+							<div class="block">
+								<div class="img">
+									<div class="left"></div>
+									<div class="mid">
+											<img src="{$g.thumb}"/>
+									</div>
+								</div>
+
+								<div class="name">
+									<!-- {if $g.goods_style_name} -->
+										{$g.goods_style_name}
+									<!-- {else} -->
+										{$g.goods_name}
+									<!-- {/if} -->
+								</div>
+
+								<div class="price">
+									<!--{if $g.promote_price neq "" } -->
+										{$lang.promote_price}{$g.promote_price}
+									<!--{else}-->
+										{$lang.shop_price}{$g.shop_price}
+									<!--{/if}-->
+								</div>
+
+								<div class="price">
+									{$lang.donate_price}<font class="market">{$g.market_price}</font><br />
+								</div>
+							</div>
+						</a>
+					<!-- {/foreach} -->
+					</div>
+				<!-- {/if} -->
 			</div>
-			<div>
-				<table   width="70%" border="1">
-				<tr>
-					{foreach   from=$best_goods item=jingpinshangpin}
-					<td><a href="{$jingpinshangpin.url}"><img   src="{$jingpinshangpin.thumb}" border="0"   /><br>{$jingpinshangpin.short_style_name}</a></td>
-					{/foreach}
-				</tr>
-				</table>
-			</div>
-			<div>
-				<table   width="70%" border="1">
-				<tr>
-				{foreach   from=$hot_goods item=remaishangpin name=kkk}
-					{if $smarty.foreach.kkk.index != 0 and $smarty.foreach.kkk.index mod 3 eq 0}
-						</tr><tr>
-					{/if}
-					<td><a   href="{$remaishangpin.url}"><img   src="{$remaishangpin.thumb}" border="0" /><br>
-					{$remaishangpin.short_style_name}</a></td>
-				{/foreach}
-				</tr>
-				</table>
-			</div>
-			<div>
-				{foreach   from=$categories item=fenlei}
-					<div><a   href="{$fenlei.url}"> {$fenlei.name}</a>
-					{foreach   from=$fenlei.cat_id item=child}
-					<br>-   - <A href="{$child.url}">{$child.name}</A>
-					{/foreach}<div>
-				{/foreach}
-			</div>
--->
+
 		</div>
 	</body>
 </html>

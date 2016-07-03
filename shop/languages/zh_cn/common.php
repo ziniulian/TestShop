@@ -58,6 +58,7 @@ $_LANG['bought_time'] = '购买时间';
 $_LANG['turnover'] = '成交';
 $_LANG['no_notes'] = '还没有人购买过此商品';
 $_LANG['shop_price'] = '本店售价：';
+$_LANG['donate_price'] = '捐赠价格：';
 $_LANG['market_price'] = '市场价格：';
 $_LANG['goods_brief'] = '商品描述：';
 $_LANG['goods_album'] = '商品相册';
