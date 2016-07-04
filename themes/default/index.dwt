@@ -11,7 +11,7 @@
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-			<iframe class="adfram" src="/shop/themes/default/css/fram/ad/ad.html"></iframe>
+			<iframe class="adfram" src="{$ecs_template_path}/css/fram/ad/ad.html"></iframe>
 			<div class="base goodslist">
 
 				<!-- {if $new_goods} -->
