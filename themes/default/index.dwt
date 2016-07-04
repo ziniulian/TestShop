@@ -10,7 +10,7 @@
 	<body>
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
 			<iframe class="adfram" src="{$ecs_template_path}/css/fram/ad/ad.html"></iframe>
 			<div class="base goodslist">
 
@@ -138,6 +138,7 @@
 				<!-- {/if} -->
 			</div>
 
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 		</div>
 	</body>
 </html>

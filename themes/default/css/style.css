@@ -1,6 +1,11 @@
-html {
+@charset "utf-8";
+/* CSS Document */
+*{
 	padding: 0;
 	margin: 0;
+}
+
+html {
 	font-family: "Microsoft YaHei";
 	font-size: 16px;
 	/*font-size: 1.5625vw;*/
@@ -11,8 +16,6 @@ html {
 }
 
 body {
-	padding: 0;
-	margin: 0;
 	font-size: 0;
 }
 
@@ -115,8 +118,8 @@ body {
 .boso .page_header .shopName {
 	display: inline-block;
 	vertical-align: bottom;
-	width: 25rem;
-	padding: 0;
+	width: 50%;
+	width: calc(0px + 25rem);
 	font-size: 2.2rem;
 	line-height: 1.6;
 	font-weight: bold;
@@ -128,6 +131,7 @@ body {
 .boso .page_header .search {
 	display: inline-block;
 	vertical-align: bottom;
+	width: 50%;
 	width: calc(100% - 25rem);
 	text-align: right;
 }
@@ -154,7 +158,6 @@ body {
 	vertical-align: bottom;
 	width: 10rem;
 	padding: 0.1rem 0.5rem 0.2rem 0.3rem;
-	margin: 0;
 	border: none;
 	outline: medium;
 	color: #03230E;
@@ -165,6 +168,8 @@ body {
 }
 
 .boso .page_header .search .serchicon {
+	display: inline-block;
+	vertical-align: bottom;
 	font-family: "iconfont";
 	font-size: 1.5rem;
 	font-weight: bolder;
@@ -174,7 +179,6 @@ body {
 
 .boso .page_header .mid {
 	width: 100%;
-	margin: 0;
 }
 
 .boso .page_header .nav {
@@ -223,6 +227,7 @@ body {
 .boso .goodslist .block {
 	display: inline-block;
 	vertical-align: top;
+	width: 24%;
 	width: calc(26% - 1rem);
 	margin: 0.5rem;
 	padding: 2%;
