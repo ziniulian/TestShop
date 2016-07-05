@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$page_title}</title>
+		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+		{insert_scripts files='common.js,transport.js'}
+	</head>
+
+	<body>
+		<div class="boso">
+			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<div class="base">
+				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+				<div class="goods">
+					<div class="pic"><!--
+						--><img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}"/><!--
+					--></div><!--
+					--><div class="info">
+							<div>
+								<div class="key">{$lang.goods_name}：
+								</div><div class="val">{$goods.goods_name|escape:html}</div>
+							</div>
+							<div>
+								<div class="key">{$lang.goods_number}
+								<!-- {if $goods.goods_number eq 0} -->
+									</div><div class="val">{$lang.stock_up}</div>
+								<!-- {else} -->
+									</div><div class="val">{$goods.goods_number} {$goods.measure_unit}</div>
+								<!-- {/if} -->
+							</div>
+							<div>
+								<div class="key">{$lang.goods_weight}
+								</div><div class="val">{$goods.goods_weight}</div>
+							</div>
+							<div>
+								<div class="key">{$lang.add_time}
+								</div><div class="val">{$goods.add_time}</div>
+							</div>
+							<div>
+								<div class="key">{$lang.goods_click_count}：
+								</div><div class="val">{$goods.click_count}</div>
+							</div>
+							<div>
+								<div class="key">{$lang.donate_price}
+								</div><div class="val">{$goods.market_price}</div>
+							</div>
+							<div>
+								<div class="key">{$lang.shop_price}
+								</div><div id="price" class="price">￥ {$goods.shop_price} 元</div>
+							</div>
+
+							<div class="tool">
+								<div class="num">
+									<div class="btn noselect" onclick="chgNum(-1);">-</div><!--
+									--><input id=num type="text" value=1 class="txt" onchange="chgNum();"></input><!--
+									--><div class="btn noselect" onclick="chgNum(1);">+</div>
+								</div>
+								<div>
+									<a class="noa" href="javascript:collect({$goods.goods_id});" class="noa">
+										<div class="cart">{$lang.btn_collect}</div><!--
+									--></a><!--
+									--><a class="noa" href="javascript:addToCart({$goods.goods_id});" class="noa"><!--
+										--><div class="buy">{$lang.btn_buy}</div><!--
+									--></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="title">{$lang.goods_attr}</div>
+						<div class="desc">产地：兰州</div>
+						<div class="title">{$lang.goods_brief}</div>
+						<div class="desc">{$goods.goods_desc} ...</div>
+					</div>
+			</div>
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		function chgNum (n) {
+			if (!n) {
+				n = 0;
+			}
+			var count = {$goods.goods_number};
+			var p = {$goods.shop_price};
+			var num = document.getElementById("num");
+			var price = document.getElementById("price");
+			var v = parseInt(num.value, 10) + n;
+			if (v > count) {
+				v = count;
+			} else if (v < 1) {
+				v = 1;
+			}
+			num.value = v;
+			p = Math.floor(v*p*100)/100;
+			price.innerHTML = "￥ " + p + " 元"
+		}
+	</script>
+</html>

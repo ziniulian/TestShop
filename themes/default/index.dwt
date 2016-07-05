@@ -10,9 +10,8 @@
 	<body>
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-
-			<iframe class="adfram" src="{$ecs_template_path}/css/fram/ad/ad.html"></iframe>
 			<div class="base goodslist">
+				<iframe class="adfram" src="{$ecs_template_path}/css/fram/ad/ad.html"></iframe>
 
 				<!-- {if $new_goods} -->
 					<div class="title">{$lang.new_goods}</div>
@@ -47,7 +46,7 @@
 								</div>
 
 								<div class="price">
-									{$lang.donate_price}<font class="market">{$g.market_price}</font><br />
+									{$lang.donate_price}{$g.market_price}
 								</div>
 							</div>
 						</a>

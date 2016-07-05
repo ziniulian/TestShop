@@ -1,0 +1,63 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form method="GET" class="order">
+	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list"><!--
+		--><div class="item"><!--
+			--><div class="txt">{$lang.sort.goods_id}</div><!--
+			--><div class="
+				<!-- {if $pager.sort == 'goods_id'} -->
+					normal scd
+					<!-- {if $pager.order == 'ASC'} -->
+						icon-xiangshang1
+					<!-- {else} -->
+						icon-xiangxia1
+					<!-- {/if} -->
+				<!-- {else} -->
+					icon-xiangxia1 normal
+				<!-- {/if} -->
+			"></div><!--
+		--></div><!--
+	--></a><!--
+	--><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#goods_list"><!--
+		--><div class="item"><!--
+			--><div class="txt">{$lang.sort.shop_price}</div><!--
+			--><div class="
+				<!-- {if $pager.sort == 'shop_price'} -->
+					normal scd
+					<!-- {if $pager.order == 'ASC'} -->
+						icon-xiangshang1
+					<!-- {else} -->
+						icon-xiangxia1
+					<!-- {/if} -->
+				<!-- {else} -->
+					icon-xiangxia1 normal
+				<!-- {/if} -->
+			"></div><!--
+		--></div><!--
+	--></a><!--
+	--><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list"><div class="item"><!--
+		--><div class="txt">{$lang.sort.last_update}</div><!--
+			--><div class="
+				<!-- {if $pager.sort == 'last_update'} -->
+					normal scd
+					<!-- {if $pager.order == 'ASC'} -->
+						icon-xiangshang1
+					<!-- {else} -->
+						icon-xiangxia1
+					<!-- {/if} -->
+				<!-- {else} -->
+					icon-xiangxia1 normal
+				<!-- {/if} -->
+			"></div><!--
+		--></div><!--
+	--></a>
+
+	<input type="hidden" name="category" value="{$category}" />
+	<input type="hidden" name="display" value="{$pager.display}" id="display" />
+	<input type="hidden" name="brand" value="{$brand_id}" />
+	<input type="hidden" name="price_min" value="{$price_min}" />
+	<input type="hidden" name="price_max" value="{$price_max}" />
+	<input type="hidden" name="filter_attr" value="{$filter_attr}" />
+	<input type="hidden" name="page" value="{$pager.page}" />
+	<input type="hidden" name="sort" value="{$pager.sort}" />
+	<input type="hidden" name="order" value="{$pager.order}" />
+</form>

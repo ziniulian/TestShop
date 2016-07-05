@@ -1,0 +1,34 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+	<div class="pagebar">
+		<div class="total">
+			{$lang.pager_1} <b>{$pager.record_count}</b> {$lang.pager_2}
+		</div>
+		
+		<!-- {if $pager.page_first} -->
+			<a href="{$pager.page_first}" alt="{$lang.page_first}"><div class="icon-upperlayer next"></div></a>
+		<!-- {/if} -->
+
+		<!-- {if $pager.page_prev} -->
+			<a class="prev" href="{$pager.page_prev}" alt="{$lang.page_prev}"><div class="icon-before next"></div></a>
+		<!-- {/if} -->
+
+		<!-- {if $pager.page_count neq 1} -->
+			<!--{foreach from=$pager.page_number key=key item=item}-->
+				<!-- {if $pager.page eq $key} -->
+					<div class="scd">{$key}</div>
+				<!-- {else} -->
+					<a href="{$item}"><div>[{$key}]</div></a>
+				<!-- {/if} -->
+			<!--{/foreach}-->
+		<!-- {/if} -->
+
+		<!-- {if $pager.page_next} -->
+			<a class="next" href="{$pager.page_next}" alt="{$lang.page_next}"><div class="icon-later next"></div></a>
+		<!-- {/if} -->
+
+		<!-- {if $pager.page_last} -->
+			<a class="last" href="{$pager.page_last}" alt="{$lang.page_last}"><div class="icon-layer next"></div></a>
+		<!-- {/if} -->
+	</div>
+</form>

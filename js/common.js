@@ -258,6 +258,8 @@ function bidResponse(result)
     alert(result.content);
   }
 }
+
+/*  防止出现 ecshop 链接
 onload = function()
 {
     var link_arr = document.getElementsByTagName(String.fromCharCode(65));
@@ -351,6 +353,8 @@ onload = function()
   {
   }
 }
+*/
+
 
 /* *
  * 夺宝奇兵最新出价

@@ -1,0 +1,42 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="goodslist" style="text-align:center;">
+	<!--{foreach from=$goods_list item=g}-->
+	<!-- {if $g.goods_id} -->
+
+		<div class="block">
+			<div class="img">
+				<div class="left"></div>
+				<div class="mid">
+						<a href="{$g.url}"><img src="{$g.goods_thumb}"/></a>
+				</div>
+			</div>
+
+			<a class="noa" href="{$g.url}">
+				<div class="name">{$g.goods_name}</div>
+			</a>
+
+			<div class="price">
+				<!--{if $g.promote_price neq "" } -->
+					{$lang.promote_price}{$g.promote_price}
+				<!--{else}-->
+					{$lang.shop_price}{$g.shop_price}
+				<!--{/if}-->
+			</div>
+
+			<div class="price">
+				{$lang.donate_price}{$g.market_price}
+			</div>
+
+			<div class="tool">
+				<a class="noa" href="javascript:collect({$g.goods_id});" class="noa">
+					<div class="cart">{$lang.btn_collect}</div><!--
+				--></a><!--
+				--><a class="noa" href="javascript:addToCart({$g.goods_id});" class="noa"><!--
+					--><div class="buy">{$lang.btn_buy}</div><!--
+				--></a>
+			</div>
+		</div>
+
+	<!--{/if}-->
+	<!--{/foreach}-->
+</div>

@@ -199,6 +199,9 @@ body {
 .boso .page_header .nav_cur {
 	color: #FF0;
 }
+.boso .page_header .nav_cur:hover {
+	color: #FF0;
+}
 
 /*首页广告位*/
 .boso .adfram {
@@ -268,11 +271,279 @@ body {
 	font-weight: bold;
 	line-height: 2;
 	color: #03230E;
+	outline: none;
 }
 
 .boso .goodslist .block .price {
 	font-size: 1.2rem;
 	line-height: 1.5;
+	color: #03230E;
+}
+
+.boso .goodslist .block .tool {
+	width: 100%;
+	margin: 1rem 0 0 0;
+	font-weight: bold;
+	text-align: center;
+	line-height: 2;
+	background-color: #A0BF7C;
+}
+
+.boso .goodslist .block .cart {
+	display: inline-block;
+	vertical-align: middle;
+	width: 50%;
+	font-size: 1.3rem;
+	color: #FFF;
+}
+.boso .goodslist .block .cart:hover {
+	color: #407434;
+}
+
+.boso .goodslist .block .buy {
+	display: inline-block;
+	vertical-align: middle;
+	width: 46%;
+	margin: 2%;
+	font-size: 1.3rem;
+	color: #65934A;
+	background-color: #FFF;
+}
+.boso .goodslist .block .buy:hover {
+	color: #407434;
+}
+
+/*网站路径*/
+.boso .here {
+	margin: 1rem;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	color: #407434;
+}
+.boso .here a {
+	text-decoration: none;
+	color: #407434;
+}
+.boso .here a:hover {
+	font-weight: bold;
+}
+
+/*排序*/
+.boso .order {
+	text-align: right;
+	margin: 0 0 1rem 0;
+}
+
+.boso .order .item {
+	display: inline-block;
+	vertical-align: top;
+	width: 10rem;
+	text-align: center;
+}
+
+.boso .order .txt {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #03230E;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.boso .order .txt:hover {
+	color: #407434;
+}
+
+.boso .order .normal {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 0 0 0.2rem;
+	font-family: "iconfont";
+	font-size: 1.2rem;
+	display: inline-block;
+	vertical-align: middle;
+	color: #DDD;
+}
+
+.boso .order .scd {
+	color: #65934A;
+}
+
+/*翻页*/
+.boso .pagebar {
+	width: 100%;
+	height: 3rem;
+	margin: 1rem 0 0 0;
+	text-align: center;
+	background-color: #65934A;
+}
+
+.boso .pagebar a {
+	text-decoration: none;
+}
+
+.boso .pagebar div {
+	display: inline-block;
+	vertical-align: top;
+	height: 3rem;
+	margin: 0 0.2rem 0 0.2rem;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 3rem;
+	color: #EEE;
+}
+.boso .pagebar div:hover {
+	color: #FF0;
+}
+
+.boso .pagebar .total {
+	margin: 0 1rem 0 0;
+	font-size: 1.2rem;
+	font-weight: normal;
+	color: #FFF;
+}
+.boso .pagebar .total:hover {
+	color: #FFF;
+}
+
+.boso .pagebar .scd {
+	font-size: 1.2rem;
+	color: #FF0;
+}
+
+.boso .pagebar .next {
+	font-family: "iconfont";
+	font-size: 1.3rem;
+	margin: 0 0.3rem 0 0.3rem;
+}
+
+/*商品*/
+.boso .goods {
+	width: 96%;
+	margin: 2%
+}
+
+.boso .goods .pic{
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+	margin: 0 3% 0 0;
+}
+
+.boso .goods .pic img{
+	width: 100%;
+	height: auto;
+}
+
+.boso .goods .info{
+	display: inline-block;
+	vertical-align: top;
+	width: 37%;
+	line-height: 2;
+	color: #03230E;
+}
+
+.boso .goods .info .key{
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+	font-size: 1.2rem;
+}
+
+.boso .goods .info .val{
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+	font-size: 1.2rem;
+}
+
+.boso .goods .info .price{
+	width: 80%;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	color: #407434;
+}
+
+.boso .goods .tool {
+	width: 80%;
+	font-weight: bold;
+	text-align: center;
+	line-height: 2;
+	background-color: #A0BF7C;
+}
+
+.boso .goods .cart {
+	display: inline-block;
+	vertical-align: middle;
+	width: 50%;
+	font-size: 1.5rem;
+	color: #FFF;
+}
+.boso .goods .cart:hover {
+	color: #407434;
+}
+
+.boso .goods .buy {
+	display: inline-block;
+	vertical-align: middle;
+	width: 46%;
+	margin: 2%;
+	font-size: 1.5rem;
+	color: #65934A;
+	background-color: #FFF;
+}
+.boso .goods .buy:hover {
+	color: #407434;
+}
+
+.boso .goods .num {
+	width: 100%;
+	text-align: left;
+}
+
+.boso .goods .num .btn {
+	display: inline-block;
+	vertical-align: middle;
+	width: 15%;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+}
+.boso .goods .num .btn:hover {
+	color: #407434;
+}
+
+.boso .goods .num .txt {
+	display: inline-block;
+	vertical-align: middle;
+	width: 70%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	text-align: center;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	background-color: #FFF;
+}
+
+.boso .goods .title {
+	width: 100%;
+	margin: 2rem 0 2rem 0;
+	font-size: 1.2rem;
+	line-height: 1.7;
+	color: #407434;
+	border-bottom: 1px solid #A0BF7C;
+	text-align: left;
+}
+
+.boso .goods .desc {
+	width: 95%;
+	margin: 0 0 0 5%;
+	font-size: 1.2rem;
+	line-height: 1.7;
 	color: #03230E;
 }
 
@@ -283,6 +554,12 @@ body {
 
 
 
+/*测试字体*/
+.testfont {
+	font-size: 1rem;
+	color: red;
+}
+
 /*页尾*/
 .boso .page_footer {
 	width: 100%;
@@ -291,6 +568,11 @@ body {
 /*通用*/
 .boso .nosee {
 	display: none !important;
+}
+
+/*A标签去除下划线*/
+.boso .noa {
+	text-decoration: none;
 }
 
 /*文字不被选中*/

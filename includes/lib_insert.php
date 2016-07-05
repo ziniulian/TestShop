@@ -126,6 +126,33 @@ function insert_cart_info()
 }
 
 /**
+ * 调用购物车信息 BY LZR
+ *
+ * @access  public
+ * @return  string
+ */
+function insert_cart_info_num()
+{
+    $sql = 'SELECT SUM(goods_number) AS number' .
+           ' FROM ' . $GLOBALS['ecs']->table('cart') .
+           " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
+    $row = $GLOBALS['db']->GetRow($sql);
+
+    if ($row)
+    {
+        $number = intval($row['number']);
+    }
+    else
+    {
+        $number = 0;
+    }
+
+    $str = sprintf('%d', $number);
+
+    return $str;
+}
+
+/**
  * 调用指定的广告位的广告
  *
  * @access  public

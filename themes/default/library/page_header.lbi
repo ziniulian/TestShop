@@ -3,7 +3,7 @@
 <div class="base">
 	<div class="page_header">
 		<div class="top">
-			<div class="shopName">{$shop_name}</div><!--
+			<a href="../index.php"><div class="shopName">{$shop_name}</div></a><!--
 			--><form target="_blank" class="search" name="searchForm" method="get" action="search.php">
 				<div class="icon-search serchicon"></div><!--
 				--><input name="keywords" type="text" placeholder="{$lang.no_keywords}" value="{$search_keywords|escape}" class="keywords"/><!--
