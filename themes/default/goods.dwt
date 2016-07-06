@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
 		{insert_scripts files='common.js,transport.js'}
 	</head>
 
@@ -42,14 +43,43 @@
 								</div><div class="val">{$goods.click_count}</div>
 							</div>
 							<div>
-								<div class="key">{$lang.donate_price}
-								</div><div class="val">{$goods.market_price}</div>
+								<div class="key">运费：
+								</div><div class="val">运费到付</div>
 							</div>
 							<div>
 								<div class="key">{$lang.shop_price}
-								</div><div id="price" class="price">￥ {$goods.shop_price} 元</div>
+								</div><div class="val">￥ {$goods.shop_price} 元</div>
 							</div>
+							<div class="directions">（该价格为本店的实际交易价格）</div>
 
+							<div class="line"></div>
+							<div>
+								<div class="key">义务捐赠：
+								</div><div class="val">
+									<a id="donateBtn" class="noselect" onclick="showDonate();">我要捐赠!</a>
+								</div>
+							</div>
+							<div class="directions">（每人为环保出一份力，我们的明天将更加美好！）</div>
+
+							<div id="donate" class="donate nosee">
+								<div>
+									<div class="icon-zhiwu donateTitle noselect" onclick="chgDonate('seedlingNum', 1);"><span>小苗</span></div><!--
+									--><input id=seedlingNum type="text" value=1 class="txt" onchange="chgDonate('seedlingNum');"></input><!--
+									--><div class="clear noselect" onclick="chgDonate('seedlingNum', 0);">清空</div>
+								</div>
+								<div class="directions">（点击捐赠小苗，每多捐赠一棵苗则多累加2.5元）</div>
+								<div>
+									<div class="icon-shu donateTitle noselect" onclick="chgDonate('treeNum', 1);"><span>小树</span></div><!--
+									--><input id=treeNum type="text" value=0 class="txt" onchange="chgDonate('treeNum');"></input><!--
+									--><div class="clear noselect" onclick="chgDonate('treeNum', 0);">清空</div>
+								</div>
+								<div class="directions">（点击捐赠小树，每多捐赠一棵树则多累加15元）</div>
+							</div>
+							<div class="line"></div>
+
+							<div id="price" class="price">
+								￥ {$goods.shop_price} 元
+							</div>
 							<div class="tool">
 								<div class="num">
 									<div class="btn noselect" onclick="chgNum(-1);">-</div><!--
@@ -83,9 +113,7 @@
 				n = 0;
 			}
 			var count = {$goods.goods_number};
-			var p = {$goods.shop_price};
 			var num = document.getElementById("num");
-			var price = document.getElementById("price");
 			var v = parseInt(num.value, 10) + n;
 			if (v > count) {
 				v = count;
@@ -93,8 +121,36 @@
 				v = 1;
 			}
 			num.value = v;
-			p = Math.floor(v*p*100)/100;
-			price.innerHTML = "￥ " + p + " 元"
+			flush();
+		}
+		function flush () {
+			var v = parseInt(document.getElementById("num").value, 10);
+			var p = {$goods.shop_price};
+			var pt = 15;
+			var ps = 2.5;
+			var v = parseInt(document.getElementById("num").value, 10) * p;
+			v += parseInt(document.getElementById("seedlingNum").value, 10) * ps;
+			v += parseInt(document.getElementById("treeNum").value, 10) * pt;
+			document.getElementById("price").innerHTML = "￥ " + Math.floor(v*100)/100 + " 元"
+		}
+		function showDonate () {
+			document.getElementById("donateBtn").className = "nosee";
+			document.getElementById("donate").className = "donate";
+			flush();
+		}
+		function chgDonate (id, n) {
+			var nn = document.getElementById(id);
+			var v = parseInt(nn.value, 10);
+			if (n === 0) {
+				v = 0;
+			} else if (n) {
+				v += n;
+			}
+			if (v < 0) {
+				v = 0;
+			}
+			nn.value = v;
+			flush();
 		}
 	</script>
 </html>

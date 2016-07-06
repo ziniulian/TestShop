@@ -8,7 +8,7 @@
 html {
 	font-family: "Microsoft YaHei";
 	font-size: 16px;
-	/*font-size: 1.5625vw;*/
+	/*font-size: 1.5vw;*/
 	/*color: #407434;*/
 	/*color: #65934A;*/
 	/*color: #A0BF7C;*/
@@ -20,7 +20,7 @@ body {
 }
 
 .boso {
-	min-width: 50rem;
+	min-width: 56rem;
 }
 
 .boso .base {
@@ -203,13 +203,68 @@ body {
 	color: #FF0;
 }
 
-/*首页广告位*/
-.boso .adfram {
+.boso .homeTop {
+	position: relative;
 	width: 100%;
 	height: 300px;
+}
+
+.boso .homeTop .btn {
+	position: absolute;
+	top: -0.8rem;
+	right: 1rem;
+	font-family: "iconfont";
+	font-size: 2rem;
+	color: #65934A;
+	line-height: 1.2;
+}
+.boso .homeTop .btn:hover {
+	font-weight: bold;
+}
+
+/*首页广告位*/
+.boso .homeTop .adfram {
+	display: inline-block;
+	vertical-align: top;
+	width: 75%;
+	height: 100%;
 	border: none;
 	outline: medium;
 }
+
+/*首页公告栏*/
+.boso .homeTop .board {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 21%;
+	height: 17rem;
+	margin: 3rem 0 0 0;
+	padding: 0 2% 0 2%;
+	color: #407434;
+	background-color: rgba(160, 191, 124, 0.5);
+}
+
+.boso .homeTop .board .title {
+	width: 100%;
+	height: 4rem;
+	font-size: 1.6rem;
+	line-height: 4rem;
+	text-align: center;
+}
+
+.boso .homeTop .board .content {
+	width: 100%;
+	height: 11rem;
+	overflow: hidden;
+	font-size: 1rem;
+	line-height: 1.2;
+	padding-top: 1rem;
+	border-top: 1px solid #407434;
+}
+
+
+
 
 /*商品列表*/
 .boso .goodslist {
@@ -458,6 +513,80 @@ body {
 	font-size: 1.2rem;
 }
 
+.boso .goods .info .val a{
+	color: #407434;
+	font-style: italic;
+	text-decoration: none;
+}
+.boso .goods .info .val a:hover{
+	text-decoration: underline;
+}
+
+.boso .goods .info .directions{
+	margin: 0 0 1rem 1rem;
+	font-size: 0.75rem;
+	font-style: italic;
+	line-height: 1.2;
+	color: #65934A;
+}
+
+.boso .goods .info .line {
+	width: 90%;
+	height: 2px;
+	background-color: #407434;
+	margin: 0 0 0.5rem 0;
+}
+
+.boso .goods .info .donate {
+}
+
+.boso .goods .info .donate .donateTitle {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1rem;
+	padding: 0 0.5rem;
+	font-family: "iconfont";
+	font-size: 2rem;
+	line-height: 1.5;
+	color: #407434;
+}
+.boso .goods .info .donate .donateTitle:hover {
+	color: #FFF;
+	background-color: #A0BF7C;
+}
+
+.boso .goods .info .donate .donateTitle span {
+	font-family: "Microsoft YaHei";
+	font-size: 1rem;
+	font-weight: bold;
+	margin-left: 0.2rem;
+}
+
+.boso .goods .info .donate .txt {
+	display: inline-block;
+	vertical-align: middle;
+	width: 5rem;
+	font-size: 1rem;
+	line-height: 1.3;
+	color: #03230E;
+	text-align: center;
+	
+}
+
+.boso .goods .info .donate .clear {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 0 0 0.5rem;
+	padding: 0 0.5rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #407434;
+}
+.boso .goods .info .donate .clear:hover {
+	color: #FFF;
+	background-color: #A0BF7C;
+}
+
 .boso .goods .info .price{
 	width: 80%;
 	text-align: center;
@@ -562,7 +691,33 @@ body {
 
 /*页尾*/
 .boso .page_footer {
-	width: 100%;
+	width: 97%;
+	height: 3rem;
+	line-height: 3rem;
+	margin-top: 2rem;
+	padding: 0 0 0 3%;
+	background-color: #EEE;
+	border-top: 1px solid #CCC;
+}
+
+.boso .page_footer a{
+	font-size: 1rem;
+	color: #777;
+	margin-right: 2rem;
+	text-decoration: none;
+}
+.boso .page_footer a:hover{
+	text-decoration: underline;
+}
+
+.boso .page_footer .left{
+	float: left;
+	height: 100%;
+}
+
+.boso .page_footer .right{
+	float: right;
+	height: 100%;
 }
 
 /*通用*/
@@ -582,4 +737,10 @@ body {
 	-ms-user-select:none;
 	user-select:none;
 	cursor:pointer;
+}
+
+/*文字不被选中*/
+.boso .full {
+	width: 100% !important;
+	height: 100%;
 }

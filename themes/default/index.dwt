@@ -10,9 +10,19 @@
 	<body>
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-			<div class="base goodslist">
-				<iframe class="adfram" src="{$ecs_template_path}/css/fram/ad/ad.html"></iframe>
+			<div class="base">
+				<div class="homeTop">
+					<iframe id="home_ad" class="adfram" src="{$ecs_template_path}/css/fram/ad/ad.html"></iframe>
 
+					<div id="home_board_showBtn" class="nosee" onclick="showBoard();"></div>
+					<div id="home_board" class="board">
+						<div class="icon-tuding btn noselect" onclick="hidBoard();"></div>
+						<div class="title">本店公告</div>
+						<div class="content">欢迎光临 {$shop_name} ！<br/><br/>本店服务宗旨：诚信、服务、进取、创新。</div>
+					</div>
+				</div>
+
+				<div class="goodslist">
 				<!-- {if $new_goods} -->
 					<div class="title">{$lang.new_goods}</div>
 					<div>
@@ -45,9 +55,6 @@
 									<!--{/if}-->
 								</div>
 
-								<div class="price">
-									{$lang.donate_price}{$g.market_price}
-								</div>
 							</div>
 						</a>
 					<!-- {/foreach} -->
@@ -135,9 +142,23 @@
 					<!-- {/foreach} -->
 					</div>
 				<!-- {/if} -->
+				</div>
 			</div>
 
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 		</div>
 	</body>
+
+	<script type="text/javascript">
+		function showBoard () {
+			document.getElementById("home_ad").className = "adfram";
+			document.getElementById("home_board_showBtn").className = "nosee";
+			document.getElementById("home_board").className = "board";
+		}
+		function hidBoard () {
+			document.getElementById("home_ad").className = "adfram full";
+			document.getElementById("home_board").className = "nosee";
+			document.getElementById("home_board_showBtn").className = "icon-gonggao btn noselect";
+		}
+	</script>
 </html>

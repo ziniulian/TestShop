@@ -23,10 +23,6 @@
 				<!--{/if}-->
 			</div>
 
-			<div class="price">
-				{$lang.donate_price}{$g.market_price}
-			</div>
-
 			<div class="tool">
 				<a class="noa" href="javascript:collect({$g.goods_id});" class="noa">
 					<div class="cart">{$lang.btn_collect}</div><!--
