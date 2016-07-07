@@ -93,9 +93,6 @@
 									<!--{/if}-->
 								</div>
 
-								<div class="price">
-									{$lang.donate_price}<font class="market">{$g.market_price}</font><br />
-								</div>
 							</div>
 						</a>
 					<!-- {/foreach} -->
@@ -134,9 +131,6 @@
 									<!--{/if}-->
 								</div>
 
-								<div class="price">
-									{$lang.donate_price}<font class="market">{$g.market_price}</font><br />
-								</div>
 							</div>
 						</a>
 					<!-- {/foreach} -->
