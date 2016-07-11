@@ -1,5 +1,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 {insert name='member_info'}
+<script type="text/javascript">
+	// 填充购物车数量
+	var cn = document.getElementById("cartNum");
+	if (cn) {
+		cn.innerHTML =  {insert name='cart_info_num'};
+	}
+</script>
 <div class="base">
 	<div class="page_header">
 		<div class="top">

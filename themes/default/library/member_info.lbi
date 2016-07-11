@@ -7,7 +7,7 @@
 		{if $user_info}
 			<a target="_blank" href="flow.php"><!--
 				--><div class="iconfont icon-cart cart"><!--
-					--><div class="num"></div><!--
+					--><div id=cartNum class="num"></div><!--
 				--></div><!--
 			--></a><!--
 			--><a target="_blank" href="user.php"><!--
