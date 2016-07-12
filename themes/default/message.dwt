@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{if $auto_redirect}
+			<meta http-equiv="refresh" content="3;URL={$message.back_url}" />
+		{/if}
+		<title>{$page_title}</title>
+		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="boso">
+			<div class="base">
+				<a href="index.php" class="noa"><div class="shopTitle">{$shop_name}</div></a>
+				<div class="msg">
+					<div id="tim" class="tim"></div>
+					{$message.content}
+					<!-- {if $message.url_info} -->
+						<!--{foreach from=$message.url_info key=info item=url}-->
+							<a href="{$url}" class="noa"><div class="link">{$info}</div></a>
+						<!--{/foreach}-->
+					<!--{/if}-->
+				</div>
+			</div>
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+		</div>
+	</body>
+	{if $auto_redirect}
+		<script type="text/javascript">
+			var t = 3;
+			var subTim = function () {
+				document.getElementById("tim").innerHTML = t;
+				if (t) {
+					t --;
+					setTimeout(subTim,1000);
+				}
+			}
+			subTim();
+		</script>
+	{/if}
+</html>

@@ -359,7 +359,8 @@ elseif ($action == 'act_login')
         recalculate_price();
 
         $ucdata = isset($user->ucdata)? $user->ucdata : '';
-        show_message($_LANG['login_success'] . $ucdata , array($_LANG['back_up_page'], $_LANG['profile_lnk']), array($back_act,'user.php'), 'info');
+        // show_message($_LANG['login_success'] . $ucdata , array($_LANG['back_up_page'], $_LANG['profile_lnk']), array($back_act,'user.php'), 'info');
+        header("Location: " . $back_act . "\n");
     }
     else
     {
@@ -436,7 +437,8 @@ elseif ($action == 'logout')
 
     $user->logout();
     $ucdata = empty($user->ucdata)? "" : $user->ucdata;
-    show_message($_LANG['logout'] . $ucdata, array($_LANG['back_up_page'], $_LANG['back_home_lnk']), array($back_act, 'index.php'), 'info');
+    // show_message($_LANG['logout'] . $ucdata, array($_LANG['back_up_page'], $_LANG['back_home_lnk']), array($back_act, 'index.php'), 'info');
+    header("Location: " . $back_act . "\n");
 }
 
 /* 个人资料页面 */

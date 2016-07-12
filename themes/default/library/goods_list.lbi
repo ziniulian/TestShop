@@ -24,10 +24,22 @@
 			</div>
 
 			<div class="tool">
-				<a class="noa" href="javascript:collect({$g.goods_id});" class="noa">
+				<a class="noa" href=
+					<!-- {if $smarty.session.user_id eq 0} -->
+						"user.php"
+					<!-- {else} -->
+						"javascript:collect({$g.goods_id});"
+					<!-- {/if} -->
+				class="noa">
 					<div class="cart">{$lang.btn_collect}</div><!--
 				--></a><!--
-				--><a class="noa" href="javascript:addToCart({$g.goods_id});" class="noa"><!--
+				--><a class="noa" href=
+					<!-- {if $smarty.session.user_id eq 0} -->
+						"user.php"
+					<!-- {else} -->
+						"javascript:addToCart({$g.goods_id});"
+					<!-- {/if} -->
+				class="noa"><!--
 					--><div class="buy">{$lang.btn_buy}</div><!--
 				--></a>
 			</div>

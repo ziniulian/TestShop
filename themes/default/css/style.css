@@ -203,6 +203,7 @@ body {
 	color: #FF0;
 }
 
+/*首页*/
 .boso .homeTop {
 	position: relative;
 	width: 100%;
@@ -263,9 +264,6 @@ body {
 	border-top: 1px solid #407434;
 }
 
-
-
-
 /*商品列表*/
 .boso .goodslist {
 	width: 100%;
@@ -299,7 +297,7 @@ body {
 
 .boso .goodslist .block .img {
 	width: 100%;
-	/*height: 15rem;*/	/*当图片高度不一致时，用于统一高度*/
+	height: 15rem;	/*当图片高度不一致时，用于统一高度*/
 }
 
 .boso .goodslist .block .img .left {
@@ -676,18 +674,100 @@ body {
 	color: #03230E;
 }
 
+/*用户登录*/
+.boso .user {
+	width: 15rem;
+	margin: 0 auto;
+}
 
+.boso .shopTitle {
+	margin: 0 auto;
+	font-size: 2.2rem;
+	line-height: 3;
+	font-weight: bold;
+	text-align: center;
+	color: #65934A;
+	text-shadow: 0 0 1rem #A0BF7C, -1px -1px  #FFF, 1px -1px  #03230E;
+}
 
-
-
-
-
-
-/*测试字体*/
-.testfont {
+.boso .user .txt {
+	width: 94%;
+	padding: 3%;
+	margin: 1rem 0;
+	color: #03230E;
+	font-family: "Microsoft YaHei";
 	font-size: 1rem;
+	line-height: 1.5;
+	text-align: left;
+}
+
+.boso .user .directions{
+	font-size: 0.75rem;
+	font-style: italic;
+	line-height: 1.2;
+	color: #65934A;
+}
+
+.boso .user .btn {
+	width: 100%;
+	padding: 0;
+	margin: 1rem 0 3rem 0;
+	font-family: "Microsoft YaHei";
+	font-size: 1.5rem;
+	line-height: 2;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+	border: none;
+	outline: medium;
+	background-color: #65934A;
+}
+
+.boso .user .link {
+	margin: 1rem 0;
+	font-size: 1rem;
+	line-height: 1.2;
+	color: #407434;
+}
+.boso .user .link:hover{
+	text-decoration: underline;
+}
+
+/*信息提示页*/
+.boso .msg {
+	margin: 2rem auto;
+	font-size: 1.5rem;
+	line-height: 2;
+	font-weight: bold;
+	text-align: center;
+	color: #407434;
+}
+
+.boso .msg .tim {
+	margin: 1rem auto;
+	font-size: 0.75rem;
+	line-height: 2;
+	font-weight: bold;
+	text-align: center;
 	color: red;
 }
+
+.boso .msg .link {
+	margin: 1rem auto;
+	font-size: 1rem;
+	line-height: 1.2;
+	color: #407434;
+	text-align: center;
+}
+.boso .msg .link:hover {
+	text-decoration: underline;
+}
+
+
+
+
+
+
 
 /*页尾*/
 .boso .page_footer {
@@ -720,7 +800,22 @@ body {
 	height: 100%;
 }
 
-/*通用*/
+
+
+
+
+
+
+
+/* ------------------ 通用 -------------------- */
+
+/*测试字体*/
+.test {
+	font-size: 1rem;
+	color: red;
+}
+
+/*不可见*/
 .boso .nosee {
 	display: none !important;
 }
