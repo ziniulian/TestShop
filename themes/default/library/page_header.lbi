@@ -11,7 +11,7 @@
 	<div class="page_header">
 		<div class="top">
 			<a href="../index.php"><div class="shopName">{$shop_name}</div></a><!--
-			--><form target="_blank" class="search" name="searchForm" method="get" action="search.php">
+			--><form class="search" name="searchForm" method="get" action="search.php">
 				<div class="icon-search serchicon"></div><!--
 				--><input name="keywords" type="text" placeholder="{$lang.no_keywords}" value="{$search_keywords|escape}" class="keywords"/><!--
 				--><input name="imageField" type="submit" value="{$lang.search}" class="go noselect"/>
@@ -19,7 +19,7 @@
 		</div>
 		<div class="mid"><!--
 			{foreach name=nav_middle_list from=$navigator_list.middle item=nav}
-				--><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}><!--
+				--><a href="{$nav.url}"><!--
 					--><div class="nav {if $nav.active eq 1}nav_cur{/if}">{$nav.name}</div><!--
 				--></a><!--
 			{/foreach}

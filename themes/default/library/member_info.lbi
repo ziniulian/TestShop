@@ -5,22 +5,22 @@
 	</div><!--
 	--><div class="user">
 		{if $user_info}
-			<a target="_blank" href="flow.php"><!--
+			<a href="flow.php"><!--
 				--><div class="iconfont icon-cart cart"><!--
 					--><div id=cartNum class="num"></div><!--
 				--></div><!--
 			--></a><!--
-			--><a target="_blank" href="user.php"><!--
+			--><a href="user.php"><!--
 				--><div class="login">{$user_info.username}</div><!--
 			--></a><!--
 			--><a target="_self" href="user.php?act=logout"><!--
-				--><div class="login">{$lang.logout}</div><!--
+				--><div class="login">退出</div><!--
 			--></a>
 		{else}
-			<a target="_blank" href="user.php"><!--
+			<a href="user.php"><!--
 				--><div class="login">{$lang.label_login}</div><!--
 			--></a><!--
-			--><a target="_blank" href="user.php?act=register"><!--
+			--><a href="user.php?act=register"><!--
 				--><div class="login">{$lang.label_regist}</div><!--
 			--></a>
 		{/if}

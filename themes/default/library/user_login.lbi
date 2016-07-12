@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="user">
+	<form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()">
+		<input name="username" type="text" placeholder="{$lang.label_username}" class="txt" />
+		<input name="password" type="password" placeholder="{$lang.label_password}" class="txt"/>
+		<input type="checkbox" value="1" name="remember" id="remember" /> <span class="directions"> {$lang.remember}</span>
+		<input type="hidden" name="act" value="act_login" />
+		<input type="hidden" name="back_act" value="{$back_act}" />
+		<input type="submit" name="submit" value="登录" class="btn" />
+	</form>
+	<a href="user.php?act=register" class="noa"><div class="link">如果您不是会员，请点此注册</div></a>
+	<a href="user.php?act=qpassword_name" class="noa"><div class="link">{$lang.get_password_by_question}</div></a>
+	<a href="user.php?act=get_password" class="noa"><div class="link">{$lang.get_password_by_mail}</div></a>
+</div>
