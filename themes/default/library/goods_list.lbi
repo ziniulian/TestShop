@@ -37,7 +37,7 @@
 					<!-- {if $smarty.session.user_id eq 0} -->
 						"user.php"
 					<!-- {else} -->
-						"javascript:addToCart({$g.goods_id});"
+						"javascript:hw.addToCart({$g.goods_id}, 1);"
 					<!-- {/if} -->
 				class="noa"><!--
 					--><div class="buy">{$lang.btn_buy}</div><!--

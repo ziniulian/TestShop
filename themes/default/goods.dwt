@@ -5,7 +5,7 @@
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
-		{insert_scripts files='common.js,transport.js'}
+		{insert_scripts files='LZR/ShopBase.js,common.js,transport.js'}
 	</head>
 
 	<body>
@@ -56,22 +56,22 @@
 							<div>
 								<div class="key">义务捐赠：
 								</div><div class="val">
-									<a id="donateBtn" class="noselect" onclick="showDonate();">我要捐赠!</a>
+									<a id="donateBtn" class="noselect" onclick="hw.showDonate();">我要捐赠!</a>
 								</div>
 							</div>
 							<div class="directions">（每人为环保出一份力，我们的明天将更加美好！）</div>
 
 							<div id="donate" class="donate nosee">
 								<div>
-									<div class="icon-zhiwu donateTitle noselect" onclick="chgDonate('seedlingNum', 1);"><span>小苗</span></div><!--
-									--><input id=seedlingNum type="text" value=0 class="txt" onchange="chgDonate('seedlingNum');"></input><!--
-									--><div class="clear noselect" onclick="chgDonate('seedlingNum', 0);">清空</div>
+									<div class="icon-zhiwu donateTitle noselect" onclick="hw.chgDonate('seedlingNum', 1);"><span>小苗</span></div><!--
+									--><input id=seedlingNum type="text" value=0 class="txt" onchange="hw.chgDonate('seedlingNum');"></input><!--
+									--><div class="clear noselect" onclick="hw.chgDonate('seedlingNum', 0);">清空</div>
 								</div>
 								<div class="directions">（点击捐赠小苗，每多捐赠一棵苗则多累加2.5元）</div>
 								<div>
-									<div class="icon-shu donateTitle noselect" onclick="chgDonate('treeNum', 1);"><span>小树</span></div><!--
-									--><input id=treeNum type="text" value=0 class="txt" onchange="chgDonate('treeNum');"></input><!--
-									--><div class="clear noselect" onclick="chgDonate('treeNum', 0);">清空</div>
+									<div class="icon-shu donateTitle noselect" onclick="hw.chgDonate('treeNum', 1);"><span>小树</span></div><!--
+									--><input id=treeNum type="text" value=0 class="txt" onchange="hw.chgDonate('treeNum');"></input><!--
+									--><div class="clear noselect" onclick="hw.chgDonate('treeNum', 0);">清空</div>
 								</div>
 								<div class="directions">（点击捐赠小树，每多捐赠一棵树则多累加15元）</div>
 							</div>
@@ -80,9 +80,9 @@
 							<div id="price" class="price"></div>
 							<div class="tool">
 								<div class="num">
-									<div class="btn noselect" onclick="chgNum(-1);">-</div><!--
-									--><input id=num type="text" value=1 class="txt" onchange="chgNum();"></input><!--
-									--><div class="btn noselect" onclick="chgNum(1);">+</div>
+									<div class="btn noselect" onclick="hw.chgNum(-1);">-</div><!--
+									--><input id=num type="text" value=1 class="txt" onchange="hw.chgNum();"></input><!--
+									--><div class="btn noselect" onclick="hw.chgNum(1);">+</div>
 								</div>
 								<div>
 									<a class="noa" href=
@@ -98,7 +98,7 @@
 										<!-- {if $smarty.session.user_id eq 0} -->
 											"user.php"
 										<!-- {else} -->
-											"javascript:addToCart({$goods.goods_id});"
+											"javascript:hw.buy({$goods.goods_id});"
 										<!-- {/if} -->
 									class="noa"><!--
 										--><div class="buy">{$lang.btn_buy}</div><!--
@@ -111,6 +111,7 @@
 						<div class="desc">产地：兰州</div>
 						<div class="title">{$lang.goods_brief}</div>
 						<div class="desc">{$goods.goods_desc} ...</div>
+						<div id="log" class="desc"></div>
 					</div>
 			</div>
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
@@ -118,7 +119,12 @@
 	</body>
 
 	<script type="text/javascript">
-		function chgNum (n) {
+		var hw = new (HelloWorld())();
+
+		hw.buy = function (id) {
+			hw.addToCart(id, parseInt(document.getElementById("num").value, 10), parseInt(document.getElementById("seedlingNum").value, 10), parseInt(document.getElementById("treeNum").value, 10));
+		}
+		hw.chgNum = function (n) {
 			if (!n) {
 				n = 0;
 			}
@@ -131,9 +137,9 @@
 				v = 1;
 			}
 			num.value = v;
-			flush();
+			hw.flush();
 		}
-		function flush () {
+		hw.flush = function () {
 			var v = parseInt(document.getElementById("num").value, 10);
 			var p = {$goods.shop_price};
 			var pt = 15;
@@ -143,13 +149,13 @@
 			v += parseInt(document.getElementById("treeNum").value, 10) * pt;
 			document.getElementById("price").innerHTML = "￥ " + Math.floor(v*100)/100 + " 元"
 		}
-		function showDonate () {
+		hw.showDonate = function () {
 			document.getElementById("donateBtn").className = "nosee";
 			document.getElementById("donate").className = "donate";
 			document.getElementById("seedlingNum").value = 1;
-			flush();
+			hw.flush();
 		}
-		function chgDonate (id, n) {
+		hw.chgDonate = function (id, n) {
 			var nn = document.getElementById(id);
 			var v = parseInt(nn.value, 10);
 			if (n === 0) {
@@ -161,9 +167,13 @@
 				v = 0;
 			}
 			nn.value = v;
-			flush();
+			hw.flush();
 		}
 
-		flush();
+		if (document.getElementById("seedlingNum").value !== "0" || document.getElementById("treeNum").value !== "0") {
+			document.getElementById("donateBtn").className = "nosee";
+			document.getElementById("donate").className = "donate";
+		}
+		hw.flush();
 	</script>
 </html>

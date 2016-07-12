@@ -5,7 +5,7 @@
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
-		{insert_scripts files='common.js,transport.js'}
+		{insert_scripts files='LZR/ShopBase.js,common.js,transport.js'}
 	</head>
 
 	<body>
@@ -19,4 +19,8 @@
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 		</div>
 	</body>
+
+	<script type="text/javascript">
+		var hw = new (HelloWorld())();
+	</script>
 </html>
