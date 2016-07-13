@@ -28,6 +28,7 @@
 	</body>
 	{if $auto_redirect}
 		<script type="text/javascript">
+			{literal}
 			var t = 3;
 			var subTim = function () {
 				document.getElementById("tim").innerHTML = t;
@@ -37,6 +38,7 @@
 				}
 			}
 			subTim();
+			{/literal}
 		</script>
 	{/if}
 </html>

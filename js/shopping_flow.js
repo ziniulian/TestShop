@@ -578,13 +578,13 @@ function checkConsignee(frm)
     err = true;
     msg.push(consignee_not_null);
   }
-
+/*	// 取消对电子邮件的检查
   if ( ! Utils.isEmail(frm.elements['email'].value))
   {
     err = true;
     msg.push(invalid_email);
   }
-
+*/
   if (frm.elements['address'] && Utils.isEmpty(frm.elements['address'].value))
   {
     err = true;

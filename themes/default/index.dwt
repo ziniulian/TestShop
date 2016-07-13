@@ -144,6 +144,7 @@
 	</body>
 
 	<script type="text/javascript">
+		{literal}
 		function showBoard () {
 			document.getElementById("home_ad").className = "adfram";
 			document.getElementById("home_board_showBtn").className = "nosee";
@@ -154,5 +155,6 @@
 			document.getElementById("home_board").className = "nosee";
 			document.getElementById("home_board_showBtn").className = "icon-gonggao btn noselect";
 		}
+		{/literal}
 	</script>
 </html>

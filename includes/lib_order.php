@@ -855,7 +855,7 @@ function get_order_sn()
  * 取得购物车商品
  * @param   int     $type   类型：默认普通商品
  * @return  array   购物车商品数组
- */
+ */ /*
 function cart_goods($type = CART_GENERAL_GOODS)
 {
     $sql = "SELECT rec_id, user_id, goods_id, goods_name, goods_sn, goods_number, " .
@@ -867,7 +867,7 @@ function cart_goods($type = CART_GENERAL_GOODS)
 
     $arr = $GLOBALS['db']->getAll($sql);
 
-    /* 格式化价格及礼包商品 */
+    // 格式化价格及礼包商品 
     foreach ($arr as $key => $value)
     {
         $arr[$key]['formated_market_price'] = price_format($value['market_price'], false);
@@ -882,6 +882,36 @@ function cart_goods($type = CART_GENERAL_GOODS)
 
     return $arr;
 }
+*/ /**
+ * 取得购物车商品（包含商品缩略图） BY LZR
+ */
+function cart_goods($type = CART_GENERAL_GOODS)
+{
+	$sql = "SELECT c.rec_id, c.user_id, c.goods_id, c.goods_name, g.goods_thumb,c.goods_sn, c.goods_number, " .
+	"c.market_price, c.goods_price, c.goods_attr, c.is_real, c.extension_code, c.parent_id, c.is_gift, c.is_shipping, " .
+	"c.goods_price * c.goods_number AS subtotal " .
+	"FROM " . $GLOBALS['ecs']->table('cart') . ' AS c ' .
+	' LEFT JOIN ' . $GLOBALS['ecs']->table('goods') . ' AS g ON g.goods_id = c.goods_id ' .
+	" WHERE session_id = '" . SESS_ID . "' " .
+	"AND rec_type = '$type'";
+
+	$arr = $GLOBALS['db']->getAll($sql);
+
+	/* 格式化价格及礼包商品 */
+	foreach ($arr as $key => $value) {
+		$arr[$key]['formated_market_price'] = price_format($value['market_price'], false);
+		$arr[$key]['formated_goods_price'] = price_format($value['goods_price'], false);
+		$arr[$key]['formated_subtotal'] = price_format($value['subtotal'], false);
+		$arr[$key]['goods_thumb']= get_image_path($value['goods_id'], $value['goods_thumb'], true);
+
+		if ($value['extension_code'] == 'package_buy') {
+			$arr[$key]['package_goods_list'] = get_package_goods($value['goods_id']);
+		}
+	}
+
+	return $arr;
+}
+
 
 /**
  * 取得购物车总金额
@@ -1751,7 +1781,7 @@ function check_consignee_info($consignee, $flow_type)
         /* 如果存在实体商品 */
         $res = !empty($consignee['consignee']) &&
             !empty($consignee['country']) &&
-            !empty($consignee['email']) &&
+            // !empty($consignee['email']) &&	// 取消对电子邮件的检查
             !empty($consignee['tel']);
 
         if ($res)
@@ -1781,7 +1811,7 @@ function check_consignee_info($consignee, $flow_type)
     {
         /* 如果不存在实体商品 */
         return !empty($consignee['consignee']) &&
-            !empty($consignee['email']) &&
+            // !empty($consignee['email']) &&	// 取消对电子邮件的检查
             !empty($consignee['tel']);
     }
 }

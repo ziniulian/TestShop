@@ -1,2 +1,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<div class="test">提交订单</div>
+<div class="checkout">
+	<form action="flow.php" method="post">
+
+		<div class="topTitle">收货地址</div>
+		<div class="test"> ... </div>
+		<div class="totalrow"><!--
+			--><a href="./flow.php?step=consignee" class="btn noa">修改</a><!--
+		--></div>
+
+		<div class="topTitle">商品列表</div>
+		<div class="co_goodslist">
+			<div class="title">
+				<div class="pic font"></div><!--
+				--><div class="nam font">名称</div><!--
+				--><div class="price font">单价</div><!--
+				--><div class="number font">数量</div><!--
+				--><div class="total font">小计</div>
+			</div>
+			<!-- {foreach from=$goods_list item=g} -->
+				<div class="goodsrow">
+					<a href="goods.php?id={$g.goods_id}" class="noa"><!--
+						--><div class="pic" style="background-image: url({$g.goods_thumb});"></div><!--
+					--></a><!--
+					--><a href="goods.php?id={$g.goods_id}" class="noa"><!--
+						--><div class="nam">{$g.goods_name}</div><!--
+					--></a><!--
+					--><div class="price">{$g.formated_goods_price}</div><!--
+					--><div class="number">{$g.goods_number}</div><!--
+					--><div id="goods_subtotal_{$g.rec_id}" class="total">{$g.formated_subtotal}</div>
+				</div>
+			<!-- {/foreach} -->
+			<div class="totalrow"><!--
+				--><a href="./flow.php" class="btn noa">修改</a><!--
+			--></div>
+		</div>
+
+		<div class="topTitle">费用总计</div>
+		<div class="test"> ... </div>
+		<div class="totalrow"><!--
+			--><input class="btn noselect" type="submit" name="Submit" value="提交订单"/><!--
+		--></div>
+
+	</form>
+</div>

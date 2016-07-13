@@ -2,10 +2,12 @@
 {insert name='member_info'}
 <script type="text/javascript">
 	// 填充购物车数量
+	{literal}
 	var cn = document.getElementById("cartNum");
 	if (cn) {
 		cn.innerHTML = {insert name='cart_info_num'};
 	}
+	{/literal}
 </script>
 <div class="base">
 	<div class="page_header">

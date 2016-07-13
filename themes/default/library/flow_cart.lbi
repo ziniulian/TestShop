@@ -23,7 +23,7 @@
 				--><div class="btn noselect"  onclick="hw.cartChgNum({$g.rec_id}, '{$g.goods_price}', 1);">+</div><!--
 			--></div><!--
 			--><div id="goods_subtotal_{$g.rec_id}" class="total">{$g.subtotal}</div><!--
-			--><div class="operate noselect" onclick="hw.cartDrop({$g.rec_id});">删除</div>
+			--><div class="operate noselect" onclick="hw.cartDrop({$g.rec_id});">{$lang.drop}</div>
 		</div>
 	<!-- {/foreach} -->
 	<div class="totalrow"><!--
@@ -32,6 +32,7 @@
 	--></div>
 </form>
 <script type="text/javascript">
+	{literal}
 	hw.cartChgNum = function (id, price, add) {
 		var nd = document.getElementById("goods_number_" + id);
 		var d = document.getElementById("goods_subtotal_" + id);
@@ -45,11 +46,14 @@
 		}
 		nd.value = n;
 
-		d.innerHTML = "￥ " + (parseFloat( price.substr(1), 10 ) * n) + " 元";
+		n = parseFloat( price.substr(1), 10 ) * n;	// 使用 $g.goods_price 为参数时的特殊处理
+		n = Math.floor(n*100) / 100;
+		d.innerHTML = "￥" + n + "元";
 	}
 	hw.cartDrop = function (id) {
 		if (confirm("{$lang.drop_goods_confirm}")) {
 			location.href = "flow.php?step=drop_to_collect&id=" + id;
 		}
 	}
+	{/literal}
 </script>

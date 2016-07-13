@@ -122,6 +122,7 @@
 	</body>
 
 	<script type="text/javascript">
+		{literal}
 		hw.buy = function (id) {
 			hw.addToCart(id, parseInt(document.getElementById("num").value, 10), parseInt(document.getElementById("seedlingNum").value, 10), parseInt(document.getElementById("treeNum").value, 10));
 		}
@@ -176,5 +177,6 @@
 			document.getElementById("donate").className = "donate";
 		}
 		hw.flush();
+		{/literal}
 	</script>
 </html>
