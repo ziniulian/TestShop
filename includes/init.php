@@ -154,7 +154,26 @@ if (!defined('INIT_NO_USERS'))
 
     $sess = new cls_session($db, $ecs->table('sessions'), $ecs->table('sessions_data'));
 
-    define('SESS_ID', $sess->get_session_id());
+	// define('SESS_ID', $sess->get_session_id());
+	//判断是否存在user_id的session,避免高版本PHP报错    
+	if(isset($_SESSION['user_id'])){
+		//如果存在会员登录
+		if($_SESSION['user_id']>0){
+			//取得对应user_id的session MD5码，后面加入'_LZR'自定义的自符串加密。
+			$user_session=md5($_SESSION['user_id'].'_LZR');   //'_LZR'内容可自行修改
+			//取得之前的session_id，www.lyecs.com 老杨ecshop
+			$old_session=$sess->get_session_id();
+			define('OLD_SESS_ID',$old_session);
+			define('SESS_ID',$user_session);
+		}else{
+			//不存在会员，继续用原有的session_id
+			define('SESS_ID', $sess->get_session_id());
+		}
+	}else{
+		//不存在会员，继续用原有的session_id
+		define('SESS_ID', $sess->get_session_id());
+	}
+
 }
 if(isset($_SERVER['PHP_SELF']))
 {

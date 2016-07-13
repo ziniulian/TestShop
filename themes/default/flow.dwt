@@ -5,7 +5,11 @@
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
-		{insert_scripts files='LZR/ShopBase.js,common.js,transport.js'}
+		{insert_scripts files='LZR/ShopBase.js'}
+
+		<script type="text/javascript">
+			var hw = new (HelloWorld())();
+		</script>
 	</head>
 
 	<body>
@@ -18,12 +22,12 @@
 					<!-- #BeginLibraryItem "/library/flow_cart.lbi" --><!-- #EndLibraryItem -->
 				<!-- {/if} -->
 
-				<!-- {if $step eq "checkout"} -->
-					<!-- #BeginLibraryItem "/library/flow_checkout.lbi" --><!-- #EndLibraryItem -->
-				<!-- {/if} -->
-
 				<!-- {if $step eq "consignee"} -->
 					<!-- #BeginLibraryItem "/library/flow_consignee.lbi" --><!-- #EndLibraryItem -->
+				<!-- {/if} -->
+
+				<!-- {if $step eq "checkout"} -->
+					<!-- #BeginLibraryItem "/library/flow_checkout.lbi" --><!-- #EndLibraryItem -->
 				<!-- {/if} -->
 
 				<!-- {if $step eq "done"} -->
@@ -33,8 +37,4 @@
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 		</div>
 	</body>
-
-	<script type="text/javascript">
-		var hw = new (HelloWorld())();
-	</script>
 </html>

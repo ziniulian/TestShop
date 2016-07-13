@@ -6,6 +6,9 @@
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
 		{insert_scripts files='LZR/ShopBase.js,common.js,transport.js'}
+		<script type="text/javascript">
+			var hw = new (HelloWorld())();
+		</script>
 	</head>
 
 	<body>
@@ -119,8 +122,6 @@
 	</body>
 
 	<script type="text/javascript">
-		var hw = new (HelloWorld())();
-
 		hw.buy = function (id) {
 			hw.addToCart(id, parseInt(document.getElementById("num").value, 10), parseInt(document.getElementById("seedlingNum").value, 10), parseInt(document.getElementById("treeNum").value, 10));
 		}
@@ -147,7 +148,7 @@
 			var v = parseInt(document.getElementById("num").value, 10) * p;
 			v += parseInt(document.getElementById("seedlingNum").value, 10) * ps;
 			v += parseInt(document.getElementById("treeNum").value, 10) * pt;
-			document.getElementById("price").innerHTML = "￥ " + Math.floor(v*100)/100 + " 元"
+			document.getElementById("price").innerHTML = "￥ " + Math.floor(v*100)/100 + " 元";
 		}
 		hw.showDonate = function () {
 			document.getElementById("donateBtn").className = "nosee";

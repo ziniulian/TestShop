@@ -1805,7 +1805,8 @@ elseif ($_REQUEST['step'] == 'update_cart')
         flow_update_cart($_POST['goods_number']);
     }
 
-    show_message($_LANG['update_cart_notice'], $_LANG['back_to_cart'], 'flow.php');
+    // show_message($_LANG['update_cart_notice'], $_LANG['back_to_cart'], 'flow.php');
+    ecs_header("Location: flow.php?step=checkout\n");
     exit;
 }
 

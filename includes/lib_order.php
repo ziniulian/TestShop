@@ -1583,6 +1583,27 @@ function order_refund($order, $refund_type, $refund_note, $refund_amount = 0)
  */
 function get_cart_goods()
 {
+
+	/*获取原有购物车与会员购物合并处理 www.lyecs.com*/
+	$sql = "SELECT rec_id,goods_id,product_id,goods_number,goods_attr,is_gift,parent_id " . " FROM " . $GLOBALS['ecs']->table('cart') . " WHERE session_id='".OLD_SESS_ID."' "; 
+	$old_res = $GLOBALS['db']->getAll($sql);
+	if($old_res){
+		foreach ($old_res as $key => $row){
+			$sql = "SELECT rec_id FROM " . $GLOBALS['ecs']->table('cart') . " WHERE user_id='".$_SESSION['user_id']."'". " AND goods_id='".$row['goods_id']."' AND product_id='".$row['product_id']."' AND is_gift='".$row['is_gift']."' AND parent_id='".$row['parent_id']."' "; 
+			$repeat_rec_id = $GLOBALS['db']->getOne($sql);
+			if($repeat_rec_id ){
+				$sql="update ".$GLOBALS['ecs']->table('cart')."set goods_number=(goods_number+$row[goods_number]) where rec_id='".$repeat_rec_id."' ";
+				$GLOBALS['db']->query($sql); 
+				$sql = "DELETE FROM " . $GLOBALS['ecs']->table('cart') . "WHERE rec_id ='$row[rec_id]'";
+				$GLOBALS['db']->query($sql);
+			}else{
+				$sql="update ".$GLOBALS['ecs']->table('cart')."set session_id='SESS_ID',user_id='".$_SESSION['user_id']."' where rec_id='$row[rec_id]' ";
+				$GLOBALS['db']->query($sql);
+			}
+		}
+	}
+
+
     /* 初始化 */
     $goods_list = array();
     $total = array(

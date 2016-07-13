@@ -1,2 +1,55 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<div class="test">购物车</div>
+<form id="formCart" name="formCart" class="cart" method="post" action="flow.php">
+	<div class="title">
+		<div class="pic font"></div><!--
+		--><div class="nam font">名称</div><!--
+		--><div class="price font">单价</div><!--
+		--><div class="number font">数量</div><!--
+		--><div class="total font">小计</div><!--
+		--><div class="operate font">操作</div>
+	</div>
+	<!-- {foreach from=$goods_list item=g} -->
+		<div class="goodsrow">
+			<a href="goods.php?id={$g.goods_id}" class="noa"><!--
+				--><div class="pic" style="background-image: url({$g.goods_thumb});"></div><!--
+			--></a><!--
+			--><a href="goods.php?id={$g.goods_id}" class="noa"><!--
+				--><div class="nam">{$g.goods_name}</div><!--
+			--></a><!--
+			--><div class="price">{$g.goods_price}</div><!--
+			--><div class="number"><!--
+				--><div class="btn noselect"  onclick="hw.cartChgNum({$g.rec_id}, '{$g.goods_price}', -1);">-</div><!--
+				--><input type="text" name="goods_number[{$g.rec_id}]" id="goods_number_{$g.rec_id}" value="{$g.goods_number}" class="num" onchange="hw.cartChgNum({$g.rec_id}, '{$g.goods_price}');"/><!--
+				--><div class="btn noselect"  onclick="hw.cartChgNum({$g.rec_id}, '{$g.goods_price}', 1);">+</div><!--
+			--></div><!--
+			--><div id="goods_subtotal_{$g.rec_id}" class="total">{$g.subtotal}</div><!--
+			--><div class="operate noselect" onclick="hw.cartDrop({$g.rec_id});">删除</div>
+		</div>
+	<!-- {/foreach} -->
+	<div class="totalrow"><!--
+		--><input type="hidden" name="step" value="update_cart" /><!--
+		--><input name="submit" type="submit" class="btn" value="结算" /><!--
+	--></div>
+</form>
+<script type="text/javascript">
+	hw.cartChgNum = function (id, price, add) {
+		var nd = document.getElementById("goods_number_" + id);
+		var d = document.getElementById("goods_subtotal_" + id);
+		var n = parseInt(nd.value, 10);
+		if (!add) {
+			add = 0;
+		}
+		n += add;
+		if (n<1 || isNaN(n)) {
+			n = 1;
+		}
+		nd.value = n;
+
+		d.innerHTML = "￥ " + (parseFloat( price.substr(1), 10 ) * n) + " 元";
+	}
+	hw.cartDrop = function (id) {
+		if (confirm("{$lang.drop_goods_confirm}")) {
+			location.href = "flow.php?step=drop_to_collect&id=" + id;
+		}
+	}
+</script>

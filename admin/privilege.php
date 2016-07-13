@@ -141,7 +141,7 @@ elseif ($_REQUEST['act'] == 'signin')
         }
 
         // 清除购物车中过期的数据
-        clear_cart();
+        // clear_cart();		// 注释此处，以防止管理员登录时清空所有购物车
 
         ecs_header("Location: ./index.php\n");
 
