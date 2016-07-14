@@ -1109,18 +1109,18 @@ body {
 }
 
 .boso .checkout .address {
-	margin: 0 10%;
-	font-size: 1.5rem;
+	margin: 0 0 0 10%;
+	font-size: 1.8rem;
 	font-weight: bold;
 	line-height: 3;
 	color: #03230E;
 }
 
 .boso .checkout .co_consignee {
-	margin: 0 10%;
+	margin: 0 0 1rem 10%;
 	font-size: 1.5rem;
 	font-style: italic;
-	line-height: 3;
+	line-height: 2;
 	color: #666;
 }
 
@@ -1185,6 +1185,137 @@ body {
 .boso .pay .btn input:hover {
 	text-shadow: 0 1px 1px  #03230E;
 }
+
+/*用户中心*/
+.boso .userMemu {
+	display: inline-block;
+	vertical-align: top;
+	width: 20%;
+}
+
+.boso .userMemu a {
+	display: block;
+	width: 100%;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	line-height: 3;
+	color: #65934A;
+	text-decoration: none;
+}
+.boso .userMemu a:hover {
+	text-decoration: underline;
+}
+.boso .userMemu .scd {
+	color: #03230E;
+}
+
+.boso .userBody {
+	display: inline-block;
+	vertical-align: top;
+	width: 80%;
+}
+
+/*订单详情*/
+.boso .orderDetail {
+	margin: 0 0 0 10%;
+}
+
+.boso .orderDetail .txt {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 3rem 0 0;
+	font-size: 1.2rem;
+	line-height: 2;
+	color: #03230E;
+}
+
+.boso .orderDetail_pay{
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	width: 17rem;
+	height: 3rem;
+}
+
+.boso .orderDetail_pay input{
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0;
+	padding: 0 1rem;
+	border: none;
+	outline: medium;
+	text-align: center;
+	color: #FFF;
+	background-color: #A0BF7C;
+	font-family: "Microsoft YaHei";
+	font-size: 1.2rem;
+	line-height: 2.2;
+	cursor: pointer;
+}
+.boso .orderDetail_pay input:hover {
+	text-shadow: 0 1px 1px  #03230E;
+}
+
+/*订单列表*/
+.boso .orderList {
+	width: 100%;
+}
+
+.boso .orderList .txt {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1rem;
+	line-height: 3;
+	color: #03230E;
+	text-align: center;
+}
+
+.boso .orderList .title {
+	font-size: 1.2rem;
+	font-weight: bold;
+	line-height: 2;
+	border-bottom: 1px solid #407434;
+}
+
+.boso .orderList .sn {
+	width: 20%;
+}
+
+.boso .orderList .tim {
+	width: 25%;
+}
+
+.boso .orderList .amount {
+	width: 20%;
+}
+
+.boso .orderList .status {
+	width: 25%;
+}
+
+.boso .orderList .operate {
+	width: 10%;
+}
+
+.boso .orderList .operate a{
+	color: #407434;
+	text-decoration: none;
+}
+.boso .orderList .operate a:hover{
+	text-decoration: underline;
+}
+
+.boso .orderList .row {
+	width: 100%;
+}
+.boso .orderList .row:hover {
+	background-color: rgba(160, 191, 124, 0.2);
+}
+
+
+
 
 
 

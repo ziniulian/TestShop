@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="orderList">
+	<div>
+		<div class="txt title sn">{$lang.order_number}</div><!--
+		--><div class="txt title tim">{$lang.order_addtime}</div><!--
+		--><div class="txt title amount">{$lang.order_money}</div><!--
+		--><div class="txt title status">{$lang.order_status}</div><!--
+		--><div class="txt title operate">{$lang.handle}</div>
+	</div>
+	<!--{foreach from=$orders item=item}-->
+		<a href="user.php?act=order_detail&amp;order_id={$item.order_id}"><div class="row">
+			<div class="txt sn">{$item.order_sn}</div><!--
+			--><div class="txt tim">{$item.order_time}</div><!--
+			--><div class="txt amount">{$item.total_fee}</div><!--
+			--><div class="txt status">{$item.order_status}</div><!--
+			--><div class="txt operate">{$item.handler}</div>
+		</div></a>
+	<!--{/foreach}-->
+</div>

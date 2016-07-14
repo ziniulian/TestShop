@@ -1,0 +1,253 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- <div class="test nosee">
+	------------------------------------</br>
+	{$lang.order_status}</br>
+	</br>
+	{$lang.detail_order_sn}</br>
+	{$order.order_sn}</br>
+	{$order.order_id}</br>
+	</br>
+	{$order.extension_code}</br>
+	{$order.extension_id}</br>
+	{$lang.order_is_group_buy}</br>
+	{$lang.order_is_exchange}</br>
+	</br>
+	{$lang.business_message}</br>
+	</br>
+	</br>
+	{$lang.detail_order_status}</br>
+	{$order.order_status}</br>
+	{$order.confirm_time}</br>
+	</br>
+	{$lang.detail_pay_status}</br>
+	{$order.pay_status}</br>
+	{$order.order_amount}</br>
+	{$order.pay_online}</br>
+	{$order.pay_time}</br>
+	</br>
+	{$lang.detail_shipping_status}</br>
+	{$order.shipping_status}</br>
+	{$order.shipping_time}</br>
+	</br>
+	</br>
+	{$lang.consignment}</br>
+	{$order.invoice_no}</br>
+	</br>
+	{$lang.detail_to_buyer}</br>
+	{$order.to_buyer}</br>
+	</br>
+	</br>
+	{$lang.virtual_card_info}</br>
+	{$virtual_card}</br>
+	</br>
+	</br>
+	------------------------------------</br>
+	{$lang.goods_list}</br>
+	{$allow_to_cart}</br>
+	{$lang.return_to_cart}</br>
+	</br>
+	{$lang.goods_name}</br>
+	{$lang.goods_attr}</br>
+	{$lang.goods_price}</br>
+	{$lang.gb_deposit}</br>
+	{$lang.number}</br>
+	{$lang.subtotal}</br>
+	</br>
+	{$lang.accessories}</br>
+	{$lang.largess}</br>
+	</br>
+	</br>
+	{$lang.shopping_money}</br>
+	{$lang.gb_deposit}</br>
+	{$order.formated_goods_amount}</br>
+	</br>
+	</br>
+	------------------------------------</br>
+	{$lang.fee_total}</br>
+	</br>
+	</br>
+	{$lang.goods_all_price}</br>
+	{$lang.gb_deposit}</br>
+	{$order.formated_goods_amount}</br>
+	</br>
+	{$lang.discount}</br>
+	{$order.formated_discount}</br>
+	</br>
+	{$lang.tax}</br>
+	{$order.formated_tax}</br>
+	</br>
+	{$lang.shipping_fee}</br>
+	{$order.formated_shipping_fee}</br>
+	</br>
+	{$lang.insure_fee}</br>
+	{$order.formated_insure_fee}</br>
+	</br>
+	{$lang.pay_fee}</br>
+	{$order.formated_pay_fee}</br>
+	</br>
+	{$lang.pack_fee}</br>
+	{$order.formated_pack_fee}</br>
+	</br>
+	{$lang.card_fee}</br>
+	{$order.formated_card_fee}</br>
+	</br>
+	{$lang.order_money_paid}</br>
+	{$order.formated_money_paid}</br>
+	</br>
+	{$lang.use_surplus}</br>
+	{$order.formated_surplus}</br>
+	</br>
+	{$lang.use_integral}</br>
+	{$order.formated_integral_money}</br>
+	</br>
+	{$lang.use_bonus}</br>
+	{$order.formated_bonus}</br>
+	</br>
+	</br>
+	{$lang.order_amount}: {$order.formated_order_amount}</br>
+	{$lang.notice_gb_order_amount}</br>
+	</br>
+	</br>
+	{$allow_edit_surplus}</br>
+	{$lang.use_more_surplus}</br>
+	{$max_surplus}</br>
+	{$lang.button_submit}</br>
+	{$smarty.get.order_id}</br>
+	</br>
+	</br>
+	------------------------------------</br>
+	{$lang.consignee_info}</br>
+	</br>
+	{$order.allow_update_address}</br>
+	{$lang.consignee_name}</br>
+	{$order.consignee|escape}</br>
+	{$lang.email_address}</br>
+	{$order.email|escape}</br>
+	</br>
+	{$order.exist_real_goods}</br>
+	{$lang.detailed_address}</br>
+	{$order.address|escape}</br>
+	{$lang.postalcode}</br>
+	{$order.zipcode|escape}</br>
+	</br>
+	{$lang.phone}</br>
+	{$order.tel|escape}</br>
+	{$lang.backup_phone}</br>
+	{$order.mobile|escape}</br>
+	</br>
+	{$lang.sign_building}</br>
+	{$order.sign_building|escape}</br>
+	{$lang.deliver_goods_time}</br>
+	{$order.best_time|escape}</br>
+	</br>
+	{$lang.update_address}</br>
+	</br>
+	</br>
+	------------------------------------</br>
+	{$lang.payment}</br>
+	</br>
+	{$lang.select_payment}</br>
+	{$order.pay_name}</br>
+	</br>
+	{$lang.order_amount}</br>
+	{$order.formated_order_amount}</br>
+	</br>
+	{$order.pay_desc}</br>
+	</br>
+	{$payment_list}</br>
+	{$lang.change_payment}</br>
+	{$lang.pay_fee}</br>
+	</br>
+	{$lang.button_submit}</br>
+	</br>
+	</br>
+	------------------------------------</br>
+	{$lang.other_info}</br>
+	</br>
+	{$lang.shipping}</br>
+	{$order.shipping_name}</br>
+	</br>
+	{$lang.payment}</br>
+	{$order.pay_name}</br>
+	</br>
+	{$lang.use_pack}</br>
+	{$order.pack_name}</br>
+	</br>
+	{$lang.use_card}</br>
+	{$order.card_name}</br>
+	</br>
+	{$lang.bless_note}</br>
+	{$order.card_message}</br>
+	</br>
+	{$lang.use_integral}</br>
+	{$order.integral}</br>
+	</br>
+	{$lang.invoice_title}</br>
+	{$order.inv_payee}</br>
+	{$lang.invoice_content}</br>
+	{$order.inv_content}</br>
+	</br>
+	{$lang.order_postscript}</br>
+	{$order.postscript}</br>
+	</br>
+	{$lang.booking_process}</br>
+	{$order.how_oos_name}</br>
+	</br>
+</div> -->
+
+<div class="checkout">
+	<div class="topTitle" style="margin: 0;">订单号 ： {$order.order_sn}</div>
+	<div class="orderDetail">
+		<div class="txt">{$lang.detail_order_status} ： </div><!--
+		--><div class="txt">{$order.order_status}</div><!--
+		--><div class="txt">{$order.confirm_time}</div>
+	</div>
+	<div class="orderDetail">
+		<div class="txt">{$lang.detail_pay_status} ： </div><!--
+		--><div class="txt">{$order.pay_status}</div><!--
+		--><div class="txt">{$order.pay_time}</div>
+	</div>
+	<div class="orderDetail">
+		<div class="txt">{$lang.detail_shipping_status} ： </div><!--
+		--><div class="txt">{$order.shipping_status}</div><!--
+		--><div class="txt">{$order.shipping_time}</div>
+	</div>
+
+	<div class="topTitle">收货地址</div>
+	<div class="address">
+		{$order.country_name|escape} {$order.province_name|escape} {$order.city_name|escape} {$order.district_name|escape} {$order.address|escape}
+		<!-- {if $consignee.zipcode} -->
+			（{$order.zipcode|escape}）
+		<!-- {/if} -->
+	</div>
+	<div class="co_consignee">{$order.consignee|escape} 收 ，联系电话 ： {$order.tel}</div>
+
+	<div class="topTitle">商品列表</div>
+	<div class="co_goodslist">
+		<div class="title">
+			<div class="pic font"></div><!--
+			--><div class="nam font">名称</div><!--
+			--><div class="price font">单价</div><!--
+			--><div class="number font">数量</div><!--
+			--><div class="total font">小计</div>
+		</div>
+		<!-- {foreach from=$goods_list item=g} -->
+			<div class="goodsrow">
+				<a href="goods.php?id={$g.goods_id}" class="noa"><!--
+					--><div class="pic" style="background-image: url({$g.goods_thumb});"></div><!--
+				--></a><!--
+				--><a href="goods.php?id={$g.goods_id}" class="noa"><!--
+					--><div class="nam">{$g.goods_name}</div><!--
+				--></a><!--
+				--><div class="price">{$g.goods_price}</div><!--
+				--><div class="number">{$g.goods_number}</div><!--
+				--><div id="goods_subtotal_{$g.rec_id}" class="total">{$g.subtotal}</div>
+			</div>
+		<!-- {/foreach} -->
+
+		<div class="totalrow"><!--
+			--><div class="amount">总计 ： {$order.formated_goods_amount}</div><!--
+			-->{if $order.pay_online}<div class="orderDetail_pay">{$order.pay_online}</div>{/if}<!--
+		--></div>
+	</div>
+</div>

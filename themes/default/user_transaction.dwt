@@ -11,9 +11,17 @@
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<div class="base">
-				<div class="msg">
-					{$message}
-					<a href="{$shop_url}" class="noa"><div class="link">{$lang.back_home}</div></a>
+				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+				<!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
+				<div class="userBody">
+					<!-- {if $action eq "order_list"} -->
+						<!-- #BeginLibraryItem "/library/order_list.lbi" --><!-- #EndLibraryItem -->
+						<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+					<!-- {/if} -->
+
+					<!-- {if $action eq "order_detail"} -->
+						<!-- #BeginLibraryItem "/library/order_detail.lbi" --><!-- #EndLibraryItem -->
+					<!-- {/if} -->
 				</div>
 			</div>
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

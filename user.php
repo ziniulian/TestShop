@@ -889,6 +889,11 @@ elseif ($action == 'order_detail')
     $order['pay_status'] = $_LANG['ps'][$order['pay_status']];
     $order['shipping_status'] = $_LANG['ss'][$order['shipping_status']];
 
+	// 使订单详情的收货地址带有 省市信息 BY LZR
+	$order['province_name']  =  get_region_name($order['province']);
+	$order['city_name']  =  get_region_name($order['city']);
+	$order['district_name']  =  get_region_name($order['district']);
+
     $smarty->assign('order',      $order);
     $smarty->assign('goods_list', $goods_list);
     $smarty->display('user_transaction.dwt');

@@ -11,9 +11,10 @@
 		<div class="boso">
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<div class="base">
-				<div class="msg">
-					{$message}
-					<a href="{$shop_url}" class="noa"><div class="link">{$lang.back_home}</div></a>
+				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+				<!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
+				<div class="userBody">
+					<div class="test">...</div>
 				</div>
 			</div>
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

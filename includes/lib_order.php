@@ -466,11 +466,19 @@ function order_finished($order)
  */
 function order_goods($order_id)
 {
-    $sql = "SELECT rec_id, goods_id, goods_name, goods_sn, market_price, goods_number, " .
-            "goods_price, goods_attr, is_real, parent_id, is_gift, " .
-            "goods_price * goods_number AS subtotal, extension_code " .
-            "FROM " . $GLOBALS['ecs']->table('order_goods') .
-            " WHERE order_id = '$order_id'";
+	/*$sql = "SELECT rec_id, goods_id, goods_name, goods_sn, market_price, goods_number, " .
+		"goods_price, goods_attr, is_real, parent_id, is_gift, " .
+		"goods_price * goods_number AS subtotal, extension_code " .
+		"FROM " . $GLOBALS['ecs']->table('order_goods') .
+		" WHERE order_id = '$order_id'";*/
+
+	// 使订单详情带有缩略图信息 BY LZR
+	$sql = "SELECT a.rec_id as rec_id, a.goods_id as goods_id, a.goods_name as goods_name, g.goods_thumb as goods_thumb, a.goods_sn  as goods_sn, a.market_price as market_price, a.goods_number as goods_number, " .
+		"a.goods_price as goods_price, a.goods_attr as goods_attr, a.is_real as is_real, a.parent_id as parent_id, a.is_gift as is_gift, " .
+		"a.goods_price * a.goods_number AS subtotal, a.extension_code as extension_code " .
+		"FROM " . $GLOBALS['ecs']->table('order_goods') .
+		"as a , ". $GLOBALS['ecs']->table('goods') ." as g ".
+		" WHERE a.goods_id = g.goods_id and a.order_id = '$order_id'";
 
     $res = $GLOBALS['db']->query($sql);
 
