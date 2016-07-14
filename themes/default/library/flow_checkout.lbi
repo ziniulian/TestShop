@@ -46,28 +46,5 @@
 			--></div>
 		</div>
 
-		<!-- {foreach from=$shipping_list item=shipping} -->
-			<!-- 
-			{$shipping.shipping_id} ,
-			{$shipping.support_cod} ,
-			{$shipping.insure} ,
-			{$shipping.shipping_name} ,
-			{$shipping.shipping_desc} ,
-			{$shipping.format_shipping_fee} ,
-			{$shipping.free_money} ,
-			{$shipping.insure_formated}
-			-->
-		<!-- {/foreach} -->
-
-		<!-- {foreach from=$payment_list item=payment} -->
-			<!-- 
-			{$payment.pay_id} ,
-			{$payment.is_cod} ,
-			{$payment.pay_name} ,
-			{$payment.pay_desc} ,
-			{$payment.format_pay_fee}
-			-->
-		<!-- {/foreach} -->
-
 	</form>
 </div>
