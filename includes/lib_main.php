@@ -2068,4 +2068,8 @@ function url_domain()
     return $root;
 }
 
+function get_region_name($rid){
+    return $GLOBALS['db']->GetOne("SELECT region_name FROM ".$GLOBALS['ecs']->table('region')." WHERE region_id='$rid'");
+}
+
 ?>

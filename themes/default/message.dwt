@@ -30,11 +30,16 @@
 		<script type="text/javascript">
 			{literal}
 			var t = 3;
+			var url = "{$message.back_url}";
 			var subTim = function () {
 				document.getElementById("tim").innerHTML = t;
 				if (t) {
 					t --;
 					setTimeout(subTim,1000);
+				} else {
+					if (url.indexOf("javascript") === 0) {
+						history.back();
+					}
 				}
 			}
 			subTim();

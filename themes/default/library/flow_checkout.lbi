@@ -3,7 +3,13 @@
 	<form action="flow.php" method="post">
 
 		<div class="topTitle">收货地址</div>
-		<div class="test"> ... </div>
+		<div class="address">
+			{$consignee.country_name|escape} {$consignee.province_name|escape} {$consignee.city_name|escape} {$consignee.district_name|escape} {$consignee.address|escape}
+			<!-- {if $consignee.zipcode} -->
+				（{$consignee.zipcode|escape}）
+			<!-- {/if} -->
+		</div>
+		<div class="co_consignee">{$consignee.consignee|escape} 收 ，联系电话 ： {$consignee.tel}</div>
 		<div class="totalrow"><!--
 			--><a href="./flow.php?step=consignee" class="btn noa">修改</a><!--
 		--></div>
@@ -30,16 +36,38 @@
 					--><div id="goods_subtotal_{$g.rec_id}" class="total">{$g.formated_subtotal}</div>
 				</div>
 			<!-- {/foreach} -->
+
+			<input type="hidden" name="step" value="done" />
+			<input type="hidden" name="shipping" value=7 />
+			<input type="hidden" name="payment" value=4 />
 			<div class="totalrow"><!--
-				--><a href="./flow.php" class="btn noa">修改</a><!--
+				--><div class="amount">总计 ： {$total.amount_formated}</div><!--
+				--><input class="btn noselect" type="submit" name="Submit" value="提交订单"/><!--
 			--></div>
 		</div>
 
-		<div class="topTitle">费用总计</div>
-		<div class="test"> ... </div>
-		<div class="totalrow"><!--
-			--><input class="btn noselect" type="submit" name="Submit" value="提交订单"/><!--
-		--></div>
+		<!-- {foreach from=$shipping_list item=shipping} -->
+			<!-- 
+			{$shipping.shipping_id} ,
+			{$shipping.support_cod} ,
+			{$shipping.insure} ,
+			{$shipping.shipping_name} ,
+			{$shipping.shipping_desc} ,
+			{$shipping.format_shipping_fee} ,
+			{$shipping.free_money} ,
+			{$shipping.insure_formated}
+			-->
+		<!-- {/foreach} -->
+
+		<!-- {foreach from=$payment_list item=payment} -->
+			<!-- 
+			{$payment.pay_id} ,
+			{$payment.is_cod} ,
+			{$payment.pay_name} ,
+			{$payment.pay_desc} ,
+			{$payment.format_pay_fee}
+			-->
+		<!-- {/foreach} -->
 
 	</form>
 </div>

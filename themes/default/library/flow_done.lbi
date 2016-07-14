@@ -1,2 +1,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<div class="test">支付页面</div>
+<div class="pay">
+	<div class="memo">
+		订单提交成功！</br>
+		您的订单号 ： {$order.order_sn}</br>
+		配送方式 ： {$order.shipping_name}</br>
+		支付方式 ： {$order.pay_name}</br>
+	</div><!--
+	--><div class="price">{$total.amount_formated}</div>
+	<div class="btn">{$pay_online}</div>
+</div>
+

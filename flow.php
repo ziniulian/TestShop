@@ -471,6 +471,12 @@ elseif ($_REQUEST['step'] == 'checkout')
 
     $consignee = get_consignee($_SESSION['user_id']);
 
+	// 给订单提交页面添加 省市名称
+	$consignee['country_name']  =  get_region_name($consignee['country']);
+	$consignee['province_name']  =  get_region_name($consignee['province']);
+	$consignee['city_name']  =  get_region_name($consignee['city']);
+	$consignee['district_name']  =  get_region_name($consignee['district']);
+
     /* 检查收货人信息是否完整 */
     if (!check_consignee_info($consignee, $flow_type))
     {

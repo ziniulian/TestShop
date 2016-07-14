@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$page_title}</title>
+		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div class="boso">
+			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<div class="base">
+				<div class="msg">
+					{$message}
+					<a href="{$shop_url}" class="noa"><div class="link">{$lang.back_home}</div></a>
+				</div>
+			</div>
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+		</div>
+	</body>
+</html>
