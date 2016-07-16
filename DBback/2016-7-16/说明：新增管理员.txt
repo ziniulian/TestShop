@@ -1,0 +1,9 @@
+tsp_virtual_card :
++(10240, 195, 'kNHglqrIla3xyN7F', 'kdjmm6v+', 1468603270, 0, 0, '', '-1958172277'),
++(10241, 194, 'kNHglqrIla3xyN7F', 'kdjmlYD4', 1468603425, 0, 0, '', '-1958172277'),
+
+tsp_users :
+	md5(md5(password)+ec_salt);
+	includes\modules\integrates\integrate.php\compile_password();
+
+须对 树、苗 手动补货
