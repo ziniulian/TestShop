@@ -46,13 +46,14 @@ if (!$smarty->is_cached('donate.dwt', $cache_id))
 	$size = 20;
 	$count = get_donate_count();
 	$pages = ($count > 0) ? ceil($count / $size) : 1;
-	if ($page > $pages)
-	{
+	if ($page > $pages) {
 		$page = $pages;
 	}
 	/* ------------ 分页设置 - E --------------------------- */
 
-	$smarty->assign('donate_list',    get_cat_articles($page, $size));
+	if ($count > 0) {
+		$smarty->assign('donate_list', get_donate_list($page, $size));
+	}
 
 	assign_pager('donate', 0, $count, $size, '', '', $page);	// 分页
 	assign_dynamic('donate');
@@ -66,13 +67,64 @@ $smarty->display('donate.dwt', $cache_id);
 
 // 获取捐赠记录总数
 function get_donate_count () {
-	$where  = "og.goods_number=og.send_number AND og.goods_id IN (194, 195) GROUP BY og.order_id";
-	return $GLOBALS['db']->getOne("SELECT COUNT(*) FROM " . $GLOBALS["ecs"]->table("order_goods") . " AS og WHERE $where");
+
+	/*	---------- 测试SQL
+		SELECT COUNT(DISTINCT og.order_id) AS con FROM `tsp_order_goods` AS og WHERE og.goods_number=og.send_number AND og.goods_id IN (194, 195)
+	*/
+
+	$where  = "og.goods_number=og.send_number AND og.goods_id IN (194, 195)";
+	return $GLOBALS['db']->getOne("SELECT COUNT(DISTINCT og.order_id) AS con FROM " . $GLOBALS["ecs"]->table("order_goods") . " AS og WHERE $where");
 }
 
 // 获取捐赠记录明细
 function get_donate_list ($page = 1, $size = 20) {
-	return array("test" => "Test~!!");
+
+	/*	---------- 测试SQL
+		SELECT gog.orid AS orid, oi.order_sn AS sn, u.user_name AS nam, oi.pay_time AS tim, IF(ogt.tnm IS NULL,0,ogt.tnm) AS tnm, IF(ogs.snm IS NULL,0,ogs.snm) AS snm FROM ((((
+		(SELECT DISTINCT og.order_id AS orid FROM `tsp_order_goods` AS og WHERE og.goods_number=og.send_number AND og.goods_id in (194, 195) ORDER BY og.order_id DESC LIMIT 0,20) AS gog
+		LEFT JOIN
+		(SELECT og.order_id AS orid, og.send_number AS tnm FROM `tsp_order_goods` AS og WHERE og.goods_id = 194) AS ogt
+		ON gog.orid = ogt.orid)
+		LEFT JOIN
+		(SELECT og.order_id AS orid, og.send_number AS snm FROM `tsp_order_goods` AS og WHERE og.goods_id = 195) AS ogs
+		ON gog.orid = ogs.orid)
+		LEFT JOIN
+		`tsp_order_info` AS oi
+		ON gog.orid = oi.order_id)
+		LEFT JOIN
+		`tsp_users` AS u
+		ON oi.user_id = u.user_id)
+	*/
+
+	$sql = "SELECT gog.orid AS orid, oi.order_sn AS sn, u.user_name AS nam, oi.pay_time AS tim, IF(ogt.tnm IS NULL,0,ogt.tnm) AS tnm, IF(ogs.snm IS NULL,0,ogs.snm) AS snm FROM (((( " .
+		"(SELECT DISTINCT og.order_id AS orid FROM " . $GLOBALS["ecs"]->table("order_goods") . " AS og WHERE og.goods_number=og.send_number AND og.goods_id in (194, 195) ORDER BY og.order_id DESC " .
+			"LIMIT " . ($page - 1) * $size . "," . $size . ") AS gog " .	// 分页
+		"LEFT JOIN " .
+		"(SELECT og.order_id AS orid, og.send_number AS tnm FROM " . $GLOBALS["ecs"]->table("order_goods") . " AS og WHERE og.goods_id = 194) AS ogt " .
+		"ON gog.orid = ogt.orid) " .
+		"LEFT JOIN " .
+		"(SELECT og.order_id AS orid, og.send_number AS snm FROM " . $GLOBALS["ecs"]->table("order_goods") . " AS og WHERE og.goods_id = 195) AS ogs " .
+		"ON gog.orid = ogs.orid) " .
+		"LEFT JOIN " .
+		$GLOBALS["ecs"]->table("order_info") . " AS oi " .
+		"ON gog.orid = oi.order_id) " .
+		"LEFT JOIN " .
+		$GLOBALS["ecs"]->table("users") . " AS u " .
+		"ON oi.user_id = u.user_id)";
+
+	$res = $GLOBALS['db']->GetAll($sql);
+
+	$arr = array();
+	foreach ($res AS $row) {
+		$arr[$row["orid"]]["sn"] = $row["sn"];
+		$arr[$row["orid"]]["nam"] = $row["nam"];
+		$arr[$row["orid"]]["tim"] = local_date('Y-m-d H:i:s', $row['tim']);		// 时间戳转换
+		$arr[$row["orid"]]["tnm"] = $row["tnm"];
+		$arr[$row["orid"]]["snm"] = $row["snm"];
+		$arr[$row["orid"]]["total"] = $row["tnm"] * 15 + $row["snm"] * 2.5;		// 捐赠金额计算
+	}
+
+	return $arr;
 }
 
 ?>

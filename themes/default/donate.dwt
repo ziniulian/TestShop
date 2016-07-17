@@ -18,7 +18,9 @@
 			<div class="base">
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 				<div class="test">
-					捐赠记录 {$donate_list}
+					<!--{foreach from=$donate_list item=item}-->
+						{$item.nam} , {$item.tim} , {$item.tnm} , {$item.snm} , {$item.total}</br>
+					<!--{/foreach}-->
 				</div>
 				<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
 			</div>
