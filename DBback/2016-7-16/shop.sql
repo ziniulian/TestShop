@@ -210,16 +210,14 @@ CREATE TABLE IF NOT EXISTS `tsp_admin_log` (
   PRIMARY KEY (`log_id`),
   KEY `log_time` (`log_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=641 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `tsp_admin_log`
 --
 
 INSERT INTO `tsp_admin_log` (`log_id`, `log_time`, `user_id`, `log_info`, `ip_address`) VALUES
-(625, 1467432729, 1, '删除操作日志: ', '0.0.0.0'),
-(639, 1468311609, 1, '编辑配送区域: 运费到付', '0.0.0.0'),
-(640, 1468604261, 1, '编辑权限管理: shop', '0.0.0.0');
+(1, 1467432729, 1, '删除操作日志: ', '0.0.0.0');
 
 -- --------------------------------------------------------
 
@@ -275,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `tsp_admin_user` (
 
 INSERT INTO `tsp_admin_user` (`user_id`, `user_name`, `email`, `password`, `ec_salt`, `add_time`, `last_login`, `last_ip`, `action_list`, `nav_list`, `lang_type`, `agency_id`, `suppliers_id`, `todolist`, `role_id`) VALUES
 (1, 'ziniulian', '', '57eb8e0436df8fc93ffa810ecd4c195a', '6429', 1467174607, 1468604113, '0.0.0.0', 'all', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, NULL),
-(4, 'shop', 'ziniulian@163.com', '43c2eaa10e7f4047f4ce837df44c307d', '496', 1468604163, 1468604284, '0.0.0.0', 'goods_manage,remove_back,cat_manage,cat_drop,attr_manage,brand_manage,comment_priv,tag_manage,goods_type,goods_auto,virualcard,picture_batch,goods_export,goods_batch,gen_goods_script,feedback_priv,integrate_users,sync_users,users_manage,users_drop,user_rank,surplus_manage,account_manage,db_backup,db_renew,order_os_edit,order_ps_edit,order_ss_edit,order_edit,order_view,order_view_finished,repay_manage,booking,sale_order_stats,client_flow_stats,delivery_view,back_view', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, 0);
+(4, 'shop', 'ziniulian@163.com', '43c2eaa10e7f4047f4ce837df44c307d', '496', 1468604163, 1468604284, '0.0.0.0', 'goods_manage,remove_back,cat_manage,cat_drop,attr_manage,brand_manage,comment_priv,tag_manage,goods_type,goods_auto,virualcard,picture_batch,goods_export,goods_batch,gen_goods_script,feedback_priv,integrate_users,sync_users,users_manage,users_drop,user_rank,surplus_manage,account_manage,db_backup,db_renew,order_os_edit,order_ps_edit,order_ss_edit,order_edit,order_view,order_view_finished,repay_manage,booking,sale_order_stats,client_flow_stats,delivery_view,back_view', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list', '', 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1299,8 +1297,8 @@ INSERT INTO `tsp_goods` (`goods_id`, `cat_id`, `goods_sn`, `goods_name`, `goods_
 (191, 21, 'XFJY_condiment_00037', '红曲粉', '+', 1, 0, '', 1000, '0.000', '72.95', '56.12', '0.00', 0, 0, 100, '红曲粉', '红曲粉 的简述', '欢迎光临 幸福家园绿色健康超市：红曲粉 的详细描述', 'http://img14.360buyimg.com/n1/jfs/t1303/151/434485965/223121/a62080b9/5576a7c9N22a995fb.jpg', 'http://img14.360buyimg.com/n1/jfs/t1303/151/434485965/223121/a62080b9/5576a7c9N22a995fb.jpg', 'http://img14.360buyimg.com/n1/jfs/t1303/151/434485965/223121/a62080b9/5576a7c9N22a995fb.jpg', 1, '', 1, 1, 0, 0, 1467432460, 100, 0, 0, 0, 0, 0, 0, 1467432460, 0, '', -1, -1, NULL, NULL),
 (192, 21, 'XFJY_condiment_00038', '八角', '+', 2, 0, '', 1000, '0.000', '44.74', '34.42', '0.00', 0, 0, 100, '八角', '八角 的简述', '欢迎光临 幸福家园绿色健康超市：八角 的详细描述', 'http://img12.360buyimg.com/n1/jfs/t2479/29/1132994659/342483/56684717/567cbc30N78789d87.jpg', 'http://img12.360buyimg.com/n1/jfs/t2479/29/1132994659/342483/56684717/567cbc30N78789d87.jpg', 'http://img12.360buyimg.com/n1/jfs/t2479/29/1132994659/342483/56684717/567cbc30N78789d87.jpg', 1, '', 1, 1, 0, 0, 1467432460, 100, 0, 0, 0, 0, 0, 0, 1467432460, 0, '', -1, -1, NULL, NULL),
 (193, 21, 'XFJY_condiment_00039', '肉蔻', '+', 8, 0, '', 1000, '0.000', '70.17', '53.98', '0.00', 0, 0, 100, '肉蔻', '肉蔻 的简述', '欢迎光临 幸福家园绿色健康超市：肉蔻 的详细描述', 'http://img12.360buyimg.com/n1/jfs/t2404/187/2124073447/247476/5722d78f/56976747Na2974ab8.jpg', 'http://img12.360buyimg.com/n1/jfs/t2404/187/2124073447/247476/5722d78f/56976747Na2974ab8.jpg', 'http://img12.360buyimg.com/n1/jfs/t2404/187/2124073447/247476/5722d78f/56976747Na2974ab8.jpg', 1, '', 1, 1, 0, 0, 1467432460, 100, 0, 0, 1, 0, 0, 0, 1467432460, 0, '', -1, -1, NULL, NULL),
-(194, 24, 'XFJY_donate_00001', '小树', '+', 0, 0, '', 65500, '0.000', '18.00', '15.00', '0.00', 0, 0, 255, '', '', '', 'http://pic.qjimage.com/east019/high/east-ep-a71-7620687.jpg', 'http://pic.qjimage.com/east019/high/east-ep-a71-7620687.jpg', 'http://pic.qjimage.com/east019/high/east-ep-a71-7620687.jpg', 0, 'virtual_card', 1, 1, 0, 0, 1468210490, 100, 0, 0, 0, 0, 0, 0, 1468210954, 0, '', 0, 0, 0, NULL),
-(195, 24, 'XFJY_donate_00002', '小苗', '+', 0, 0, '', 65500, '0.000', '3.00', '2.50', '0.00', 0, 0, 255, '', '', '', 'http://pic.qjimage.com/amana_rf003/high/10274001199.jpg', 'http://pic.qjimage.com/amana_rf003/high/10274001199.jpg', 'http://pic.qjimage.com/amana_rf003/high/10274001199.jpg', 0, 'virtual_card', 1, 1, 0, 0, 1468210565, 100, 0, 0, 0, 0, 0, 0, 1468210909, 0, '', -1, -1, 0, NULL);
+(194, 24, 'XFJY_donate_00001', '小树', '+', 0, 0, '', 1000, '0.000', '18.00', '15.00', '0.00', 0, 0, 255, '', '', '', 'http://pic.qjimage.com/east019/high/east-ep-a71-7620687.jpg', 'http://pic.qjimage.com/east019/high/east-ep-a71-7620687.jpg', 'http://pic.qjimage.com/east019/high/east-ep-a71-7620687.jpg', 0, 'virtual_card', 1, 1, 0, 0, 1468210490, 100, 0, 0, 0, 0, 0, 0, 1468210954, 0, '', 0, 0, 0, NULL),
+(195, 24, 'XFJY_donate_00002', '小苗', '+', 0, 0, '', 1000, '0.000', '3.00', '2.50', '0.00', 0, 0, 255, '', '', '', 'http://pic.qjimage.com/amana_rf003/high/10274001199.jpg', 'http://pic.qjimage.com/amana_rf003/high/10274001199.jpg', 'http://pic.qjimage.com/amana_rf003/high/10274001199.jpg', 0, 'virtual_card', 1, 1, 0, 0, 1468210565, 100, 0, 0, 0, 0, 0, 0, 1468210909, 0, '', -1, -1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -5570,9 +5568,6 @@ CREATE TABLE IF NOT EXISTS `tsp_sessions` (
 -- 转存表中的数据 `tsp_sessions`
 --
 
-INSERT INTO `tsp_sessions` (`sesskey`, `expiry`, `userid`, `adminid`, `ip`, `user_name`, `user_rank`, `discount`, `email`, `data`) VALUES
-('c1eee2e1435774a2e7601ad029aa5535', 1468633096, 0, 4, '0.0.0.0', '0', 0, '0.00', '0', '');
-
 -- --------------------------------------------------------
 
 --
@@ -5590,9 +5585,6 @@ CREATE TABLE IF NOT EXISTS `tsp_sessions_data` (
 --
 -- 转存表中的数据 `tsp_sessions_data`
 --
-
-INSERT INTO `tsp_sessions_data` (`sesskey`, `expiry`, `data`) VALUES
-('c1eee2e1435774a2e7601ad029aa5535', 4294967295, 'a:4:{s:10:"admin_name";s:4:"shop";s:11:"action_list";s:470:"goods_manage,remove_back,cat_manage,cat_drop,attr_manage,brand_manage,comment_priv,tag_manage,goods_type,goods_auto,virualcard,picture_batch,goods_export,goods_batch,gen_goods_script,feedback_priv,integrate_users,sync_users,users_manage,users_drop,user_rank,surplus_manage,account_manage,db_backup,db_renew,order_os_edit,order_ps_edit,order_ss_edit,order_edit,order_view,order_view_finished,repay_manage,booking,sale_order_stats,client_flow_stats,delivery_view,back_view";s:10:"last_check";i:1468604296;s:12:"suppliers_id";s:1:"0";}');
 
 -- --------------------------------------------------------
 
