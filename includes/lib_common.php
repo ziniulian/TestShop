@@ -1795,6 +1795,12 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
             }
 
             break;
+
+	// 新增 捐赠页面 BY LZR （2016-7-17）
+	case 'donate':
+		$uri = $rewrite ? 'donate-page' . $page : 'donate.php?page=' . $page;
+		break;
+
         default:
             return false;
             break;

@@ -520,6 +520,7 @@ function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1
         case 'exchange':
             $uri_args = array('cid' => $cat, 'integral_min'=>$price_min, 'integral_max'=>$price_max, 'sort' => $sort, 'order' => $order, 'display' => $display_type);
             break;
+
     }
     /* 分页样式 */
     $pager['styleid'] = isset($GLOBALS['_CFG']['page_style'])? intval($GLOBALS['_CFG']['page_style']) : 0;
@@ -2069,7 +2070,7 @@ function url_domain()
 }
 
 function get_region_name($rid){
-    return $GLOBALS['db']->GetOne("SELECT region_name FROM ".$GLOBALS['ecs']->table('region')." WHERE region_id='$rid'");
+	return $GLOBALS['db']->GetOne("SELECT region_name FROM ".$GLOBALS['ecs']->table('region')." WHERE region_id='$rid'");
 }
 
 ?>

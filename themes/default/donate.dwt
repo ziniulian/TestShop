@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$page_title}</title>
+		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
+		{insert_scripts files='LZR/ShopBase.js'}
+
+		<script type="text/javascript">
+			var hw = new (HelloWorld())();
+		</script>
+	</head>
+
+	<body>
+		<div class="boso">
+			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<div class="base">
+				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+				<div class="test">
+					捐赠记录 {$donate_list}
+				</div>
+				<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+			</div>
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+		</div>
+	</body>
+</html>
