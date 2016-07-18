@@ -10,7 +10,7 @@
 					--><div id=cartNum class="num"></div><!--
 				--></div><!--
 			--></a><!--
-			--><a href="user.php"><!--
+			--><a href="user.php?act=order_list"><!--
 				--><div class="login">{$user_info.username}</div><!--
 			--></a><!--
 			--><a target="_self" href="user.php?act=logout"><!--

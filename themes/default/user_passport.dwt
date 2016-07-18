@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
-		{insert_scripts files='common.js,user.js,transport.js'}
+		{insert_scripts files='common.js,user.js,transport.js,utils.js'}
 	</head>
 
 	<body>
@@ -16,6 +16,12 @@
 					<!-- #BeginLibraryItem "/library/user_login.lbi" --><!-- #EndLibraryItem -->
 				<!--{/if}-->
 				<!--#登录界面 end-->
+
+				<!--#注册界面 start-->
+				<!-- {if $action eq 'register'} -->
+					<!-- #BeginLibraryItem "/library/user_register.lbi" --><!-- #EndLibraryItem -->
+				<!--{/if}-->
+				<!--#注册界面 end-->
 			</div>
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 		</div>

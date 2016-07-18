@@ -5,6 +5,10 @@
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
+		{insert_scripts files='LZR/ShopBase.js'}
+		<script type="text/javascript">
+			var hw = new (HelloWorld())();
+		</script>
 	</head>
 
 	<body>
@@ -14,7 +18,10 @@
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 				<!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
 				<div class="userBody">
-					<div class="test">...</div>
+					<!-- {if $action eq "collection_list"} -->
+						<!-- #BeginLibraryItem "/library/collection_list.lbi" --><!-- #EndLibraryItem -->
+						<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+					<!-- {/if} -->
 				</div>
 			</div>
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->

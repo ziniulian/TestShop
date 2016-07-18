@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="user">
+	<form name="formUser" action="user.php" method="post" onSubmit="return register();">
+		<div class="needOut"><input id="username" name="username" type="text" placeholder="{$lang.label_username}" class="txt" onblur="is_registered(this.value);" /><div class="need">*</div></div>
+		<div class="needOut"><input id="email" name="email" type="text" placeholder="{$lang.label_email}" class="txt" onblur="checkEmail(this.value);" /><div class="need">*</div></div>
+		<div class="needOut"><input id="password1" name="password" type="password" placeholder="{$lang.label_password}" class="txt"  onblur="check_password(this.value);" /><div class="need">*</div></div>
+		<div class="needOut"><input id="confirm_password" name="confirm_password" type="password" placeholder="{$lang.label_confirm_password}" class="txt"  onblur="check_conform_password(this.value);" /><div class="need">*</div></div>
+
+		<!-- {foreach from=$extend_info_list item=field} -->
+			<!-- {if $field.id eq 6} -->
+				<!-- <select name='sel_question'>
+					<option value='0'>{$lang.sel_question}</option>
+					{html_options options=$passwd_questions}
+				</select>
+				<input name="extend_field{$field.id}" type="text" placeholder="{$field.reg_field_name}" class="txt" /> -->
+			<!-- {else} -->
+				<input name="extend_field{$field.id}" type="text" placeholder="{$field.reg_field_name}" class="txt" />
+			<!-- {/if} -->
+		<!-- {/foreach} -->
+
+		<input type="checkbox" value="1" name="agreement"  checked="checked" /> <span class="directions"> {$lang.agreement}</span>
+		<input type="hidden" name="act" value="act_register" />
+		<input type="hidden" name="back_act" value="{$back_act}" />
+		<input type="submit" name="submit" value="注册" class="btn" />
+	</form>
+	<a href="user.php?act=login" class="noa"><div class="link">{$lang.want_login}</div></a>
+	<!-- <a href="user.php?act=qpassword_name" class="noa"><div class="link">{$lang.get_password_by_question}</div></a>
+	<a href="user.php?act=get_password" class="noa"><div class="link">{$lang.get_password_by_mail}</div></a> -->
+</div>

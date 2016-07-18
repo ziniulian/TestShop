@@ -30,7 +30,7 @@ if (!defined('IN_ECS'))
  */
 function get_collection_goods($user_id, $num = 10, $start = 0)
 {
-    $sql = 'SELECT g.goods_id, g.goods_name, g.market_price, g.shop_price AS org_price, '.
+    $sql = 'SELECT g.goods_id, g.goods_name,g.goods_thumb , g.market_price, g.shop_price AS org_price, '.
                 "IFNULL(mp.user_price, g.shop_price * '$_SESSION[discount]') AS shop_price, ".
                 'g.promote_price, g.promote_start_date,g.promote_end_date, c.rec_id, c.is_attention' .
             ' FROM ' . $GLOBALS['ecs']->table('collect_goods') . ' AS c' .
@@ -61,6 +61,8 @@ function get_collection_goods($user_id, $num = 10, $start = 0)
         $goods_list[$row['goods_id']]['shop_price']    = price_format($row['shop_price']);
         $goods_list[$row['goods_id']]['promote_price'] = ($promote_price > 0) ? price_format($promote_price) : '';
         $goods_list[$row['goods_id']]['url']           = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
+
+	$goods_list[$row['goods_id']]['goods_thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
     }
 
     return $goods_list;

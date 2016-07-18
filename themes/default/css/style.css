@@ -719,7 +719,19 @@ body {
 	text-align: left;
 }
 
-.boso .user .directions{
+.boso .user .need {
+	position: absolute;
+	top: 1.5rem;
+	right: -1rem;
+	font-size: 1rem;
+	color: red;
+}
+
+.boso .user .needOut {
+	position: relative;
+}
+
+.boso .user .directions {
 	font-size: 0.75rem;
 	font-style: italic;
 	line-height: 1.2;
