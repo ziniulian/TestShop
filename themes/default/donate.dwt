@@ -17,9 +17,22 @@
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<div class="base">
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-				<div class="test">
+				<div class="orderList">
+					<div>
+						<div class="title txt sn">捐赠人</div>
+						<div class="title txt tim">捐赠时间</div>
+						<div class="title txt other">小树</div>
+						<div class="title txt other">小苗</div>
+						<div class="title txt tim">总计捐赠金额</div>
+					</div>
 					<!--{foreach from=$donate_list item=item}-->
-						{$item.nam} , {$item.tim} , {$item.tnm} , {$item.snm} , {$item.total}</br>
+						<div class="row">
+							<div class="txt sn">{$item.nam}</div>
+							<div class="txt tim">{$item.tim}</div>
+							<div class="txt other">{$item.tnm} 棵</div>
+							<div class="txt other">{$item.snm} 棵</div>
+							<div class="txt tim">￥{$item.total}元</div>
+						</div>
 					<!--{/foreach}-->
 				</div>
 				<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->

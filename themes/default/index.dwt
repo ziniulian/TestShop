@@ -20,6 +20,14 @@
 						<div class="title">本店公告</div>
 						<div class="content">欢迎光临 {$shop_name} ！<br/><br/>本店服务宗旨：诚信、服务、进取、创新。</div>
 					</div>
+
+					<div class="link">
+						<a href="./donate.php"><img src="http://222.73.134.243/images/pic10.jpg"></a>
+						<a href="./donate.php"><img src="http://222.73.134.243/images/pic10.jpg"></a>
+						<a href="./donate.php"><img src="http://222.73.134.243/images/pic10.jpg"></a>
+						<a href="./donate.php"><img src="http://222.73.134.243/images/pic10.jpg"></a>
+						<a href="./donate.php"><img src="http://222.73.134.243/images/pic10.jpg"></a>
+					</div>
 				</div>
 
 				<div class="goodslist">
@@ -35,7 +43,7 @@
 								<div class="img">
 									<div class="left"></div>
 									<div class="mid">
-											<img src="{$g.thumb}"/>
+										<img src="{$g.thumb}"/>
 									</div>
 								</div>
 
