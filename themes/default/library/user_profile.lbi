@@ -1,0 +1,74 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='common.js,user.js,utils.js'}
+<script type="text/javascript">
+	{foreach from=$lang.profile_js item=item key=key}
+		var {$key} = "{$item}";
+	{/foreach}
+</script>
+
+<div class="userPro">
+	<form name="formPassword" action="user.php" method="post" onSubmit="return editPassword()" >
+		<div class="row">
+			<div class="key">{$lang.old_password} ： </div>
+			<input name="old_password" type="password" placeholder="{$lang.old_password}" class="txt" />
+		</div>
+		<div class="row">
+			<div class="key">{$lang.new_password} ： </div>
+			<input name="new_password" type="password" placeholder="{$lang.new_password}" class="txt" />
+		</div>
+		<div class="row">
+			<div class="key"></div>
+			<input name="comfirm_password" type="password" placeholder="{$lang.confirm_password}" class="txt" />
+		</div>
+		<div class="submitRow">
+			<input name="act" type="hidden" value="act_edit_password" />
+			<input name="submit" type="submit" class="btn" value="修改登录密码" />
+		</div>
+	</form>
+</div>
+
+<div class="userPro">
+	<form name="formEdit" action="user.php" method="post" onSubmit="return userEdit()" >
+		<div class="row">
+			<div class="key">{$lang.birthday} ： </div>
+			<div class="txt">
+				{html_select_date field_order=YMD prefix=birthday start_year=-60 end_year=+1 display_days=true month_format=%m day_value_format=%02d time=$profile.birthday}
+			</div>
+		</div>
+		<div class="row">
+			<div class="key">性别 ： </div>
+			<div class="txt">
+				<input type="radio" name="sex" value="0" {if $profile.sex==0}checked="checked"{/if} />
+				{$lang.secrecy}&nbsp;&nbsp;
+				<input type="radio" name="sex" value="1" {if $profile.sex==1}checked="checked"{/if} />
+				{$lang.male}&nbsp;&nbsp;
+				<input type="radio" name="sex" value="2" {if $profile.sex==2}checked="checked"{/if} />
+				{$lang.female}&nbsp;&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="key">{$lang.email} ： </div>
+			<input name="email" type="text" value="{$profile.email}" class="txt" />
+		</div>
+
+		<!-- {foreach from=$extend_info_list item=field} -->
+			<!-- {if $field.id eq 6} -->
+				<!-- <select name='sel_question'>
+					<option value='0'>{$lang.sel_question}</option>
+					{html_options options=$passwd_questions}
+				</select>
+				<input name="extend_field{$field.id}" type="text" placeholder="{$field.reg_field_name}" class="txt" /> -->
+			<!-- {else} -->
+				<div class="row">
+					<div class="key">{$field.reg_field_name} ： </div>
+					<input name="extend_field{$field.id}" type="text" value="{$field.content}" class="txt" />
+				</div>
+			<!-- {/if} -->
+		<!-- {/foreach} -->
+
+		<div class="submitRow">
+			<input name="act" type="hidden" value="act_edit_profile" />
+			<input name="submit" type="submit" class="btn" value="修改用户信息" />
+		</div>
+	</form>
+</div>

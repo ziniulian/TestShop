@@ -5,6 +5,10 @@
 		<title>{$page_title}</title>
 		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
+		{insert_scripts files='LZR/ShopBase.js'}
+		<script type="text/javascript">
+			var hw = new (HelloWorld())();
+		</script>
 	</head>
 
 	<body>
@@ -14,6 +18,10 @@
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 				<!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
 				<div class="userBody">
+					<!-- {if $action eq "profile"} -->
+						<!-- #BeginLibraryItem "/library/user_profile.lbi" --><!-- #EndLibraryItem -->
+					<!-- {/if} -->
+
 					<!-- {if $action eq "order_list"} -->
 						<!-- #BeginLibraryItem "/library/order_list.lbi" --><!-- #EndLibraryItem -->
 						<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
@@ -21,6 +29,10 @@
 
 					<!-- {if $action eq "order_detail"} -->
 						<!-- #BeginLibraryItem "/library/order_detail.lbi" --><!-- #EndLibraryItem -->
+					<!-- {/if} -->
+
+					<!-- {if $action eq "address_list"} -->
+						<!-- #BeginLibraryItem "/library/address_list.lbi" --><!-- #EndLibraryItem -->
 					<!-- {/if} -->
 				</div>
 			</div>

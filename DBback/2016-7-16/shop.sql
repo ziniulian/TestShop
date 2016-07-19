@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 07 月 16 日 09:39
+-- 生成日期: 2016 年 07 月 19 日 13:46
 -- 服务器版本: 5.5.40
 -- PHP 版本: 5.2.17
 
@@ -781,18 +781,7 @@ CREATE TABLE IF NOT EXISTS `tsp_collect_goods` (
   KEY `user_id` (`user_id`),
   KEY `goods_id` (`goods_id`),
   KEY `is_attention` (`is_attention`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- 转存表中的数据 `tsp_collect_goods`
---
-
-INSERT INTO `tsp_collect_goods` (`rec_id`, `user_id`, `goods_id`, `add_time`, `is_attention`) VALUES
-(1, 7, 102, 1467703777, 0),
-(2, 7, 130, 1467704545, 0),
-(3, 7, 0, 1467709237, 0),
-(4, 7, 110, 1467709270, 0),
-(5, 7, 109, 1467709274, 0);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5564,10 +5553,6 @@ CREATE TABLE IF NOT EXISTS `tsp_sessions` (
   KEY `expiry` (`expiry`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `tsp_sessions`
---
-
 -- --------------------------------------------------------
 
 --
@@ -5581,10 +5566,6 @@ CREATE TABLE IF NOT EXISTS `tsp_sessions_data` (
   PRIMARY KEY (`sesskey`),
   KEY `expiry` (`expiry`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tsp_sessions_data`
---
 
 -- --------------------------------------------------------
 
@@ -6109,6 +6090,7 @@ CREATE TABLE IF NOT EXISTS `tsp_users` (
   `credit_line` decimal(10,2) unsigned NOT NULL,
   `passwd_question` varchar(50) DEFAULT NULL,
   `passwd_answer` varchar(255) DEFAULT NULL,
+  `true_name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_name`),
   KEY `email` (`email`),
@@ -6120,8 +6102,8 @@ CREATE TABLE IF NOT EXISTS `tsp_users` (
 -- 转存表中的数据 `tsp_users`
 --
 
-INSERT INTO `tsp_users` (`user_id`, `email`, `user_name`, `password`, `question`, `answer`, `sex`, `birthday`, `user_money`, `frozen_money`, `pay_points`, `rank_points`, `address_id`, `reg_time`, `last_login`, `last_time`, `last_ip`, `visit_count`, `user_rank`, `is_special`, `ec_salt`, `salt`, `parent_id`, `flag`, `alias`, `msn`, `qq`, `office_phone`, `home_phone`, `mobile_phone`, `is_validated`, `credit_line`, `passwd_question`, `passwd_answer`) VALUES
-(7, 'ziniulian@163.com', 'ziniulian', '5e767d23ef1c0367008c0b8e4395118c', '', '', 1, '1985-06-17', '0.00', '0.00', 0, 0, 0, 1467432109, 1467703670, '0000-00-00 00:00:00', '0.0.0.0', 4, 0, 0, '293', '0', 0, 0, '', '', '', '', '', '', 0, '0.00', NULL, NULL);
+INSERT INTO `tsp_users` (`user_id`, `email`, `user_name`, `password`, `question`, `answer`, `sex`, `birthday`, `user_money`, `frozen_money`, `pay_points`, `rank_points`, `address_id`, `reg_time`, `last_login`, `last_time`, `last_ip`, `visit_count`, `user_rank`, `is_special`, `ec_salt`, `salt`, `parent_id`, `flag`, `alias`, `msn`, `qq`, `office_phone`, `home_phone`, `mobile_phone`, `is_validated`, `credit_line`, `passwd_question`, `passwd_answer`, `true_name`) VALUES
+(7, 'ziniulian@163.com', 'ziniulian', '5e767d23ef1c0367008c0b8e4395118c', '', '', 1, '1985-06-17', '0.00', '0.00', 0, 0, 0, 1467432109, 1467703670, '0000-00-00 00:00:00', '0.0.0.0', 4, 0, 0, '293', '0', 0, 0, '', '', '', '', '', '', 0, '0.00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

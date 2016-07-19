@@ -18,6 +18,10 @@
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 				<!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
 				<div class="userBody">
+					<!-- {if $action eq "default"} -->
+						<!-- #BeginLibraryItem "/library/user_default.lbi" --><!-- #EndLibraryItem -->
+					<!-- {/if} -->
+
 					<!-- {if $action eq "collection_list"} -->
 						<!-- #BeginLibraryItem "/library/collection_list.lbi" --><!-- #EndLibraryItem -->
 						<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->

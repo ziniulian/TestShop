@@ -1,9 +1,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <div class="userMemu">
 	<!-- <a href="user.php" {if $action eq 'default'}class="scd"{/if}>{$lang.label_welcome}</a> -->
+	<a href="user.php?act=profile"{if $action eq 'profile'}class="scd"{/if}>{$lang.label_profile}</a>
 	<a href="user.php?act=order_list"{if $action eq 'order_list'|| $action eq 'order_detail'}class="scd"{/if}>{$lang.label_order}</a>
 	<a href="user.php?act=collection_list"{if $action eq 'collection_list'}class="scd"{/if}>{$lang.label_collection}</a>
-	<!-- <a href="user.php?act=address_list"{if $action eq 'address_list'}class="scd"{/if}>{$lang.label_address}</a> -->
+	<a href="user.php?act=address_list"{if $action eq 'address_list'}class="scd"{/if}>{$lang.label_address}</a>
 	<a href="flow.php?step=cart">购物车</a>
 	<a href="user.php?act=logout">退出</a>
 </div>
