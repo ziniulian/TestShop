@@ -1068,7 +1068,7 @@ function virtual_card_shipping ($goods, $order_sn, &$msg, $process = 'other')
     }
 
      /* 取出卡片信息 */
-     $sql = "SELECT card_id, card_sn, card_password, end_date, crc32 FROM ".$GLOBALS['ecs']->table('virtual_card')." WHERE goods_id = '$goods[goods_id]' AND is_saled = 0  LIMIT " . $goods['num'];
+     $sql = "SELECT card_id, card_sn, card_password, end_date, crc32 FROM ".$GLOBALS['ecs']->table('virtual_card')." WHERE goods_id = '$goods[goods_id]' AND is_saled = 0 ORDER BY order_sn LIMIT " . $goods['num'];
      $arr = $GLOBALS['db']->getAll($sql);
 
      $card_ids = array();
@@ -1102,7 +1102,8 @@ function virtual_card_shipping ($goods, $order_sn, &$msg, $process = 'other')
 
      /* 标记已经取出的卡片 */
     $sql = "UPDATE ".$GLOBALS['ecs']->table('virtual_card')." SET ".
-           "is_saled = 1 ,".
+           // "is_saled = 1 ,".
+	"is_saled = 0 ,".
            "order_sn = '$order_sn' ".
            "WHERE " . db_create_in($card_ids, 'card_id');
     if (!$GLOBALS['db']->query($sql, 'SILENT'))
@@ -1113,8 +1114,8 @@ function virtual_card_shipping ($goods, $order_sn, &$msg, $process = 'other')
     }
 
     /* 更新库存 */
-    $sql = "UPDATE ".$GLOBALS['ecs']->table('goods'). " SET goods_number = goods_number - '$goods[num]' WHERE goods_id = '$goods[goods_id]'";
-    $GLOBALS['db']->query($sql);
+    // $sql = "UPDATE ".$GLOBALS['ecs']->table('goods'). " SET goods_number = goods_number - '$goods[num]' WHERE goods_id = '$goods[goods_id]'";
+    // $GLOBALS['db']->query($sql);
 
     if (true)
     {
