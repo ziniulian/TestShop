@@ -105,8 +105,9 @@ class xingwang
 
         /* 生成加密签名串 请务必按照如下顺序和规则组成加密串！*/
 	
-     
-	$serverUrl='https://ceshi.allinpay.com/gateway/index.do';
+
+	// $serverUrl='https://ceshi.allinpay.com/gateway/index.do';	// 测试环境
+	$serverUrl='https://service.allinpay.com/gateway/index.do';	// 生产环境
 	$inputCharset='';
 	$pickupUrl=$receiveUrl;
 	$receiveUrl=$receiveUrl;
@@ -206,7 +207,8 @@ class xingwang
 	// echo $signMsg;exit;
 	 
 	 $html ='';
-	 $html .='<form name="form2" action="http://ceshi.allinpay.com/gateway/index.do" method="post">';
+	 // $html .='<form name="form2" action="http://ceshi.allinpay.com/gateway/index.do" method="post">';	// 测试环境
+	 $html .='<form name="form2" action="http://service.allinpay.com/gateway/index.do" method="post">';	// 生产环境
 	 $html .='<input type="hidden" name="inputCharset" id="inputCharset" value="'.$inputCharset.'" />';
 	 $html .='<input type="hidden" name="pickupUrl" id="pickupUrl" value="'.$pickupUrl.'"/>';
 	 $html .='<input type="hidden" name="receiveUrl" id="receiveUrl" value="'.$receiveUrl.'"/>';
