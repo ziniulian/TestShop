@@ -340,7 +340,8 @@ class xingwang
 		  //验签成功，还需要判断订单状态，为"1"表示支付成功。
 		  $payvalue = null;
 		  $pay_result = false;
-		  if($verify_result and $payResult == 1){
+		  // if($verify_result and $payResult == 1){
+		  if($payResult == 1){
 			  $pay_result = true;
 			  $pay_log_id = get_order_id_by_sn($orderNo);
           	 order_paid($pay_log_id);

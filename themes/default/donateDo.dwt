@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$page_title}</title>
+		<link href="{$ecs_template_path}/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="{$ecs_template_path}/css/icon/iconfont.css" rel="stylesheet" type="text/css" />
+		{insert_scripts files='LZR/ShopBase.js,common.js,transport.js'}
+		<script type="text/javascript">
+			var hw = new (HelloWorld())();
+		</script>
+	</head>
+
+	<body>
+		<div class="boso">
+			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<div class="base">
+				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+				<div class="donateDo">
+					<div>
+						<div class="icon-zhiwu donateTitle"><span>小苗</span></div><!--
+						--><div class="number">
+							<div class="btn noselect" onclick="hw.chgDonate('seedlingNum', -1);">-</div><!--
+							--><input id=seedlingNum type="text" value=0 class="num" onchange="hw.chgDonate('seedlingNum');"></input><!--
+							--><div class="btn noselect" onclick="hw.chgDonate('seedlingNum', 1);">+</div>
+						</div><!--
+						--><div class="clear noselect" onclick="hw.chgDonate('seedlingNum', 0);">清空</div>
+					</div>
+					<div>
+						<div class="icon-shu donateTitle"><span>小树</span></div><!--
+						--><div class="number">
+							<div class="btn noselect" onclick="hw.chgDonate('treeNum', -1);">-</div><!--
+							--><input id=treeNum type="text" value=0 class="num" onchange="hw.chgDonate('treeNum');"></input><!--
+							--><div class="btn noselect" onclick="hw.chgDonate('treeNum', 1);">+</div>
+						</div><!--
+						--><div class="clear noselect" onclick="hw.chgDonate('treeNum', 0);">清空</div>
+					</div>
+					<div class="line">
+						<div id="price" class="price"></div>
+						<a id="btn_buy" class="noa" href=
+							<!-- {if $smarty.session.user_id eq 0} -->
+								"user.php"
+							<!-- {else} -->
+								"javascript:hw.buy();"
+							<!-- {/if} -->
+						class="noa">
+							<div class="buy">捐赠</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		{literal}
+		hw.buy = function (id) {
+			hw.donate(parseInt(document.getElementById("seedlingNum").value, 10), parseInt(document.getElementById("treeNum").value, 10));
+		}
+		hw.flush = function () {
+			var pt = 15;
+			var ps = 2.5;
+			var v = parseInt(document.getElementById("seedlingNum").value, 10) * ps;
+			v += parseInt(document.getElementById("treeNum").value, 10) * pt;
+			document.getElementById("price").innerHTML = "￥ " + Math.floor(v*100)/100 + " 元";
+		}
+		hw.chgDonate = function (id, n) {
+			var nn = document.getElementById(id);
+			var v = parseInt(nn.value, 10);
+			if (n === 0) {
+				v = 0;
+			} else if (n) {
+				v += n;
+			}
+			if (v < 0) {
+				v = 0;
+			}
+			nn.value = v;
+			hw.flush();
+		}
+		{/literal}
+	</script>
+</html>
