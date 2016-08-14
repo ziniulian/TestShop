@@ -8,7 +8,10 @@
 		<input type="hidden" name="back_act" value="{$back_act}" />
 		<input type="submit" name="submit" value="登录" class="btn" />
 	</form>
-	<!-- <a href="user.php?act=register" class="noa"> --><a href="http://www.gsxfjy.com/sysIndex!adduser.do" class="noa"><div class="link">如果您不是会员，请点此注册</div></a>
+	<a href="user.php?act=register" class="noa">
+	<!-- <a href="http://www.gsxfjy.com/sysIndex!adduser.do" class="noa"> -->
+		<div class="link">如果您不是会员，请点此注册</div>
+	</a>
 	<!-- <a href="user.php?act=qpassword_name" class="noa"><div class="link">{$lang.get_password_by_question}</div></a>
 	<a href="user.php?act=get_password" class="noa"><div class="link">{$lang.get_password_by_mail}</div></a> -->
 </div>

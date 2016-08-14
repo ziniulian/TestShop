@@ -20,8 +20,8 @@
 			<a href="user.php"><!--
 				--><div class="login">{$lang.label_login}</div><!--
 			--></a><!--
-			--><!--<a href="user.php?act=register">--><!--
-			--><a href="http://www.gsxfjy.com/sysIndex!adduser.do"><!--
+			--><a href="user.php?act=register"><!--
+			--><!-- <a href="http://www.gsxfjy.com/sysIndex!adduser.do"> --><!--
 				--><div class="login">{$lang.label_regist}</div><!--
 			--></a>
 		{/if}
