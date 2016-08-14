@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * donate
@@ -16,9 +16,6 @@ if ((DEBUG_MODE & 2) != 2)
     $smarty->caching = true;
 }
 
-/* 清除缓存 */
-clear_cache_files();
-
 /*------------------------------------------------------ */
 //-- INPUT
 /*------------------------------------------------------ */
@@ -27,11 +24,6 @@ clear_cache_files();
 //-- PROCESSOR
 /*------------------------------------------------------ */
 
-/* 获得页面的缓存ID */
-$cache_id = sprintf('%X', crc32($_CFG['lang']));
-
-if (!$smarty->is_cached('donateDo.dwt', $cache_id))
-{
 	/* 如果页面没有被缓存则重新获得页面的内容 */
 	assign_template();
 	$position = assign_ur_here(0, "义务捐赠");
@@ -39,9 +31,11 @@ if (!$smarty->is_cached('donateDo.dwt', $cache_id))
 	$smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
 	$smarty->assign('feed_url',         ($_CFG['rewrite'] == 1) ? "feed-c$cat_id.xml" : 'feed.php?cat=' . $cat_id); // RSS URL
 
-	assign_dynamic('donateDo');
+if ($_SESSION['user_id'] > 0) {
+	$smarty->display('donateDo.dwt', $cache_id);
+} else {
+	ecs_header("Location:./user.php\n");
+	exit;
 }
-
-$smarty->display('donateDo.dwt', $cache_id);
 
 ?>

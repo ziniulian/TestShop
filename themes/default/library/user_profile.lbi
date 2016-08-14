@@ -6,6 +6,7 @@
 	{/foreach}
 </script>
 
+<!-- 
 <div class="userPro">
 	<form name="formPassword" action="user.php" method="post" onSubmit="return editPassword()" >
 		<div class="row">
@@ -26,6 +27,7 @@
 		</div>
 	</form>
 </div>
+ -->
 
 <div class="userPro">
 	<form name="formEdit" action="user.php" method="post" onSubmit="return userEdit()" >

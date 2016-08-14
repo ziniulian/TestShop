@@ -95,6 +95,7 @@ function get_donate_list ($page = 1, $size = 20) {
 		`tsp_users` AS u
 		ON oi.user_id = u.user_id)
 	*/
+
 	/*	------ 分用户，按时间排序的查询测试
 		SELECT gog.orid AS orid, oi.order_sn AS sn, u.user_name AS nam, u.true_name AS trueNam, oi.pay_time AS tim, IF(ogt.tnm IS NULL,0,ogt.tnm) AS tnm, IF(ogs.snm IS NULL,0,ogs.snm) AS snm FROM ((((
 		(SELECT DISTINCT og.order_id AS orid FROM `tsp_order_goods` AS og WHERE og.goods_number=og.send_number AND og.goods_id in (194, 195) ) AS gog
@@ -112,6 +113,7 @@ function get_donate_list ($page = 1, $size = 20) {
 		ON oi.user_id = u.user_id)
 		WHERE u.user_name = "ziniulian" AND oi.pay_time >= 1469488000 ORDER BY oi.pay_time DESC LIMIT 0,20
 	*/
+
 	$sql = "SELECT gog.orid AS orid, oi.order_sn AS sn, u.user_name AS nam, oi.pay_time AS tim, IF(ogt.tnm IS NULL,0,ogt.tnm) AS tnm, IF(ogs.snm IS NULL,0,ogs.snm) AS snm FROM (((( " .
 		"(SELECT DISTINCT og.order_id AS orid FROM " . $GLOBALS["ecs"]->table("order_goods") . " AS og WHERE og.goods_number=og.send_number AND og.goods_id in (194, 195) ORDER BY og.order_id DESC " .
 			"LIMIT " . ($page - 1) * $size . "," . $size . ") AS gog " .	// 分页
@@ -137,7 +139,7 @@ function get_donate_list ($page = 1, $size = 20) {
 		$arr[$row["orid"]]["tim"] = local_date('Y-m-d H:i:s', $row['tim']);		// 时间戳转换
 		$arr[$row["orid"]]["tnm"] = $row["tnm"];
 		$arr[$row["orid"]]["snm"] = $row["snm"];
-		$arr[$row["orid"]]["total"] = $row["tnm"] * 15 + $row["snm"] * 2.5;		// 捐赠金额计算
+		$arr[$row["orid"]]["total"] = $row["tnm"] * 15 + $row["snm"] * 2;		// 捐赠金额计算
 	}
 
 	return $arr;

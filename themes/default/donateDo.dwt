@@ -18,7 +18,7 @@
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
 				<div class="donateDo">
 					<div>
-						<div class="icon-zhiwu donateTitle"><span>小苗</span></div><!--
+						<div class="icon-zhiwu donateTitle"><span>沙棘苗</span></div><!--
 						--><div class="number">
 							<div class="btn noselect" onclick="hw.chgDonate('seedlingNum', -1);">-</div><!--
 							--><input id=seedlingNum type="text" value=0 class="num" onchange="hw.chgDonate('seedlingNum');"></input><!--
@@ -27,7 +27,7 @@
 						--><div class="clear noselect" onclick="hw.chgDonate('seedlingNum', 0);">清空</div>
 					</div>
 					<div>
-						<div class="icon-shu donateTitle"><span>小树</span></div><!--
+						<div class="icon-shu donateTitle"><span>沙棘树</span></div><!--
 						--><div class="number">
 							<div class="btn noselect" onclick="hw.chgDonate('treeNum', -1);">-</div><!--
 							--><input id=treeNum type="text" value=0 class="num" onchange="hw.chgDonate('treeNum');"></input><!--
@@ -60,7 +60,7 @@
 		}
 		hw.flush = function () {
 			var pt = 15;
-			var ps = 2.5;
+			var ps = 2;
 			var v = parseInt(document.getElementById("seedlingNum").value, 10) * ps;
 			v += parseInt(document.getElementById("treeNum").value, 10) * pt;
 			document.getElementById("price").innerHTML = "￥ " + Math.floor(v*100)/100 + " 元";
@@ -79,6 +79,7 @@
 			nn.value = v;
 			hw.flush();
 		}
+		hw.flush();
 		{/literal}
 	</script>
 </html>

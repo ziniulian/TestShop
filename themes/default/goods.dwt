@@ -70,13 +70,13 @@
 									--><input id=seedlingNum type="text" value=0 class="txt" onchange="hw.chgDonate('seedlingNum');"></input><!--
 									--><div class="clear noselect" onclick="hw.chgDonate('seedlingNum', 0);">清空</div>
 								</div>
-								<div class="directions">（点击捐赠小苗，每多捐赠一棵苗则多累加2.5元）</div>
+								<div class="directions">（点击捐赠沙棘苗，每多捐赠一棵沙棘苗则多累加2元）</div>
 								<div>
 									<div class="icon-shu donateTitle noselect" onclick="hw.chgDonate('treeNum', 1);"><span>小树</span></div><!--
 									--><input id=treeNum type="text" value=0 class="txt" onchange="hw.chgDonate('treeNum');"></input><!--
 									--><div class="clear noselect" onclick="hw.chgDonate('treeNum', 0);">清空</div>
 								</div>
-								<div class="directions">（点击捐赠小树，每多捐赠一棵树则多累加15元）</div>
+								<div class="directions">（点击捐值沙棘树，每多捐值一棵沙棘树则多累加15元）</div>
 							</div>
 							<div class="line"></div>
 
@@ -145,7 +145,7 @@
 			var v = parseInt(document.getElementById("num").value, 10);
 			var p = {$goods.shop_price};
 			var pt = 15;
-			var ps = 2.5;
+			var ps = 2;
 			var v = parseInt(document.getElementById("num").value, 10) * p;
 			v += parseInt(document.getElementById("seedlingNum").value, 10) * ps;
 			v += parseInt(document.getElementById("treeNum").value, 10) * pt;

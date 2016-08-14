@@ -21,8 +21,8 @@
 					<div>
 						<div class="title txt sn">捐赠人</div>
 						<div class="title txt tim">捐赠时间</div>
-						<div class="title txt other">小树</div>
-						<div class="title txt other">小苗</div>
+						<div class="title txt other">沙棘树</div>
+						<div class="title txt other">沙棘苗</div>
 						<div class="title txt tim">总计捐赠金额</div>
 					</div>
 					<!--{foreach from=$donate_list item=item}-->
