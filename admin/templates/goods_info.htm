@@ -17,12 +17,12 @@
       <p>
         <span class="tab-front" id="general-tab">{$lang.tab_general}</span><span
         class="tab-back" id="detail-tab">{$lang.tab_detail}</span><span
-        class="tab-back" id="mix-tab">{$lang.tab_mix}</span>{if $goods_type_list}<span
+        class="tab-back" id="mix-tab">{$lang.tab_mix}</span><!-- {if $goods_type_list}<span
         class="tab-back" id="properties-tab">{$lang.tab_properties}</span>{/if}<span
         class="tab-back" id="gallery-tab">{$lang.tab_gallery}</span><span
         class="tab-back" id="linkgoods-tab">{$lang.tab_linkgoods}</span>{if $code eq ''}<span
         class="tab-back" id="groupgoods-tab">{$lang.tab_groupgoods}</span>{/if}<span
-        class="tab-back" id="article-tab">{$lang.tab_article}</span>
+        class="tab-back" id="article-tab">{$lang.tab_article}</span> --> <!-- 取消属性、相册、配件、关联、文章等内容（2016-8-26） -->
       </p>
     </div>
 
@@ -43,7 +43,7 @@
             {$lang.require_field}</td>
           </tr>
           <tr>
-            <td class="label">
+            <td class="label"> 
             <a href="javascript:showNotice('noticeGoodsSN');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_goods_sn} </td>
             <td><input type="text" name="goods_sn" value="{$goods.goods_sn|escape}" size="20" onblur="checkGoodsSn(this.value,'{$goods.goods_id}')" /><span id="goods_sn_notice"></span><br />
             <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsSN">{$lang.notice_goods_sn}</span></td>
@@ -63,7 +63,7 @@
                {$lang.require_field}
             </td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除扩展分类（2016-8-26） -->
             <td class="label">{$lang.lab_other_cat}</td>
             <td>
               <input type="button" value="{$lang.add}" onclick="addOtherCat(this.parentNode)" class="button" />
@@ -98,7 +98,7 @@
           <tr>
             <td class="label">{$lang.lab_shop_price}</td>
             <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
-            <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" />
+            <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" style="display:none;" /> <!-- 删除按钮（2016-8-26） -->
             {$lang.require_field}</td>
           </tr>
           {if $user_rank_list}
@@ -116,7 +116,7 @@
           {/if}
 
           <!--鍟嗗搧浼樻儬浠锋牸-->
-          <tr>
+          <tr style="display:none;"> <!-- 删除商品优惠价格（2016-8-26） -->
             <td class="label"><a href="javascript:showNotice('volumePrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_volume_price}</td>
             <td>
               <table width="100%" id="tbody-volume" align="center">
@@ -139,33 +139,33 @@
           </tr>
           <!--鍟嗗搧浼樻儬浠锋牸 end -->
 
-          <tr>
+          <tr style="display:none;"> <!-- 删除市场售价（2016-8-26） -->
             <td class="label">{$lang.lab_market_price}</td>
             <td><input type="text" name="market_price" value="{$goods.market_price}" size="20" />
               <input type="button" value="{$lang.integral_market_price}" onclick="integral_market_price()" />
             </td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除消费积分（2016-8-26） -->
             <td class="label"><a href="javascript:showNotice('giveIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_give_integral}</td>
             <td><input type="text" name="give_integral" value="{$goods.give_integral}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="giveIntegral">{$lang.notice_give_integral}</span></td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除等级积分（2016-8-26） -->
             <td class="label"><a href="javascript:showNotice('rankIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_rank_integral}</td>
             <td><input type="text" name="rank_integral" value="{$goods.rank_integral}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="rankIntegral">{$lang.notice_rank_integral}</span></td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除积分购买（2016-8-26） -->
             <td class="label"><a href="javascript:showNotice('noticPoints');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_integral}</td>
             <td><input type="text" name="integral" value="{$goods.integral}" size="20" onblur="parseint_integral()";/>
               <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticPoints">{$lang.notice_integral}</span>
             </td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除促销价（2016-8-26） -->
             <td class="label"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" {if $goods.is_promote}checked="checked"{/if} onclick="handlePromote(this.checked);" /> {$lang.lab_promote_price}</label></td>
             <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="{$goods.promote_price}" size="20" /></td>
           </tr>
-          <tr id="promote_4">
+          <tr id="promote_4" style="display:none;"> <!-- 删除促销日期（2016-8-26） -->
             <td class="label" id="promote_5">{$lang.lab_promote_date}</td>
             <td id="promote_6">
               <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='{$goods.promote_start_date}' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='{$goods.promote_end_date}' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
@@ -183,7 +183,7 @@
               <br /><input type="text" size="40" value="{$lang.lab_picture_url}" style="color:#aaa;" onfocus="if (this.value == '{$lang.lab_picture_url}'){this.value='http://';this.style.color='#000';}" name="goods_img_url"/>
             </td>
           </tr>
-          <tr id="auto_thumb_1">
+          <tr id="auto_thumb_1" style="display:none;"> <!-- 删除缩略图（2016-8-26） -->
             <td class="label"> {$lang.lab_thumb}</td>
             <td id="auto_thumb_3">
               <input type="file" name="goods_thumb" size="35" />
@@ -234,11 +234,11 @@
             <td class="label" id="alone_sale_2">{$lang.lab_is_on_sale}</td>
             <td id="alone_sale_3"><input type="checkbox" name="is_on_sale" value="1" {if $goods.is_on_sale}checked="checked"{/if} /> {$lang.on_sale_desc}</td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除普通商品选项（2016-8-26） -->
             <td class="label">{$lang.lab_is_alone_sale}</td>
             <td><input type="checkbox" name="is_alone_sale" value="1" {if $goods.is_alone_sale}checked="checked"{/if} /> {$lang.alone_sale}</td>
           </tr>
-          <tr>
+          <tr style="display:none;"> <!-- 删除免运费选项（2016-8-26） -->
             <td class="label">{$lang.lab_is_free_shipping}</td>
             <td><input type="checkbox" name="is_shipping" value="1" {if $goods.is_shipping}checked="checked"{/if} /> {$lang.free_shipping}</td>
           </tr>

@@ -429,7 +429,8 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['ac
     $smarty->assign('form_act', $is_add ? 'insert' : ($_REQUEST['act'] == 'edit' ? 'update' : 'insert'));
     if ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
     {
-        $smarty->assign('is_add', true);
+        // $smarty->assign('is_add', true);
+	$smarty->assign('is_add', false);	// 不在商品添加中加入类别添加功能
     }
     if(!$is_add)
     {

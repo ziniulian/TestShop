@@ -53,11 +53,11 @@ $modules['03_promotion']['15_exchange_goods']       = 'exchange_goods.php?act=li
 
 $modules['04_order']['02_order_list']               = 'order.php?act=list';
 $modules['04_order']['03_order_query']              = 'order.php?act=order_query';
-$modules['04_order']['04_merge_order']              = 'order.php?act=merge';
-$modules['04_order']['05_edit_order_print']         = 'order.php?act=templates';
+// $modules['04_order']['04_merge_order']              = 'order.php?act=merge';	// 取消订单合并（2016-8-26）
+// $modules['04_order']['05_edit_order_print']         = 'order.php?act=templates';	// 取消订单打印模版（2016-8-26）
 $modules['04_order']['06_undispose_booking']        = 'goods_booking.php?act=list_all';
 //$modules['04_order']['07_repay_application']        = 'repay.php?act=list_all';
-$modules['04_order']['08_add_order']                = 'order.php?act=add';
+// $modules['04_order']['08_add_order']                = 'order.php?act=add';	// 取消添加订单（2016-8-26）
 $modules['04_order']['09_delivery_order']           = 'order.php?act=delivery_list';
 $modules['04_order']['10_back_order']               = 'order.php?act=back_list';
 

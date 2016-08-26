@@ -89,59 +89,59 @@
   </tr>
   <tr>
     <td><div align="right"><strong>{$lang.label_payment}</strong></div></td>
-    <td>{if $order.pay_id > 0}{$order.pay_name}{else}{$lang.require_field}{/if}<a href="order.php?act=edit&order_id={$order.order_id}&step=payment" class="special">{$lang.edit}</a>
+    <td>{if $order.pay_id > 0}{$order.pay_name}{else}{$lang.require_field}{/if}<!-- <a href="order.php?act=edit&order_id={$order.order_id}&step=payment" class="special">{$lang.edit}</a> --> <!-- 删除编辑按钮（2016-8-26） -->
     ({$lang.action_note}: <span onclick="listTable.edit(this, 'edit_pay_note', {$order.order_id})">{if $order.pay_note}{$order.pay_note}{else}N/A{/if}</span>)</td>
     <td><div align="right"><strong>{$lang.label_pay_time}</strong></div></td>
     <td>{$order.pay_time}</td>
   </tr>
   <tr>
     <td><div align="right"><strong>{$lang.label_shipping}</strong></div></td>
-    <td>{if $exist_real_goods}{if $order.shipping_id > 0}{$order.shipping_name}{else}{$lang.require_field}{/if}<a href="order.php?act=edit&order_id={$order.order_id}&step=shipping" class="special">{$lang.edit}</a>&nbsp;&nbsp;<input type="button" onclick="window.open('order.php?act=info&order_id={$order.order_id}&shipping_print=1')" class="button" value="{$lang.print_shipping}"> {if $order.insure_fee > 0}（{$lang.label_insure_fee}{$order.formated_insure_fee}）{/if}{/if}</td>
+    <td>{if $exist_real_goods}{if $order.shipping_id > 0}{$order.shipping_name}{else}{$lang.require_field}{/if}<!-- <a href="order.php?act=edit&order_id={$order.order_id}&step=shipping" class="special">{$lang.edit}</a> --> <!-- 删除编辑按钮（2016-8-26） -->&nbsp;&nbsp;<input type="button" onclick="window.open('order.php?act=info&order_id={$order.order_id}&shipping_print=1')" class="button" value="{$lang.print_shipping}"> {if $order.insure_fee > 0}（{$lang.label_insure_fee}{$order.formated_insure_fee}）{/if}{/if}</td>
     <td><div align="right"><strong>{$lang.label_shipping_time}</strong></div></td>
     <td>{$order.shipping_time}</td>
   </tr>
   <tr>
     <td><div align="right"><strong>{$lang.label_invoice_no}</strong></div></td>
-    <td>{if $order.shipping_id>0 and $order.shipping_status>0}<span>{if $order.invoice_no}{$order.invoice_no}{else}N/A{/if}</span><a href="order.php?act=edit&order_id={$order.order_id}&step=shipping" class="special">{$lang.edit}</a>{/if}</td>
+    <td>{if $order.shipping_id>0 and $order.shipping_status>0}<span>{if $order.invoice_no}{$order.invoice_no}{else}N/A{/if}</span><!-- <a href="order.php?act=edit&order_id={$order.order_id}&step=shipping" class="special">{$lang.edit}</a> --> <!-- 删除编辑按钮（2016-8-26） -->{/if}</td>
     <td><div align="right"><strong>{$lang.from_order}</strong></div></td>
     <td>{$order.referer}</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <th colspan="4">{$lang.other_info}<a href="order.php?act=edit&order_id={$order.order_id}&step=other" class="special">{$lang.edit}</a></th>
     </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_inv_type}</strong></div></td>
     <td>{$order.inv_type}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_inv_payee}</strong></div></td>
     <td>{$order.inv_payee}</td>
     <td><div align="right"><strong>{$lang.label_inv_content}</strong></div></td>
     <td>{$order.inv_content}</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_postscript}</strong></div></td>
     <td colspan="3">{$order.postscript}</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_how_oos}</strong></div></td>
     <td>{$order.how_oos}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_pack}</strong></div></td>
     <td>{$order.pack_name}</td>
     <td><div align="right"><strong>{$lang.label_card}</strong></div></td>
     <td>{$order.card_name}</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_card_message}</strong></div></td>
     <td colspan="3">{$order.card_message}</td>
   </tr>
-  <tr>
+  <tr style="display:none;"> <!-- 删除其它信息（2016-8-26） -->
     <td><div align="right"><strong>{$lang.label_to_buyer}</strong></div></td>
     <td colspan="3">{$order.to_buyer}</td>
   </tr>
@@ -241,17 +241,17 @@
 - {$lang.label_discount}<strong>{$order.formated_discount}</strong>     + {$lang.label_tax}<strong>{$order.formated_tax}</strong>
       + {$lang.label_shipping_fee}<strong>{$order.formated_shipping_fee}</strong>
       + {$lang.label_insure_fee}<strong>{$order.formated_insure_fee}</strong>
-      + {$lang.label_pay_fee}<strong>{$order.formated_pay_fee}</strong>
+      + {$lang.label_pay_fee}<strong>{$order.formated_pay_fee}</strong><!-- 
       + {$lang.label_pack_fee}<strong>{$order.formated_pack_fee}</strong>
-      + {$lang.label_card_fee}<strong>{$order.formated_card_fee}</strong></div></td>
+      + {$lang.label_card_fee}<strong>{$order.formated_card_fee}</strong> --> <!-- 删除包装贺卡的费用（2016-8-26） --></div></td>
   <tr>
     <td><div align="right"> = {$lang.label_order_amount}<strong>{$order.formated_total_fee}</strong></div></td>
   </tr>
   <tr>
     <td><div align="right">
       - {$lang.label_money_paid}<strong>{$order.formated_money_paid}</strong> - {$lang.label_surplus} <strong>{$order.formated_surplus}</strong>
-      - {$lang.label_integral} <strong>{$order.formated_integral_money}</strong>
-      - {$lang.label_bonus} <strong>{$order.formated_bonus}</strong>
+      <!-- - {$lang.label_integral} <strong>{$order.formated_integral_money}</strong>
+      - {$lang.label_bonus} <strong>{$order.formated_bonus}</strong> --> <!-- 删除积分红包的费用（2016-8-26） -->
     </div></td>
   <tr>
     <td><div align="right"> = {if $order.order_amount >= 0}{$lang.label_money_dues}<strong>{$order.formated_order_amount}</strong>

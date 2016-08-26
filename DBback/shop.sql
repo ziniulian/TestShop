@@ -212,13 +212,6 @@ CREATE TABLE IF NOT EXISTS `tsp_admin_log` (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- 转存表中的数据 `tsp_admin_log`
---
-
-INSERT INTO `tsp_admin_log` (`log_id`, `log_time`, `user_id`, `log_info`, `ip_address`) VALUES
-(1, 1467432729, 1, '删除操作日志: ', '0.0.0.0');
-
 -- --------------------------------------------------------
 
 --
@@ -273,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `tsp_admin_user` (
 
 INSERT INTO `tsp_admin_user` (`user_id`, `user_name`, `email`, `password`, `ec_salt`, `add_time`, `last_login`, `last_ip`, `action_list`, `nav_list`, `lang_type`, `agency_id`, `suppliers_id`, `todolist`, `role_id`) VALUES
 (1, 'ziniulian', '', '57eb8e0436df8fc93ffa810ecd4c195a', '6429', 1467174607, 1468604113, '0.0.0.0', 'all', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, NULL),
-(4, 'shop', 'ziniulian@163.com', '43c2eaa10e7f4047f4ce837df44c307d', '496', 1468604163, 1468604284, '0.0.0.0', 'goods_manage,remove_back,cat_manage,cat_drop,attr_manage,brand_manage,comment_priv,tag_manage,goods_type,goods_auto,virualcard,picture_batch,goods_export,goods_batch,gen_goods_script,feedback_priv,integrate_users,sync_users,users_manage,users_drop,user_rank,surplus_manage,account_manage,db_backup,db_renew,order_os_edit,order_ps_edit,order_ss_edit,order_edit,order_view,order_view_finished,repay_manage,booking,sale_order_stats,client_flow_stats,delivery_view,back_view', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list', '', 0, 0, NULL, 0);
+(4, 'shop', 'ziniulian@163.com', '43c2eaa10e7f4047f4ce837df44c307d', '496', 1468604163, 1472160073, '192.168.1.236', 'goods_manage,remove_back,cat_manage,cat_drop,brand_manage,goods_export,goods_batch,db_backup,db_renew,order_os_edit,order_ss_edit,order_view,order_view_finished,repay_manage,booking,delivery_view,back_view,db_backup,db_renew', '商品列表|goods.php?act=list,订单列表|order.php?act=list', '', 0, 0, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -860,20 +853,6 @@ CREATE TABLE IF NOT EXISTS `tsp_delivery_goods` (
   KEY `delivery_id` (`delivery_id`,`goods_id`),
   KEY `goods_id` (`goods_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- 转存表中的数据 `tsp_delivery_goods`
---
-
-INSERT INTO `tsp_delivery_goods` (`rec_id`, `delivery_id`, `goods_id`, `product_id`, `product_sn`, `goods_name`, `brand_name`, `goods_sn`, `is_real`, `extension_code`, `parent_id`, `send_number`, `goods_attr`) VALUES
-(1, 1, 13, 0, NULL, '诺基亚5320 XpressMusic', '诺基亚', 'ECS000013', 1, '', 0, 3, NULL),
-(2, 1, 14, 0, NULL, '诺基亚5800XM', '诺基亚', 'ECS000014', 1, '', 0, 1, NULL),
-(3, 2, 24, 0, NULL, 'P806', '联想', 'ECS000024', 1, '', 0, 3, NULL),
-(4, 2, 9, 0, NULL, '诺基亚E66', '诺基亚', 'ECS000009', 1, '', 0, 1, NULL),
-(5, 3, 24, 0, NULL, 'P806', '联想', 'ECS000024', 1, '', 0, 1, NULL),
-(6, 3, 8, 0, NULL, '飞利浦9@9v', '飞利浦', 'ECS000008', 1, '', 0, 3, NULL),
-(7, 4, 12, 0, NULL, '摩托罗拉A810', '摩托罗拉', 'ECS000012', 1, '', 0, 2, NULL),
-(8, 5, 24, 0, NULL, 'P806', '联想', 'ECS000024', 1, '', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1590,30 +1569,6 @@ CREATE TABLE IF NOT EXISTS `tsp_keywords` (
 -- 转存表中的数据 `tsp_keywords`
 --
 
-INSERT INTO `tsp_keywords` (`date`, `searchengine`, `keyword`, `count`) VALUES
-('2009-04-21', 'ecshop', '诺基亚', 1),
-('2009-04-27', 'ecshop', '智能手机', 1),
-('2009-05-04', 'ecshop', '斤', 1),
-('2009-05-10', 'ecshop', '诺基亚', 1),
-('2009-05-11', 'ecshop', '智能手机', 1),
-('2009-05-11', 'ecshop', '诺基亚', 1),
-('2009-05-12', 'ecshop', '三星', 1),
-('2009-05-12', 'ecshop', '智能手机', 1),
-('2009-05-12', 'ecshop', 'p806', 1),
-('2009-05-12', 'ecshop', '诺基亚', 1),
-('2009-05-12', 'ecshop', '夏新', 1),
-('2009-05-18', 'ecshop', '52', 2),
-('2009-05-22', 'ecshop', 'p', 1),
-('2016-07-01', 'ecshop', 'j', 1),
-('2016-07-05', 'ecshop', 'ddd', 3),
-('2016-07-06', 'ecshop', 'dfd', 1),
-('2016-07-06', 'ecshop', 'fds', 1),
-('2016-07-06', 'ecshop', '火', 2),
-('2016-07-06', 'ecshop', '火地方', 1),
-('2016-07-06', 'ecshop', '55', 1),
-('2016-07-06', 'ecshop', '550', 1),
-('2016-07-06', 'ecshop', '1', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -1737,38 +1692,6 @@ CREATE TABLE IF NOT EXISTS `tsp_order_action` (
   PRIMARY KEY (`action_id`),
   KEY `order_id` (`order_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
-
---
--- 转存表中的数据 `tsp_order_action`
---
-
-INSERT INTO `tsp_order_action` (`action_id`, `order_id`, `action_user`, `order_status`, `shipping_status`, `pay_status`, `action_place`, `action_note`, `log_time`) VALUES
-(1, 2, 'admin', 1, 0, 2, 0, '[售后] 1132', 1242142350),
-(2, 2, 'admin', 1, 1, 2, 0, '已经发货，注意接收', 1242142389),
-(3, 1, 'admin', 1, 1, 2, 0, '已经发货，注意接收', 1242142432),
-(4, 2, '买家', 1, 2, 2, 0, '', 1242142449),
-(5, 1, '买家', 1, 2, 2, 0, '', 1242142451),
-(6, 3, 'admin', 1, 1, 2, 0, '已经发货了，注意接收', 1242142589),
-(7, 3, '买家', 1, 2, 2, 0, '', 1242142634),
-(8, 5, 'admin', 1, 3, 2, 0, '', 1242142869),
-(10, 7, 'admin', 1, 0, 0, 0, '', 1242143454),
-(11, 1, 'admin', 1, 2, 2, 0, '[售后] 售后', 1242143773),
-(12, 2, 'admin', 4, 0, 0, 0, '质量问题', 1242144185),
-(13, 12, 'buyer', 2, 0, 0, 0, '用户取消', 1242576313),
-(14, 13, 'admin', 1, 1, 0, 0, '11', 1242576445),
-(15, 14, 'admin', 1, 3, 2, 0, '', 1242976715),
-(16, 14, 'admin', 1, 1, 2, 0, '已经发货，请接收', 1242976740),
-(17, 15, 'admin', 1, 0, 0, 0, '', 1245044587),
-(18, 15, 'admin', 1, 0, 2, 0, '已经付款', 1245044644),
-(19, 15, 'admin', 1, 4, 2, 0, '', 1245044964),
-(20, 15, 'admin', 1, 4, 2, 0, '北京供货商', 1245045061),
-(21, 3, 'admin', 4, 0, 0, 0, '不喜欢这个颜色', 1245045334),
-(22, 15, 'admin', 1, 1, 2, 0, '', 1245045443),
-(23, 15, 'admin', 4, 0, 0, 0, '退货', 1245045515),
-(24, 16, 'admin', 1, 4, 2, 0, '上海供货', 1245045723),
-(25, 17, 'admin', 1, 1, 2, 0, '', 1245048189),
-(26, 17, 'admin', 4, 0, 0, 0, '退货', 1245048212),
-(27, 19, 'admin', 1, 1, 2, 0, '', 1245384050);
 
 -- --------------------------------------------------------
 
@@ -1917,18 +1840,6 @@ CREATE TABLE IF NOT EXISTS `tsp_package_goods` (
   PRIMARY KEY (`package_id`,`goods_id`,`admin_id`,`product_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `tsp_package_goods`
---
-
-INSERT INTO `tsp_package_goods` (`package_id`, `goods_id`, `product_id`, `goods_number`, `admin_id`) VALUES
-(5, 6, 0, 1, 1),
-(5, 5, 0, 1, 1),
-(6, 4, 0, 1, 1),
-(6, 7, 0, 1, 1),
-(6, 32, 0, 1, 1),
-(5, 31, 0, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -1974,30 +1885,6 @@ CREATE TABLE IF NOT EXISTS `tsp_pay_log` (
   `is_paid` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`log_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
-
---
--- 转存表中的数据 `tsp_pay_log`
---
-
-INSERT INTO `tsp_pay_log` (`log_id`, `order_id`, `order_amount`, `order_type`, `is_paid`) VALUES
-(1, 1, '0.00', 0, 0),
-(2, 2, '0.00', 0, 0),
-(3, 3, '0.00', 0, 0),
-(4, 4, '0.00', 0, 0),
-(5, 5, '0.00', 0, 0),
-(6, 6, '35.00', 0, 0),
-(7, 7, '2198.10', 0, 0),
-(8, 8, '638.00', 0, 0),
-(9, 9, '2015.00', 0, 0),
-(10, 10, '0.00', 0, 0),
-(11, 11, '3810.00', 0, 0),
-(12, 12, '253.00', 0, 0),
-(13, 13, '975.00', 0, 0),
-(14, 14, '0.00', 0, 0),
-(15, 15, '17054.00', 0, 0),
-(16, 16, '0.00', 0, 0),
-(17, 17, '0.00', 0, 0),
-(18, 18, '0.00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -5519,6 +5406,14 @@ CREATE TABLE IF NOT EXISTS `tsp_role` (
   KEY `user_name` (`role_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- 转存表中的数据 `tsp_role`
+--
+
+INSERT INTO `tsp_role` (`role_id`, `role_name`, `action_list`, `role_describe`) VALUES
+(1, '所有权限', 'goods_manage,remove_back,cat_manage,cat_drop,brand_manage,goods_export,goods_batch,users_manage,users_drop,admin_manage,admin_drop,logs_manage,db_backup,db_renew,order_os_edit,order_ps_edit,order_ss_edit,order_edit,order_view,order_view_finished,repay_manage,booking,delivery_view,back_view,db_backup,db_renew', '所有权限   '),
+(2, '安全权限', 'goods_manage,remove_back,cat_manage,cat_drop,brand_manage,goods_export,goods_batch,db_backup,db_renew,order_os_edit,order_ss_edit,order_view,order_view_finished,repay_manage,booking,delivery_view,back_view,db_backup,db_renew', '不能修改付款状态和订单内容');
+
 -- --------------------------------------------------------
 
 --
@@ -5759,7 +5654,7 @@ INSERT INTO `tsp_shop_config` (`id`, `parent_id`, `code`, `type`, `store_range`,
 (337, 3, 'index_ad', 'hidden', '', '', 'sys', 1),
 (401, 4, 'can_invoice', 'select', '1,0', '', '1', 1),
 (402, 4, 'use_integral', 'select', '1,0', '', '1', 1),
-(403, 4, 'use_bonus', 'select', '1,0', '', '1', 1),
+(403, 4, 'use_bonus', 'select', '1,0', '', '0', 1),
 (404, 4, 'use_surplus', 'select', '1,0', '', '1', 1),
 (405, 4, 'use_how_oos', 'select', '1,0', '', '1', 1),
 (406, 4, 'send_confirm_email', 'select', '1,0', '', '0', 1),
@@ -5872,80 +5767,6 @@ CREATE TABLE IF NOT EXISTS `tsp_stats` (
   `access_url` varchar(255) NOT NULL DEFAULT '',
   KEY `access_time` (`access_time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tsp_stats`
---
-
-INSERT INTO `tsp_stats` (`access_time`, `ip_address`, `visit_times`, `browser`, `system`, `language`, `area`, `referer_domain`, `referer_path`, `access_url`) VALUES
-(1240294063, '0.0.0.0', 196, 'FireFox 3.0.8', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1240298833, '0.0.0.0', 198, 'FireFox 3.0.8', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1240380013, '0.0.0.0', 204, 'FireFox 3.0.8', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/', '/shoujitiyan/index.php'),
-(1240463462, '0.0.0.0', 208, 'FireFox 3.0.9', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1240800901, '0.0.0.0', 222, 'FireFox 3.0.9', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1240803254, '0.0.0.0', 227, 'FireFox 3.0.9', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1240904381, '0.0.0.0', 237, 'FireFox 3.0.9', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1241419322, '0.0.0.0', 250, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/goods.php?act=list', '/shoujitiyan/goods.php'),
-(1241420999, '0.0.0.0', 252, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1241424831, '0.0.0.0', 253, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/goods.php?act=list', '/shoujitiyan/goods.php'),
-(1241498580, '0.0.0.0', 257, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1241511324, '0.0.0.0', 262, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/goods.php?act=list', '/shoujitiyan/goods.php'),
-(1241514671, '0.0.0.0', 263, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1241517726, '0.0.0.0', 265, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', '', '', '/shoujitiyan/index.php'),
-(1241946350, '127.0.0.1', 39, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1241965138, '127.0.0.1', 41, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/', '/shoujitiyan/index.php'),
-(1241966751, '127.0.0.1', 43, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1241970153, '127.0.0.1', 45, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/goods.php?act=list', '/shoujitiyan/goods.php'),
-(1241970640, '127.0.0.1', 47, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1242105962, '0.0.0.0', 310, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/goods.php?act=list', '/shoujitiyan/goods.php'),
-(1242140915, '127.0.0.1', 52, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1242141002, '127.0.0.1', 54, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/user.php', '/shoujitiyan/user.php'),
-(1242141352, '127.0.0.1', 57, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/user.php?act=address_list', '/shoujitiyan/user.php'),
-(1242141605, '127.0.0.1', 59, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/user.php', '/shoujitiyan/user.php'),
-(1242576210, '127.0.0.1', 72, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1242576982, '127.0.0.1', 74, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/article.php?act=list&uselastfilter=1', '/shoujitiyan/article.php'),
-(1242577205, '127.0.0.1', 76, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/article.php?act=list', '/shoujitiyan/article.php'),
-(1242579230, '127.0.0.1', 78, 'FireFox 2.0.0.20', 'Windows XP', 'zh-cn', 'LAN', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1242973907, '0.0.0.0', 375, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1242974337, '0.0.0.0', 377, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/', '/shoujitiyan/search.php'),
-(1242976474, '0.0.0.0', 379, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1244189098, '0.0.0.0', 418, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1244191271, '0.0.0.0', 420, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/index.php', '/shoujitiyan/article.php'),
-(1244191479, '0.0.0.0', 422, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1244193068, '0.0.0.0', 426, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/article.php?id=33', '/shoujitiyan/index.php'),
-(1244772987, '0.0.0.0', 466, 'FireFox 3.0.10', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shoujitiyan/admin/index.php?act=top', '/shoujitiyan/index.php'),
-(1245042503, '0.0.0.0', 472, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/privilege.php?act=login', '/shouji/index.php'),
-(1245042507, '0.0.0.0', 472, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/index.php?act=top', '/shouji/index.php'),
-(1245046089, '0.0.0.0', 474, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/index.php?act=top', '/shouji/index.php'),
-(1245047906, '0.0.0.0', 476, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/goods.php?id=24', '/shouji/user.php'),
-(1245047951, '0.0.0.0', 478, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/group_buy.php?act=view&id=8', '/shouji/goods.php'),
-(1245048514, '0.0.0.0', 480, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/flow.php?step=checkout', '/shouji/index.php'),
-(1245139613, '0.0.0.0', 488, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/index.php?act=top', '/shouji/index.php'),
-(1245140082, '0.0.0.0', 490, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', '', '', '/shouji/article.php'),
-(1245145064, '0.0.0.0', 493, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/index.php?act=top', '/shouji/index.php'),
-(1245217308, '0.0.0.0', 498, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/', '/shouji/index.php'),
-(1245219380, '0.0.0.0', 499, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/index.php?act=top', '/shouji/index.php'),
-(1245222219, '0.0.0.0', 500, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/goods.php?act=list', '/shouji/goods.php'),
-(1467264157, '127.0.0.1', 1, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'LAN', '', '', '/shop/index.php'),
-(1467265623, '0.0.0.0', 1, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467268207, '0.0.0.0', 2, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467275781, '0.0.0.0', 1, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467283460, '0.0.0.0', 3, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467432021, '0.0.0.0', 8, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467432160, '0.0.0.0', 9, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', 'http://localhost', '/shop/', '/shop/user.php'),
-(1467432162, '0.0.0.0', 10, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', 'http://localhost', '/shop/user.php?act=logout', '/shop/index.php'),
-(1467528115, '0.0.0.0', 25, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467528453, '0.0.0.0', 26, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/shop/index.php'),
-(1467694300, '0.0.0.0', 27, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/index.php'),
-(1467695774, '0.0.0.0', 28, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/index.php'),
-(1467695963, '0.0.0.0', 29, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/index.php'),
-(1467695963, '0.0.0.0', 29, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/index.php'),
-(1467701608, '0.0.0.0', 30, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', 'http://localhost', '/category.php?id=19', '/user.php'),
-(1467701620, '0.0.0.0', 31, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', 'http://localhost', '/user.php?act=logout', '/category.php'),
-(1467711189, '0.0.0.0', 32, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', 'http://localhost', '/index.php', '/category.php'),
-(1467726373, '0.0.0.0', 33, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/index.php'),
-(1467784353, '0.0.0.0', 34, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', 'http://localhost', '/admin/goods.php?act=edit&goods_id=193&extension_code=', '/index.php'),
-(1467786025, '0.0.0.0', 35, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'IANA', '', '', '/index.php');
 
 -- --------------------------------------------------------
 
@@ -6172,21 +5993,6 @@ CREATE TABLE IF NOT EXISTS `tsp_user_bonus` (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
---
--- 转存表中的数据 `tsp_user_bonus`
---
-
-INSERT INTO `tsp_user_bonus` (`bonus_id`, `bonus_type_id`, `bonus_sn`, `user_id`, `used_time`, `order_id`, `emailed`) VALUES
-(3, 4, 1000018450, 0, 0, 0, 0),
-(4, 4, 1000023774, 0, 0, 0, 0),
-(5, 4, 1000039394, 0, 0, 0, 0),
-(6, 4, 1000049305, 0, 0, 0, 0),
-(7, 4, 1000052248, 0, 0, 0, 0),
-(8, 4, 1000061542, 0, 0, 0, 0),
-(9, 4, 1000070278, 0, 0, 0, 0),
-(10, 4, 1000080588, 0, 0, 0, 0),
-(11, 4, 1000091405, 0, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -6219,15 +6025,6 @@ CREATE TABLE IF NOT EXISTS `tsp_user_rank` (
   `special_rank` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`rank_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- 转存表中的数据 `tsp_user_rank`
---
-
-INSERT INTO `tsp_user_rank` (`rank_id`, `rank_name`, `min_points`, `max_points`, `discount`, `show_price`, `special_rank`) VALUES
-(1, '注册用户', 0, 10000, 100, 1, 0),
-(2, 'vip', 10000, 10000000, 95, 1, 0),
-(3, '代销用户', 0, 0, 90, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -6264,17 +6061,6 @@ CREATE TABLE IF NOT EXISTS `tsp_volume_price` (
   `volume_price` decimal(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`price_type`,`goods_id`,`volume_number`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tsp_volume_price`
---
-
-INSERT INTO `tsp_volume_price` (`price_type`, `goods_id`, `volume_number`, `volume_price`) VALUES
-(1, 1, 5, '1366.00'),
-(1, 9, 3, '2200.00'),
-(1, 9, 5, '2100.00'),
-(1, 13, 5, '1150.00'),
-(1, 13, 3, '1200.00');
 
 -- --------------------------------------------------------
 
@@ -6339,13 +6125,6 @@ CREATE TABLE IF NOT EXISTS `tsp_wholesale` (
   PRIMARY KEY (`act_id`),
   KEY `goods_id` (`goods_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `tsp_wholesale`
---
-
-INSERT INTO `tsp_wholesale` (`act_id`, `goods_id`, `goods_name`, `rank_ids`, `prices`, `enabled`) VALUES
-(1, 21, '金立 A30', '1,2', 'a:1:{i:0;a:2:{s:4:"attr";a:1:{i:120;s:1:"0";}s:7:"qp_list";a:2:{i:0;a:2:{s:8:"quantity";i:50;s:5:"price";d:1700;}i:1;a:2:{s:8:"quantity";i:100;s:5:"price";d:1680;}}}}', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
