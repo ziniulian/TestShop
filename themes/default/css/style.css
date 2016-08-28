@@ -1505,8 +1505,9 @@ body {
 
 /*帮助页面*/
 .boso .helpFram {
-	width: calc(100% - 5px);
-	height: 600px;
+	width: 100%;
+	border: none;
+	height: 16000px;
 }
 
 

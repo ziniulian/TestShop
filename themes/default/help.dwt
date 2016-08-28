@@ -11,7 +11,7 @@
 			<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<div class="base">
 				<!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
-				<iframe class="helpFram" src="{$ecs_template_path}/css/fram/help/help.pdf"></iframe>
+				<iframe class="helpFram" src="{$ecs_template_path}/css/fram/help/help.htm"></iframe>
 			</div>
 			<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
 		</div>
