@@ -1503,6 +1503,12 @@ body {
 	line-height: 2;
 }
 
+/*帮助页面*/
+.boso .helpFram {
+	width: calc(100% - 5px);
+	height: 600px;
+}
+
 
 
 
