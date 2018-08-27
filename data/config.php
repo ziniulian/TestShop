@@ -1,15 +1,15 @@
 <?php
 // database host
-$db_host   = "127.3.206.2:3306";
+$db_host   = "127.0.0.1:3306";
 
 // database name
 $db_name   = "shop";
 
 // database username
-$db_user   = "shop";
+$db_user   = "uShop";
 
 // database password
-$db_pass   = "123654";
+$db_pass   = "3311212";
 
 // table prefix
 $prefix    = "tsp_";
