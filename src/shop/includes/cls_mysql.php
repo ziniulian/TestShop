@@ -95,15 +95,20 @@ class cls_mysql
         }
         else
         {
-            if (PHP_VERSION >= '4.2')
-            {
-                $this->link_id = @mysql_connect($dbhost, $dbuser, $dbpw, true);
-            }
-            else
-            {
-                $this->link_id = @mysql_connect($dbhost, $dbuser, $dbpw);
-
-                mt_srand((double)microtime() * 1000000); // 对 PHP 4.2 以下的版本进行随机数函数的初始化工作
+            if (PHP_VERSION >= '7.0') {
+                // 对 PHP7.0 以上版本已弃用 mysql_connect 函数，改用 mysqli_connect
+                // $this->link_id = @mysqli_connect($dbhost, $dbuser, $dbpw, $dbname);
+                $this->link_id = @mysqli_connect($dbhost, $dbuser, $dbpw);
+            } else {
+                if (PHP_VERSION >= '4.2')
+                {
+                    $this->link_id = @mysql_connect($dbhost, $dbuser, $dbpw, true);
+                }
+                else
+                {
+                    $this->link_id = @mysql_connect($dbhost, $dbuser, $dbpw);
+                    mt_srand((double)microtime() * 1000000); // 对 PHP 4.2 以下的版本进行随机数函数的初始化工作
+                }
             }
             if (!$this->link_id)
             {
