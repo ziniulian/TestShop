@@ -1,7 +1,7 @@
 {
 	"name": "LZRphpShop",
 	"scripts": {
-		"start": "phpcs --colors --standard=./",
+		"start": "phpcs --colors --standard=./src",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	}
 }
