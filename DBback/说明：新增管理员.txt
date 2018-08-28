@@ -1,4 +1,4 @@
-tsp_virtual_card :
+ï»¿tsp_virtual_card :
 +(10240, 195, 'kNHglqrIla3xyN7F', 'kdjmm6v+', 1468603270, 0, 0, '', '-1958172277'),
 +(10241, 194, 'kNHglqrIla3xyN7F', 'kdjmlYD4', 1468603425, 0, 0, '', '-1958172277'),
 
@@ -6,4 +6,13 @@ tsp_users :
 	md5(md5(password)+ec_salt);
 	includes\modules\integrates\integrate.php\compile_password();
 
-Ğë¶Ô Ê÷¡¢Ãç ÊÖ¶¯²¹»õ
+é¡»å¯¹ æ ‘ã€è‹— æ‰‹åŠ¨è¡¥è´§
+
+----------------------------------
+
+å‰ç«¯æµ‹è¯•ç”¨æˆ·ï¼š
+	ziniulian		123456
+
+åå¤©ç®¡ç†ç”¨æˆ·ï¼š
+	shop			root123
+	ziniulian		root321

@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 07 月 19 日 13:46
--- 服务器版本: 5.5.40
+-- 生成日期: 2018 年 08 月 28 日 13:48
+-- 服务器版本: 5.1.73-community
 -- PHP 版本: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `tsp_admin_user` (
 --
 
 INSERT INTO `tsp_admin_user` (`user_id`, `user_name`, `email`, `password`, `ec_salt`, `add_time`, `last_login`, `last_ip`, `action_list`, `nav_list`, `lang_type`, `agency_id`, `suppliers_id`, `todolist`, `role_id`) VALUES
-(1, 'ziniulian', '', '57eb8e0436df8fc93ffa810ecd4c195a', '6429', 1467174607, 1468604113, '0.0.0.0', 'all', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, NULL),
+(1, 'ziniulian', '', '0d9fea22f4f6b8e2c50d99a9615ab677', '6429', 1467174607, 1468604113, '0.0.0.0', 'all', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, NULL),
 (4, 'shop', 'ziniulian@163.com', '43c2eaa10e7f4047f4ce837df44c307d', '496', 1468604163, 1472160073, '192.168.1.236', 'goods_manage,remove_back,cat_manage,cat_drop,brand_manage,goods_export,goods_batch,db_backup,db_renew,order_os_edit,order_ss_edit,order_view,order_view_finished,repay_manage,booking,delivery_view,back_view,db_backup,db_renew', '商品列表|goods.php?act=list,订单列表|order.php?act=list', '', 0, 0, NULL, 2);
 
 -- --------------------------------------------------------
@@ -895,6 +895,21 @@ CREATE TABLE IF NOT EXISTS `tsp_delivery_order` (
   KEY `user_id` (`user_id`),
   KEY `order_id` (`order_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tsp_donate`
+--
+
+CREATE TABLE IF NOT EXISTS `tsp_donate` (
+  `nam` varchar(20) NOT NULL DEFAULT '佚名',
+  `tim` int(10) NOT NULL DEFAULT '0',
+  `tnm` int(10) NOT NULL DEFAULT '0',
+  `tprice` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `snm` int(10) NOT NULL DEFAULT '0',
+  `sprice` decimal(10,2) NOT NULL DEFAULT '0.00'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1564,10 +1579,6 @@ CREATE TABLE IF NOT EXISTS `tsp_keywords` (
   `count` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`date`,`searchengine`,`keyword`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `tsp_keywords`
---
 
 -- --------------------------------------------------------
 
@@ -5404,7 +5415,7 @@ CREATE TABLE IF NOT EXISTS `tsp_role` (
   `role_describe` text,
   PRIMARY KEY (`role_id`),
   KEY `user_name` (`role_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `tsp_role`
@@ -5557,10 +5568,10 @@ INSERT INTO `tsp_shop_config` (`id`, `parent_id`, `code`, `type`, `store_range`,
 (7, 0, 'goods', 'group', '', '', '', 1),
 (8, 0, 'sms', 'group', '', '', '', 1),
 (9, 0, 'wap', 'group', '', '', '', 1),
-(101, 1, 'shop_name', 'text', '', '', '幸福家园绿色健康超市', 1),
-(102, 1, 'shop_title', 'text', '', '', '幸福家园绿色健康超市', 1),
-(103, 1, 'shop_desc', 'text', '', '', '幸福家园绿色健康超市', 1),
-(104, 1, 'shop_keywords', 'text', '', '', '幸福家园绿色健康超市', 1),
+(101, 1, 'shop_name', 'text', '', '', '犟子健康绿色超市', 1),
+(102, 1, 'shop_title', 'text', '', '', '犟子健康绿色超市', 1),
+(103, 1, 'shop_desc', 'text', '', '', '犟子健康绿色超市', 1),
+(104, 1, 'shop_keywords', 'text', '', '', '犟子健康绿色超市', 1),
 (105, 1, 'shop_country', 'manual', '', '', '1', 1),
 (106, 1, 'shop_province', 'manual', '', '', '5', 1),
 (107, 1, 'shop_city', 'manual', '', '', '52', 1),
@@ -5577,7 +5588,7 @@ INSERT INTO `tsp_shop_config` (`id`, `parent_id`, `code`, `type`, `store_range`,
 (118, 1, 'shop_logo', 'file', '', '../themes/{$template}/images/', '', 1),
 (119, 1, 'licensed', 'select', '0,1', '', '1', 1),
 (120, 1, 'user_notice', 'textarea', '', '', '用户中心公告！', 1),
-(121, 1, 'shop_notice', 'textarea', '', '', '欢迎光临幸福家园绿色健康超市,我们的宗旨：诚信经营、服务客户！', 1),
+(121, 1, 'shop_notice', 'textarea', '', '', '欢迎光临犟子健康绿色超市,我们的宗旨：诚信经营、服务客户！', 1),
 (122, 1, 'shop_reg_closed', 'select', '1,0', '', '0', 1),
 (201, 2, 'lang', 'manual', '', '', 'zh_cn', 1),
 (202, 2, 'icp_number', 'text', '', '', '', 1),
