@@ -20,11 +20,8 @@ if (!defined('IN_ECS'))
 
 // PHP7 兼容 mysql
 if(!function_exists('mysql_connect')){
-    function mysql_connect($host,$user,$passwd){
-        return mysqli_connect($host,$user,$passwd,'ecshop');
-    }
-    function mysql_select_db($dbname){
-        return true;
+    function mysql_connect($host, $user, $passwd, $dbname){
+        return mysqli_connect($host,$user,$passwd,$dbname);
     }
     function mysql_errno($cxn=null){
         return mysqli_errno($cxn);
@@ -59,6 +56,24 @@ if(!function_exists('mysql_connect')){
     function mysql_ping($cxn){
         return mysqli_ping($cxn);
     }
+
+    function mysql_pconnect($dbhost, $dbuser, $dbpass){
+        global $dbname;
+        return mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    }
+    function mysql_select_db($dbname){
+        global $mysqli;
+        return mysqli_select_db($mysqli,$dbname);
+    }
+    function mysql_close(){
+        global $mysqli;
+        return mysqli_close($mysqli);
+    }
+    function mysql_escape_string($data){
+        global $mysqli;
+        return mysqli_real_escape_string($mysqli, $data);
+    }
+
 }
 
 class cls_mysql
@@ -126,8 +141,12 @@ class cls_mysql
     {
         if ($pconnect)
         {
-            if (!($this->link_id = @mysql_pconnect($dbhost, $dbuser, $dbpw)))
-            {
+            if (PHP_VERSION >= '7.0') {
+                $this->link_id = mysql_connect($dbhost, $dbuser, $dbpw, $dbname);
+            } else {
+                $this->link_id = mysql_pconnect($dbhost, $dbuser, $dbpw);
+            }
+            if (!$this->link_id) {
                 if (!$quiet)
                 {
                     $this->ErrorMsg("Can't pConnect MySQL Server($dbhost)!");
@@ -138,14 +157,18 @@ class cls_mysql
         }
         else
         {
-            if (PHP_VERSION >= '4.2')
-            {
-                $this->link_id = @mysql_connect($dbhost, $dbuser, $dbpw, true);
-            }
-            else
-            {
-                $this->link_id = @mysql_connect($dbhost, $dbuser, $dbpw);
-                mt_srand((double)microtime() * 1000000); // 对 PHP 4.2 以下的版本进行随机数函数的初始化工作
+            if (PHP_VERSION >= '7.0') {
+                $this->link_id = mysql_connect($dbhost, $dbuser, $dbpw, $dbname);
+            } else {
+                if (PHP_VERSION >= '4.2')
+                {
+                    $this->link_id = mysql_connect($dbhost, $dbuser, $dbpw, true);
+                }
+                else
+                {
+                    $this->link_id = mysql_connect($dbhost, $dbuser, $dbpw);
+                    mt_srand((double)microtime() * 1000000); // 对 PHP 4.2 以下的版本进行随机数函数的初始化工作
+                }
             }
             if (!$this->link_id)
             {

@@ -107,14 +107,14 @@ $i = 1;
  *
  * @global string $cfg['Servers'][$i]['host']
  */
-$cfg['Servers'][$i]['host'] = 'db.lzrphpshop.svc';
+$cfg['Servers'][$i]['host'] = getenv("OPENSHIFT_MYSQL_DB_URL") ? getenv("OPENSHIFT_MYSQL_DB_URL") : "localhost";
 
 /**
  * MySQL port - leave blank for default port
  *
  * @global string $cfg['Servers'][$i]['port']
  */
-$cfg['Servers'][$i]['port'] = '3306';
+$cfg['Servers'][$i]['port'] = getenv("OPENSHIFT_MYSQL_DB_PORT") ? getenv("OPENSHIFT_MYSQL_DB_PORT") : "3306";
 
 /**
  * Path to the socket - leave blank for default socket
@@ -255,7 +255,7 @@ $cfg['Servers'][$i]['nopassword'] = false;
  *
  * @global string $cfg['Servers'][$i]['only_db']
  */
-$cfg['Servers'][$i]['only_db'] = 'shop';
+$cfg['Servers'][$i]['only_db'] = getenv("OPENSHIFT_MYSQL_DB_NAM") ? getenv("OPENSHIFT_MYSQL_DB_NAM") : "";
 
 /**
  * Database name to be hidden from listings
