@@ -107,7 +107,7 @@ $i = 1;
  *
  * @global string $cfg['Servers'][$i]['host']
  */
-$cfg['Servers'][$i]['host'] = '127.0.0.1';
+$cfg['Servers'][$i]['host'] = 'db.lzrphpshop.svc';
 
 /**
  * MySQL port - leave blank for default port
