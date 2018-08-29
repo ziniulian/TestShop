@@ -62,8 +62,7 @@ if(!function_exists('mysql_connect')){
         return mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
     }
     function mysql_select_db($dbname){
-        global $mysqli;
-        return mysqli_select_db($mysqli,$dbname);
+        return true;
     }
     function mysql_close(){
         global $mysqli;

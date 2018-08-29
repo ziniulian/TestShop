@@ -67,6 +67,7 @@
 	PHP7兼容mysql写法
 	尝试用 getenv 获取环境变量
 	数据库连接字全部改为从环境变量中读取
+	临时文件占坑 + 修正 preg_replace /e 错误
 
 ##### 2018-8-28 （ o3调试 ）：
 	兼容PHP7.0以上的 mysqli_connect 函数
