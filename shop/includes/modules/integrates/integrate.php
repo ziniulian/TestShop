@@ -93,7 +93,7 @@ class integrate
      * @param       string  $db_pass    数据库密码
      * @return      void
      */
-    function integrate($cfg)
+    function __construct($cfg)
     {
         $this->charset = isset($cfg['db_charset']) ? $cfg['db_charset'] : 'UTF8';
         $this->prefix = isset($cfg['prefix']) ? $cfg['prefix'] : '';
@@ -568,7 +568,7 @@ class integrate
         {
             /* 摧毁cookie */
             $time = time() - 3600;
-            setcookie("ECS[user_id]",  '', $time, $this->cookie_path);            
+            setcookie("ECS[user_id]",  '', $time, $this->cookie_path);
             setcookie("ECS[password]", '', $time, $this->cookie_path);
 
         }
