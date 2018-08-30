@@ -9,7 +9,7 @@ $db_name   = getenv("OPENSHIFT_MYSQL_DB_NAM") ? getenv("OPENSHIFT_MYSQL_DB_NAM")
 $db_user   = getenv("OPENSHIFT_MYSQL_DB_USER") ? getenv("OPENSHIFT_MYSQL_DB_USER") : "uShop";
 
 // database password
-$db_pass   = getenv("OPENSHIFT_MYSQL_DB_PWD") ? getenv("OPENSHIFT_MYSQL_DB_PWD") : "3311212";
+$db_pass   = getenv("OPENSHIFT_MYSQL_DB_PWD") ? getenv("OPENSHIFT_MYSQL_DB_PWD") : "u111";
 
 // table prefix
 $prefix    = "tsp_";
